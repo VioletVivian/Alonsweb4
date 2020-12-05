@@ -84,3 +84,52 @@ dependencies {
     implementation(libs.navigation.compose)
     implementation(libs.androidx.lifecycle)
     implementation(libs.androidx.activity.compose)
+    implementation(libs.compose.livedata)
+    debugImplementation(libs.compose.ui.tooling)
+    debugImplementation(libs.compose.ui.tooling.preview)
+    androidTestImplementation(libs.compose.ui.test)
+
+    // Retrofit
+    implementation(libs.retrofit)
+    implementation(libs.retrofit.moshi)
+    implementation(libs.retrofit.logging)
+
+    //Moshi
+    implementation(libs.moshi)
+    implementation(libs.moshi.kotlin)
+    ksp(libs.moshi.ksp)
+
+    //Accompanist
+//    implementation(libs.accompanist.insets)
+    implementation(libs.accompanist.systemuicontroller)
+    implementation(libs.accompanist.pager)
+    implementation(libs.accompanist.navigation.animation)
+    implementation(libs.accompanist.navigation.material)
+    implementation(libs.accompanist.swiperefresh)
+    implementation(libs.accompanist.flowlayout)
+
+    //Coil
+    implementation(libs.coil)
+    implementation(libs.coil.compose)
+
+    //MMKV
+    implementation(libs.mmkv)
+
+    //Hilt
+    implementation(libs.dagger.android)
+    kapt(libs.dagger.compiler)
+    kapt(libs.hilt.compiler)
+//    implementation(libs.hilt.viewmodel)
+    implementation(libs.hilt.navigation.compose)
+
+    //Paging3
+    implementation(libs.paging)
+    implementation(libs.paging.compose)
+
+    //StatusBarColor
+    implementation(libs.statusbar)
+//    implementation(files("./libs/lib.aar"))
+    implementation(libs.permissionx)
+
+//    implementation (libs.androidx.metrics.performance)
+}
