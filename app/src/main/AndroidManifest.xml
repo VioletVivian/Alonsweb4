@@ -15,4 +15,10 @@
         <activity
             android:name=".MainActivity"
             android:exported="true"
-            android:screenOrientation="
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize"
+            android:theme="@style/Theme.Music.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.
