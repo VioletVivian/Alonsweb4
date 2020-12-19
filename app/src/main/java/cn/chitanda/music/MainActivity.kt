@@ -23,4 +23,11 @@ import coil.annotation.ExperimentalCoilApi
 import com.google.accompanist.pager.ExperimentalPagerApi
 import dagger.hilt.android.AndroidEntryPoint
 
-private const
+private const val TAG = "MainActivity"
+
+@AndroidEntryPoint
+class MainActivity : AppCompatActivity() {
+
+    private val themeViewModel by viewModels<ThemeViewModel>()
+    private val userViewModel by viewModels<LocaleUserViewModel>()
+    private val musicViewModel by viewModels<M
