@@ -11,3 +11,10 @@ import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.runtime.CompositionLocalProvider
+import androidx.core.view.WindowCompat
+import cn.chitanda.music.ui.LocalMusicViewModel
+import cn.chitanda.music.ui.LocalThemeViewModel
+import cn.chitanda.music.ui.LocalUserViewModel
+import cn.chitanda.music.ui.Router
+import cn.chitanda.music.ui.scene.LocaleUserViewModel
+import cn
