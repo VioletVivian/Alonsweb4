@@ -17,4 +17,10 @@ import cn.chitanda.music.ui.LocalThemeViewModel
 import cn.chitanda.music.ui.LocalUserViewModel
 import cn.chitanda.music.ui.Router
 import cn.chitanda.music.ui.scene.LocaleUserViewModel
-import cn
+import cn.chitanda.music.ui.scene.ThemeViewModel
+import cn.chitanda.music.ui.theme.MusicTheme
+import coil.annotation.ExperimentalCoilApi
+import com.google.accompanist.pager.ExperimentalPagerApi
+import dagger.hilt.android.AndroidEntryPoint
+
+private const
