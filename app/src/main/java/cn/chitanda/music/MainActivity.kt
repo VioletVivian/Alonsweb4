@@ -30,4 +30,14 @@ class MainActivity : AppCompatActivity() {
 
     private val themeViewModel by viewModels<ThemeViewModel>()
     private val userViewModel by viewModels<LocaleUserViewModel>()
-    private val musicViewModel by viewModels<M
+    private val musicViewModel by viewModels<MusicViewModel>()
+
+    @OptIn(
+        ExperimentalFoundationApi::class,
+        ExperimentalCoilApi::class,
+        ExperimentalMaterialApi::class,
+        ExperimentalPagerApi::class,
+        ExperimentalAnimationApi::class,
+        ExperimentalMaterial3Api::class
+    )
+    overri
