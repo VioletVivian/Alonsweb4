@@ -45,4 +45,9 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             CompositionLocalProvider(
-                LocalThemeViewModel pr
+                LocalThemeViewModel provides themeViewModel,
+                LocalUserViewModel provides userViewModel,
+                LocalMusicViewModel provides musicViewModel
+            ) {
+                MusicTheme(themeViewModel.monetColor.value) {
+              
