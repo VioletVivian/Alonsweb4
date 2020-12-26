@@ -50,4 +50,17 @@ class MainActivity : AppCompatActivity() {
                 LocalMusicViewModel provides musicViewModel
             ) {
                 MusicTheme(themeViewModel.monetColor.value) {
-              
+                    Router()
+                }
+            }
+        }
+        //在Android12中添加对等待登录完成后再移除splashScreen
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+            keepSplashScreen()
+        }
+
+    }
+
+
+    private fun keepSplashScreen() {
+        window.decorView.viewTreeObs
