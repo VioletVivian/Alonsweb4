@@ -40,4 +40,9 @@ class MainActivity : AppCompatActivity() {
         ExperimentalAnimationApi::class,
         ExperimentalMaterial3Api::class
     )
-    overri
+    override fun onCreate(savedInstanceState: Bundle?) {
+        WindowCompat.setDecorFitsSystemWindows(window, false)
+        super.onCreate(savedInstanceState)
+        setContent {
+            CompositionLocalProvider(
+                LocalThemeViewModel pr
