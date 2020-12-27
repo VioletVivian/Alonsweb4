@@ -63,4 +63,8 @@ class MainActivity : AppCompatActivity() {
 
 
     private fun keepSplashScreen() {
-        window.decorView.viewTreeObs
+        window.decorView.viewTreeObserver?.addOnPreDrawListener(object :
+            ViewTreeObserver.OnPreDrawListener {
+            override fun onPreDraw(): Boolean {
+                return (themeViewModel.isReady.value && userViewModel.isReady.value).also {
+                    if (it
