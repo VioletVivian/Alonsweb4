@@ -67,4 +67,12 @@ class MainActivity : AppCompatActivity() {
             ViewTreeObserver.OnPreDrawListener {
             override fun onPreDraw(): Boolean {
                 return (themeViewModel.isReady.value && userViewModel.isReady.value).also {
-                    if (it
+                    if (it) {
+                        window.decorView.viewTreeObserver?.removeOnPreDrawListener(this)
+                    }
+                }
+            }
+        })
+    }
+
+}
