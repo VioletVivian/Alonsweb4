@@ -13,4 +13,10 @@ import cn.chitanda.music.media.extensions.currentPlayBackPosition
 import cn.chitanda.music.media.extensions.duration
 import cn.chitanda.music.media.extensions.id
 import cn.chitanda.music.media.extensions.isPlayEnabled
-import cn.chita
+import cn.chitanda.music.media.extensions.isPlaying
+import cn.chitanda.music.media.extensions.isPrepared
+import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
+import javax.inj
