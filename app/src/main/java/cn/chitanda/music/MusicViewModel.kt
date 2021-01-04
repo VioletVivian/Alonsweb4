@@ -19,4 +19,15 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
-import javax.inj
+import javax.inject.Inject
+import kotlin.math.roundToLong
+
+/**
+ * @author: Chen
+ * @createTime: 2022/1/24 17:01
+ * @description:
+ **/
+private const val TAG = "MusicViewModel"
+private const val UPDATE_CURRENT_MUSIC_PLAY_POSITION = 100L
+@HiltViewModel
+class Music
