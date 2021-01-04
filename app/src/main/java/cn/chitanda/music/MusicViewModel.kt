@@ -34,4 +34,9 @@ class MusicViewModel @Inject constructor(
     private val musicServiceConnection: MusicServiceConnection
 ) : ViewModel() {
     val nowPlaying: LiveData<MediaMetadataCompat> = musicServiceConnection.nowPlaying
-    val playbackState: LiveData<PlaybackStateComp
+    val playbackState: LiveData<PlaybackStateCompat> = musicServiceConnection.playbackState
+    private var _currentPlaylist = ""
+    private val _currentPosition = MutableLiveData(0L)
+    val currentPosition: LiveData<Long> get() = _currentPosition
+
+    fun play(playlist: String, mediaId: String?, pauseAllowed: Boolean = t
