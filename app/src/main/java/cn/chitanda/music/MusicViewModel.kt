@@ -30,4 +30,8 @@ import kotlin.math.roundToLong
 private const val TAG = "MusicViewModel"
 private const val UPDATE_CURRENT_MUSIC_PLAY_POSITION = 100L
 @HiltViewModel
-class Music
+class MusicViewModel @Inject constructor(
+    private val musicServiceConnection: MusicServiceConnection
+) : ViewModel() {
+    val nowPlaying: LiveData<MediaMetadataCompat> = musicServiceConnection.nowPlaying
+    val playbackState: LiveData<PlaybackStateComp
