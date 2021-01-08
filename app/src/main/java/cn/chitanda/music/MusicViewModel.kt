@@ -39,4 +39,11 @@ class MusicViewModel @Inject constructor(
     private val _currentPosition = MutableLiveData(0L)
     val currentPosition: LiveData<Long> get() = _currentPosition
 
-    fun play(playlist: String, mediaId: String?, pauseAllowed: Boolean = t
+    fun play(playlist: String, mediaId: String?, pauseAllowed: Boolean = true) {
+
+        val nowPlaying = nowPlaying.value
+        val transportControls = musicServiceConnection.transportControls
+
+        val isPrepared = musicServiceConnection.playbackState.value?.isPrepared ?: false
+        when {
+            isPrepared && pla
