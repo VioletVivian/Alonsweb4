@@ -50,4 +50,9 @@ class MusicViewModel @Inject constructor(
                 musicServiceConnection.playbackState.value?.let { playbackState ->
                     when {
                         playbackState.isPlaying ->
-                           
+                            if (pauseAllowed) transportControls.pause() else Unit
+                        playbackState.isPlayEnabled -> transportControls.play()
+                        else -> {
+                            Log.w(
+                                TAG,
+                        
