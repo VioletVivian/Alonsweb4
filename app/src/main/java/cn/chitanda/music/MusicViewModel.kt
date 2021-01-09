@@ -55,4 +55,11 @@ class MusicViewModel @Inject constructor(
                         else -> {
                             Log.w(
                                 TAG,
-                        
+                                "Playable item clicked but neither play nor pause are enabled!" +
+                                        " (mediaId=${mediaId})"
+                            )
+                        }
+                    }
+                }
+            }
+            _currentPlaylist.isE
