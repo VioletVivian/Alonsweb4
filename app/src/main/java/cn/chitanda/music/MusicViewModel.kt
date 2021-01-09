@@ -46,4 +46,8 @@ class MusicViewModel @Inject constructor(
 
         val isPrepared = musicServiceConnection.playbackState.value?.isPrepared ?: false
         when {
-            isPrepared && pla
+            isPrepared && playlist == _currentPlaylist && mediaId == nowPlaying?.id -> {
+                musicServiceConnection.playbackState.value?.let { playbackState ->
+                    when {
+                        playbackState.isPlaying ->
+                           
