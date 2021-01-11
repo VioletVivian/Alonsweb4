@@ -62,4 +62,9 @@ class MusicViewModel @Inject constructor(
                     }
                 }
             }
-            _currentPlaylist.isE
+            _currentPlaylist.isEmpty() -> {
+                musicServiceConnection.subscribe(playlist,
+                    object : MediaBrowserCompat.SubscriptionCallback() {
+                        override fun onChildrenLoaded(
+                            parentId: String,
+                            children: 
