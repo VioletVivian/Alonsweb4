@@ -67,4 +67,8 @@ class MusicViewModel @Inject constructor(
                     object : MediaBrowserCompat.SubscriptionCallback() {
                         override fun onChildrenLoaded(
                             parentId: String,
-                            children: 
+                            children: List<MediaBrowserCompat.MediaItem>
+                        ) {
+                            _currentPlaylist = playlist
+                            transportControls.playFromMediaId(
+                                mediaId ?: childr
