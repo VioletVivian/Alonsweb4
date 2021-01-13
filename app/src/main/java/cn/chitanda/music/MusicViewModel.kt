@@ -71,4 +71,11 @@ class MusicViewModel @Inject constructor(
                         ) {
                             _currentPlaylist = playlist
                             transportControls.playFromMediaId(
-                                mediaId ?: childr
+                                mediaId ?: children.firstOrNull()?.mediaId, null
+                            )
+                        }
+                    })
+            }
+            playlist != _currentPlaylist && _currentPlaylist.isNotEmpty() -> {
+                musicServiceConnection.unsubscribe(
+     
