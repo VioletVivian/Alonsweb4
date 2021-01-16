@@ -87,4 +87,10 @@ class MusicViewModel @Inject constructor(
                             children: List<MediaBrowserCompat.MediaItem>
                         ) {
                             _currentPlaylist = playlist
-                            transportCo
+                            transportControls.playFromMediaId(
+                                mediaId ?: children.firstOrNull()?.mediaId, null
+                            )
+                        }
+                    })
+            }
+            e
