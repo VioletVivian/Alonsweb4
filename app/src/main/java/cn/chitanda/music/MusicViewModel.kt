@@ -93,4 +93,13 @@ class MusicViewModel @Inject constructor(
                         }
                     })
             }
-            e
+            else -> transportControls.playFromMediaId(mediaId, null)
+        }
+    }
+
+    fun pause() {
+        musicServiceConnection.transportControls.pause()
+    }
+
+    fun resume() {
+        musicServiceConnection.transportControls.play()
