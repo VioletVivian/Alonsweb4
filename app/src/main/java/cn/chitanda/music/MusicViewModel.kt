@@ -78,4 +78,8 @@ class MusicViewModel @Inject constructor(
             }
             playlist != _currentPlaylist && _currentPlaylist.isNotEmpty() -> {
                 musicServiceConnection.unsubscribe(
-     
+                    _currentPlaylist,
+                    object : MediaBrowserCompat.SubscriptionCallback() {})
+                musicServiceConnection.subscribe(playlist,
+                    object : MediaBrowserCompat.SubscriptionCallback() {
+                        override
