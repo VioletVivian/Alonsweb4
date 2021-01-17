@@ -112,4 +112,14 @@ class MusicViewModel @Inject constructor(
     }
 
     fun toNext(){
-        musicServiceConnectio
+        musicServiceConnection.transportControls.skipToNext()
+    }
+
+    fun toPrevious(){
+        musicServiceConnection.transportControls.skipToPrevious()
+    }
+
+    init {
+        viewModelScope.launch(Dispatchers.Default) {
+            while (true) {
+                val currPosition = playbackState.value?.cu
