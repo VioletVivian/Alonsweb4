@@ -103,3 +103,13 @@ class MusicViewModel @Inject constructor(
 
     fun resume() {
         musicServiceConnection.transportControls.play()
+    }
+
+    fun seekTo(percent: Float) {
+        val nowPlaying = nowPlaying.value?.let { music ->
+            musicServiceConnection.transportControls.seekTo((percent * music.duration).roundToLong())
+        }
+    }
+
+    fun toNext(){
+        musicServiceConnectio
