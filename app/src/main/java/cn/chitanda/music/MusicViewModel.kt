@@ -122,4 +122,11 @@ class MusicViewModel @Inject constructor(
     init {
         viewModelScope.launch(Dispatchers.Default) {
             while (true) {
-                val currPosition = playbackState.value?.cu
+                val currPosition = playbackState.value?.currentPlayBackPosition ?: continue
+                if (_currentPosition.value != currPosition)
+                    _currentPosition.postValue(currPosition)
+                delay(UPDATE_CURRENT_MUSIC_PLAY_POSITION)
+            }
+        }
+    }
+}
