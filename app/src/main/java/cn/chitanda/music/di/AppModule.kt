@@ -25,3 +25,9 @@ import javax.inject.Singleton
  *@description:
  **/
 @Module
+@InstallIn(SingletonComponent::class)
+object AppModule {
+    private fun getOkHttpClient(cookiesPreference: CookiesPreference): OkHttpClient {
+        return OkHttpClient.Builder().apply {
+            cookieJar(MyCookieJar(cookiesPreference))
+    
