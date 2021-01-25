@@ -35,4 +35,11 @@ object AppModule {
                 var response = chain.proceed(request)
                 var tryCount = 0
                 while (!response.isSuccessful && tryCount < 2) {
-    
+                    response.close()
+                    Thread.sleep(500)
+                    tryCount++
+                    response = chain.proceed(request)
+                }
+                response
+            }
+            if (BuildConfig.DEBUG
