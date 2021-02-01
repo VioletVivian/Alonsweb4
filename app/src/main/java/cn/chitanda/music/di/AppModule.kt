@@ -42,4 +42,14 @@ object AppModule {
                 }
                 response
             }
-            if (BuildConfig.DEBUG
+            if (BuildConfig.DEBUG) {
+                addInterceptor(HttpLoggingInterceptor {
+                    Log.d("Retrofit", "log: $it")
+                }.apply { level = HttpLoggingInterceptor.Level.BODY })
+            }
+        }.build()
+    }
+
+    @Singleton
+    @Provides
+    fun provideRetrofit(co
