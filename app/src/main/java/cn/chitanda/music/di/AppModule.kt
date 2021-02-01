@@ -58,4 +58,13 @@ object AppModule {
         .addConverterFactory(
             MoshiConverterFactory.create(
                 moshi
-       
+            )
+        ).build()
+
+    @Provides
+    @Singleton
+    fun provideLoginApi(retrofit: Retrofit): LoginApi = retrofit.create(LoginApi::class.java)
+
+    @Provides
+    @Singleton
+    fun provideUserApi(retrofit: Retrofit): UserApi = retrofit.create(UserApi::class.j
