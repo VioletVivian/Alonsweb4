@@ -52,4 +52,10 @@ object AppModule {
 
     @Singleton
     @Provides
-    fun provideRetrofit(co
+    fun provideRetrofit(cookiesPreference: CookiesPreference): Retrofit = Retrofit.Builder()
+        .baseUrl(" https://music.chitanda.cn")
+        .client(getOkHttpClient(cookiesPreference))
+        .addConverterFactory(
+            MoshiConverterFactory.create(
+                moshi
+       
