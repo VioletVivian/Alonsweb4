@@ -78,4 +78,11 @@ object AppModule {
     fun provideVideoApi(retrofit: Retrofit): VideoApi = retrofit.create(VideoApi::class.java)
 
 
-    @Provi
+    @Provides
+    @Singleton
+    fun provideSongsApi(retrofit: Retrofit): SongsApi = retrofit.create(SongsApi::class.java)
+
+    @Provides
+    @Singleton
+    fun provideCoilImageLoader(@ApplicationContext context: Context) = context.imageLoader
+}
