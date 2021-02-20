@@ -30,4 +30,5 @@ object MediaModule {
 
     @Provides
     @Singleton
-    fun provideMusicSource(songsRepository: SongsRepos
+    fun provideMusicSource(songsRepository: SongsRepository):MusicSource = MusicSourceImp(songsRepository)
+}
