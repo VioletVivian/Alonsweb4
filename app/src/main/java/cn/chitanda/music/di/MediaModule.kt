@@ -25,4 +25,9 @@ import javax.inject.Singleton
 object MediaModule {
     @Provides
     @Singleton
-    fun provideMusicServiceConn
+    fun provideMusicServiceConnection(@ApplicationContext context: Context) =
+        MusicServiceConnection(context = context, ComponentName(context, MusicService::class.java))
+
+    @Provides
+    @Singleton
+    fun provideMusicSource(songsRepository: SongsRepos
