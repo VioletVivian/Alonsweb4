@@ -12,4 +12,17 @@ import dagger.Provides
 import dagger.hilt.EntryPoint
 import dagger.hilt.InstallIn
 import dagger.hilt.android.qualifiers.ApplicationContext
-import dagger.hilt.components.Sin
+import dagger.hilt.components.SingletonComponent
+import javax.inject.Singleton
+
+/**
+ * @author: Chen
+ * @createTime: 2022/1/24 16:11
+ * @description:
+ **/
+@Module
+@InstallIn(SingletonComponent::class)
+object MediaModule {
+    @Provides
+    @Singleton
+    fun provideMusicServiceConn
