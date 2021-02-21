@@ -16,4 +16,14 @@ class MyCookieJar(cookiesPreference: CookiesPreference) : CookieJar {
 
     override fun loadForRequest(url: HttpUrl): List<Cookie> {
         if (url.host == "music.chitanda.cn") {
-            val cookie = 
+            val cookie = try {
+                jsonAdapter.fromJson(cookies)
+            } catch (e: Exception) {
+                null
+            }
+            return cookie?.let { listOf(it) } ?: emptyList()
+        }
+        return emptyList()
+    }
+
+    override fun saveFromResponse(url
