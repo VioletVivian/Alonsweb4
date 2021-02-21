@@ -8,4 +8,12 @@ import okhttp3.HttpUrl
 
 private const val TAG = "MyCookieJar"
 
-class MyCookieJar(cookiesPreference: CookiesPreference) : Cook
+class MyCookieJar(cookiesPreference: CookiesPreference) : CookieJar {
+    private var cookies by cookiesPreference
+    private val jsonAdapter = moshi.adapter(
+        Cookie::class.java
+    )
+
+    override fun loadForRequest(url: HttpUrl): List<Cookie> {
+        if (url.host == "music.chitanda.cn") {
+            val cookie = 
