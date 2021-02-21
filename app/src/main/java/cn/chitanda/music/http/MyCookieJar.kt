@@ -26,4 +26,12 @@ class MyCookieJar(cookiesPreference: CookiesPreference) : CookieJar {
         return emptyList()
     }
 
-    override fun saveFromResponse(url
+    override fun saveFromResponse(url: HttpUrl, cookies: List<Cookie>) {
+        if (url.host == "music.chitanda.cn") {
+            cookies.find { cookie -> cookie.name == "MUSIC_U" }?.let {
+                this.cookies = jsonAdapter.toJson(it)
+            }
+        }
+    }
+
+}
