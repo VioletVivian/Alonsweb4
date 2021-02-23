@@ -26,4 +26,19 @@ abstract class IStateObserver<T:BaseJson<*>> : Observer<RequestStatus<T>> {
                     onFailed(it)
                 }
             }
-            DataState.STATE_ERROR -> 
+            DataState.STATE_ERROR -> {
+                //请求错误
+                t.error?.let { onError(it) }
+            }
+            else -> {
+                onFailed("unknown error")
+            }
+        }
+
+    }
+
+    abstract fun onDataChange(data: T)
+
+    abstract fun onDataEmpty()
+
+    a
