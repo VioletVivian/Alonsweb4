@@ -41,4 +41,7 @@ abstract class IStateObserver<T:BaseJson<*>> : Observer<RequestStatus<T>> {
 
     abstract fun onDataEmpty()
 
-    a
+    abstract fun onFailed(msg: String)
+
+    abstract fun onError(error: Throwable)
+}
