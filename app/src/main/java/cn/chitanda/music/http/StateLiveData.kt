@@ -17,4 +17,13 @@ abstract class IStateObserver<T:BaseJson<*>> : Observer<RequestStatus<T>> {
             }
 
             DataState.STATE_EMPTY -> {
-        
+                //数据为空
+                onDataEmpty()
+            }
+
+            DataState.STATE_FAILED -> {
+                t.msg?.let {
+                    onFailed(it)
+                }
+            }
+            DataState.STATE_ERROR -> 
