@@ -16,4 +16,6 @@ interface HomeApi {
         @Query("refresh") refresh: Boolean = false,
     ): HomeData
 
-    @GET("/homepage/dragon/b
+    @GET("/homepage/dragon/ball")
+    suspend fun fetchHomeRoundIconList(): HomeRoundIconList
+}
