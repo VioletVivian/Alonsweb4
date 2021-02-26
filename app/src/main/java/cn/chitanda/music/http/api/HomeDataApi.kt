@@ -6,4 +6,10 @@ import retrofit2.http.Query
 
 /**
  *@author: Chen
- *@createTim
+ *@createTime: 2021/9/3 10:09
+ *@description:
+ **/
+interface HomeDataApi {
+    @GET("/banner")
+    suspend fun getHomeBanner(@Query("type") type: Int = 1): HomeBanner
+}
