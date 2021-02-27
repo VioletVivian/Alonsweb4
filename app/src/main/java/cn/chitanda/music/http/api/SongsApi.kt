@@ -20,4 +20,14 @@ interface SongsApi {
     suspend fun getPlaylistSongs(
         @Query("id") id: String,
         @Query("offset") offset: Int,
-        @Query("limit") limit: Int
+        @Query("limit") limit: Int = 20
+    ): Songs
+
+    @GET("/playlist/track/all")
+    suspend fun getPlaylistAllSongs(
+        @Query("id") id: String,
+    ): Songs
+
+    @GET("/song/url")
+    suspend fun getSongUrl(@Query("id") id: String, @Query("br") br: Long):SongUrl
+}
