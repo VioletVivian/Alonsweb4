@@ -13,4 +13,11 @@ import retrofit2.http.Query
  **/
 interface SongsApi {
 
-    @GE
+    @GET("/playlist/detail")
+    suspend fun getPlaylistDetail(@Query("id") id: String): PlaylistDetail
+
+    @GET("/playlist/track/all")
+    suspend fun getPlaylistSongs(
+        @Query("id") id: String,
+        @Query("offset") offset: Int,
+        @Query("limit") limit: Int
