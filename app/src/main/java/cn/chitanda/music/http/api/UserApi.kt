@@ -21,4 +21,9 @@ interface UserApi {
     @POST("/login/refresh")
     suspend fun refreshLoginStatus(): RefreshLogin
 
-    @GET("/user/pl
+    @GET("/user/playlist")
+    suspend fun getUserPlayList(
+        @Query("uid") uid: String,
+        @Query("offset") offset: Int = 0
+    ): PlaylistJson
+}
