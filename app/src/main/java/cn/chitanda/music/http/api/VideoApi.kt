@@ -14,4 +14,8 @@ interface VideoApi {
     suspend fun getVideoByType(
         @Query("id") typeId: Int,
         @Query("offset") offset: Int
-    
+    ): VideoList
+
+    @GET("/mlog/url")
+    suspend fun getMLogVideoUrl(@Query("id") id: String)
+}
