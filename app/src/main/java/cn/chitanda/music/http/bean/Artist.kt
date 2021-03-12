@@ -21,4 +21,13 @@ data class Artist(
     @Json(name = "name")
     val name: String? = "",
     @Json(name = "picId")
-    val p
+    val picId: Int? = 0,
+    @Json(name = "picUrl")
+    val picUrl: String? = "",
+    @Json(name = "topicPerson")
+    val topicPerson: Int? = 0,
+    @Json(name = "trans")
+    val trans: String? = "",
+    @Json(name = "artistId")
+    val artistId: Long?=null,
+    @
