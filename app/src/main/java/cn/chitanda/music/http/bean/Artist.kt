@@ -30,4 +30,6 @@ data class Artist(
     val trans: String? = "",
     @Json(name = "artistId")
     val artistId: Long?=null,
-    @
+    @Json(name = "artistName")
+    val artistName: String?=null
+)
