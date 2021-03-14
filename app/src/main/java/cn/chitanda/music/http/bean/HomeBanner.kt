@@ -14,4 +14,12 @@ data class HomeBanner(
     data class Banner(
         @Json(name = "adDispatchJson")
         val adDispatchJson: Any? = Any(),
-        @Json(name 
+        @Json(name = "adLocation")
+        val adLocation: Any? = Any(),
+        @Json(name = "adSource")
+        val adSource: Any? = Any(),
+        @Json(name = "adid")
+        val adid: Any? = Any(),
+        @Json(name = "adurlV2")
+        val adurlV2: Any? = Any(),
+  
