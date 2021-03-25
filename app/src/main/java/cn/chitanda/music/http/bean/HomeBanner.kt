@@ -37,4 +37,10 @@ data class HomeBanner(
         @Json(name = "extMonitor")
         val extMonitor: Any? = Any(),
         @Json(name = "extMonitorInfo")
-        
+        val extMonitorInfo: Any? = Any(),
+        @Json(name = "monitorBlackList")
+        val monitorBlackList: Any? = Any(),
+        @Json(name = "monitorClick")
+        val monitorClick: Any? = Any(),
+        @Json(name = "monitorClickList")
+        val monitorClickList
