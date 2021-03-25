@@ -30,4 +30,11 @@ data class HomeBanner(
         val dynamicVideoData: Any? = Any(),
         @Json(name = "encodeId")
         val encodeId: String? = "",
-        @Jso
+        @Json(name = "event")
+        val event: Any? = Any(),
+        @Json(name = "exclusive")
+        val exclusive: Boolean? = false,
+        @Json(name = "extMonitor")
+        val extMonitor: Any? = Any(),
+        @Json(name = "extMonitorInfo")
+        
