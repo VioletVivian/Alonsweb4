@@ -22,4 +22,12 @@ data class HomeBanner(
         val adid: Any? = Any(),
         @Json(name = "adurlV2")
         val adurlV2: Any? = Any(),
-  
+        @Json(name = "alg")
+        val alg: Any? = Any(),
+        @Json(name = "bannerId")
+        val bannerId: String? = "",
+        @Json(name = "dynamicVideoData")
+        val dynamicVideoData: Any? = Any(),
+        @Json(name = "encodeId")
+        val encodeId: String? = "",
+        @Jso
