@@ -49,4 +49,12 @@ data class HomeBanner(
         @Json(name = "monitorImpressList")
         val monitorImpressList: List<Any?>? = listOf(),
         @Json(name = "monitorType")
-        val monitorTyp
+        val monitorType: Any? = Any(),
+        @Json(name = "pic")
+        val pic: String? = "",
+        @Json(name = "pid")
+        val pid: Any? = Any(),
+        @Json(name = "program")
+        val program: Any? = Any(),
+        @Json(name = "requestId")
+        val request
