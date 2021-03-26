@@ -57,4 +57,11 @@ data class HomeBanner(
         @Json(name = "program")
         val program: Any? = Any(),
         @Json(name = "requestId")
-        val request
+        val requestId: String? = "",
+        @Json(name = "scm")
+        val scm: String? = "",
+        @Json(name = "showAdTag")
+        val showAdTag: Boolean? = false,
+        @Json(name = "showContext")
+        val showContext: Any? = Any(),
+        @Json(name = "song")
