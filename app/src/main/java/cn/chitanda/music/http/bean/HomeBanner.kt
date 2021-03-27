@@ -65,3 +65,11 @@ data class HomeBanner(
         @Json(name = "showContext")
         val showContext: Any? = Any(),
         @Json(name = "song")
+        val song: Song? = Song(),
+        @Json(name = "targetId")
+        val targetId: String ,
+        @Json(name = "targetType")
+        val targetType: Int? = 0,
+        @Json(name = "titleColor")
+        val titleColor: TagColor = TagColor.Red,
+        @Json(na
