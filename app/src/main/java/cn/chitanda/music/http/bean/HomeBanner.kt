@@ -72,4 +72,12 @@ data class HomeBanner(
         val targetType: Int? = 0,
         @Json(name = "titleColor")
         val titleColor: TagColor = TagColor.Red,
-        @Json(na
+        @Json(name = "typeTitle")
+        val typeTitle: String? = "",
+        @Json(name = "url")
+        val url: Any? = Any(),
+        @Json(name = "video")
+        val video: Any? = Any()
+    ) {
+        sealed class TagColor(val color: Color) {
+            object Red : TagC
