@@ -96,4 +96,12 @@ data class HomeBanner(
             val ar: List<Ar?>? = listOf(),
             @Json(name = "cd")
             val cd: String? = "",
-            @Js
+            @Json(name = "cf")
+            val cf: String? = "",
+            @Json(name = "copyright")
+            val copyright: Int? = 0,
+            @Json(name = "cp")
+            val cp: Int? = 0,
+            @Json(name = "crbt")
+            val crbt: Any? = Any(),
+          
