@@ -89,4 +89,11 @@ data class HomeBanner(
             @Json(name = "a")
             val a: Any? = Any(),
             @Json(name = "al")
-            val
+            val al: Al? = Al(),
+            @Json(name = "alia")
+            val alia: List<Any?>? = listOf(),
+            @Json(name = "ar")
+            val ar: List<Ar?>? = listOf(),
+            @Json(name = "cd")
+            val cd: String? = "",
+            @Js
