@@ -80,4 +80,13 @@ data class HomeBanner(
         val video: Any? = Any()
     ) {
         sealed class TagColor(val color: Color) {
-            object Red : TagC
+            object Red : TagColor(Color.Red)
+            object Blue : TagColor(Color.Blue)
+        }
+
+        @JsonClass(generateAdapter = true)
+        data class Song(
+            @Json(name = "a")
+            val a: Any? = Any(),
+            @Json(name = "al")
+            val
