@@ -112,4 +112,12 @@ data class HomeBanner(
             val fee: Int? = 0,
             @Json(name = "ftype")
             val ftype: Int? = 0,
- 
+            @Json(name = "h")
+            val h: H? = H(),
+            @Json(name = "id")
+            val id: Int? = 0,
+            @Json(name = "l")
+            val l: L? = L(),
+            @Json(name = "m")
+            val m: M? = M(),
+            @Json(name
