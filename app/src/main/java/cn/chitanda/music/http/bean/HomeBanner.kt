@@ -120,4 +120,12 @@ data class HomeBanner(
             val l: L? = L(),
             @Json(name = "m")
             val m: M? = M(),
-            @Json(name
+            @Json(name = "mark")
+            val mark: Int? = 0,
+            @Json(name = "mst")
+            val mst: Int? = 0,
+            @Json(name = "mv")
+            val mv: Int? = 0,
+            @Json(name = "name")
+            val name: String? = "",
+         
