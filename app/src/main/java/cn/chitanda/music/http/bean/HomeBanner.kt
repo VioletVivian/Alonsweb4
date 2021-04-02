@@ -134,4 +134,10 @@ data class HomeBanner(
             val noCopyrightRcmd: Any? = Any(),
             @Json(name = "originCoverType")
             val originCoverType: Int? = 0,
-            @Json(name = "origin
+            @Json(name = "originSongSimpleData")
+            val originSongSimpleData: Any? = Any(),
+            @Json(name = "pop")
+            val pop: Int? = 0,
+            @Json(name = "privilege")
+            val privilege: Privilege? = Privilege(),
+         
