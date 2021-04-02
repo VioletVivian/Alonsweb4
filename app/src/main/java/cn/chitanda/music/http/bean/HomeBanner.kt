@@ -128,4 +128,10 @@ data class HomeBanner(
             val mv: Int? = 0,
             @Json(name = "name")
             val name: String? = "",
-         
+            @Json(name = "no")
+            val no: Int? = 0,
+            @Json(name = "noCopyrightRcmd")
+            val noCopyrightRcmd: Any? = Any(),
+            @Json(name = "originCoverType")
+            val originCoverType: Int? = 0,
+            @Json(name = "origin
