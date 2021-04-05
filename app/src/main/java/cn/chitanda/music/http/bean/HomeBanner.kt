@@ -140,4 +140,11 @@ data class HomeBanner(
             val pop: Int? = 0,
             @Json(name = "privilege")
             val privilege: Privilege? = Privilege(),
-         
+            @Json(name = "pst")
+            val pst: Int? = 0,
+            @Json(name = "publishTime")
+            val publishTime: Long? = 0,
+            @Json(name = "rt")
+            val rt: String? = "",
+            @Json(name = "rtUrl")
+  
