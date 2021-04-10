@@ -147,4 +147,11 @@ data class HomeBanner(
             @Json(name = "rt")
             val rt: String? = "",
             @Json(name = "rtUrl")
-  
+            val rtUrl: Any? = Any(),
+            @Json(name = "rtUrls")
+            val rtUrls: List<Any?>? = listOf(),
+            @Json(name = "rtype")
+            val rtype: Int? = 0,
+            @Json(name = "rurl")
+            val rurl: Any? = Any(),
+         
