@@ -154,4 +154,12 @@ data class HomeBanner(
             val rtype: Int? = 0,
             @Json(name = "rurl")
             val rurl: Any? = Any(),
-         
+            @Json(name = "s_id")
+            val sId: Int? = 0,
+            @Json(name = "single")
+            val single: Int? = 0,
+            @Json(name = "st")
+            val st: Int? = 0,
+            @Json(name = "t")
+            val t: Int? = 0,
+    
