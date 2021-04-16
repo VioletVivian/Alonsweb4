@@ -170,4 +170,10 @@ data class HomeBanner(
                 @Json(name = "id")
                 val id: Int? = 0,
                 @Json(name = "name")
-                val name:
+                val name: String? = "",
+                @Json(name = "pic")
+                val pic: Long? = 0,
+                @Json(name = "pic_str")
+                val picStr: String? = "",
+                @Json(name = "picUrl")
+                val picUrl: St
