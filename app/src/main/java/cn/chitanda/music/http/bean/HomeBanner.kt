@@ -176,4 +176,12 @@ data class HomeBanner(
                 @Json(name = "pic_str")
                 val picStr: String? = "",
                 @Json(name = "picUrl")
-                val picUrl: St
+                val picUrl: String? = "",
+                @Json(name = "tns")
+                val tns: List<Any?>? = listOf()
+            )
+
+            @JsonClass(generateAdapter = true)
+            data class Ar(
+                @Json(name = "alias")
+                val alias: 
