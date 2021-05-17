@@ -184,4 +184,10 @@ data class HomeBanner(
             @JsonClass(generateAdapter = true)
             data class Ar(
                 @Json(name = "alias")
-                val alias: 
+                val alias: List<Any?>? = listOf(),
+                @Json(name = "id")
+                val id: Int? = 0,
+                @Json(name = "name")
+                val name: String? = "",
+                @Json(name = "tns")
+                val tns: List<Any?>? = l
