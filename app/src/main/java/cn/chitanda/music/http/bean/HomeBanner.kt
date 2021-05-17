@@ -190,4 +190,14 @@ data class HomeBanner(
                 @Json(name = "name")
                 val name: String? = "",
                 @Json(name = "tns")
-                val tns: List<Any?>? = l
+                val tns: List<Any?>? = listOf()
+            )
+
+            @JsonClass(generateAdapter = true)
+            data class H(
+                @Json(name = "br")
+                val br: Int? = 0,
+                @Json(name = "fid")
+                val fid: Int? = 0,
+                @Json(name = "size")
+  
