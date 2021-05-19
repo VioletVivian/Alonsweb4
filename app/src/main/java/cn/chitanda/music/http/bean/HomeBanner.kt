@@ -208,4 +208,14 @@ data class HomeBanner(
             @JsonClass(generateAdapter = true)
             data class L(
                 @Json(name = "br")
-            
+                val br: Int? = 0,
+                @Json(name = "fid")
+                val fid: Int? = 0,
+                @Json(name = "size")
+                val size: Int? = 0,
+                @Json(name = "vd")
+                val vd: Int? = 0
+            )
+
+            @JsonClass(generateAdapter = true)
+            data cl
