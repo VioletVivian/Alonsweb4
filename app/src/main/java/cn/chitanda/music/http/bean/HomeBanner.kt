@@ -225,4 +225,11 @@ data class HomeBanner(
                 val fid: Int? = 0,
                 @Json(name = "size")
                 val size: Int? = 0,
-                @J
+                @Json(name = "vd")
+                val vd: Int? = 0
+            )
+
+            @JsonClass(generateAdapter = true)
+            data class Privilege(
+                @Json(name = "chargeInfoList")
+                val chargeInfoList: List<ChargeInfo?>? = li
