@@ -232,4 +232,11 @@ data class HomeBanner(
             @JsonClass(generateAdapter = true)
             data class Privilege(
                 @Json(name = "chargeInfoList")
-                val chargeInfoList: List<ChargeInfo?>? = li
+                val chargeInfoList: List<ChargeInfo?>? = listOf(),
+                @Json(name = "cp")
+                val cp: Int? = 0,
+                @Json(name = "cs")
+                val cs: Boolean? = false,
+                @Json(name = "dl")
+                val dl: Int? = 0,
+                @Json(name 
