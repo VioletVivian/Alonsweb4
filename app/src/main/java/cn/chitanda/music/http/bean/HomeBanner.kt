@@ -239,4 +239,11 @@ data class HomeBanner(
                 val cs: Boolean? = false,
                 @Json(name = "dl")
                 val dl: Int? = 0,
-                @Json(name 
+                @Json(name = "downloadMaxbr")
+                val downloadMaxbr: Int? = 0,
+                @Json(name = "fee")
+                val fee: Int? = 0,
+                @Json(name = "fl")
+                val fl: Int? = 0,
+                @Json(name = "flag")
+            
