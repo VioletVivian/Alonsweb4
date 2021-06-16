@@ -251,4 +251,11 @@ data class HomeBanner(
                 val freeTrialPrivilege: FreeTrialPrivilege? = FreeTrialPrivilege(),
                 @Json(name = "id")
                 val id: Int? = 0,
-                @Json(name = "maxbr
+                @Json(name = "maxbr")
+                val maxbr: Int? = 0,
+                @Json(name = "payed")
+                val payed: Int? = 0,
+                @Json(name = "pl")
+                val pl: Int? = 0,
+                @Json(name = "playMaxbr")
+                val play
