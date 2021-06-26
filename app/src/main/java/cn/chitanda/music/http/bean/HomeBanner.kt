@@ -273,4 +273,9 @@ data class HomeBanner(
                 val toast: Boolean? = false
             ) {
                 @JsonClass(generateAdapter = true)
-     
+                data class ChargeInfo(
+                    @Json(name = "chargeMessage")
+                    val chargeMessage: Any? = Any(),
+                    @Json(name = "chargeType")
+                    val chargeType: Int? = 0,
+                    @Json(name = "
