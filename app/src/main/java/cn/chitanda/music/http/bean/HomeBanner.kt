@@ -265,4 +265,12 @@ data class HomeBanner(
                 val rscl: Any? = Any(),
                 @Json(name = "sp")
                 val sp: Int? = 0,
-                @Json(
+                @Json(name = "st")
+                val st: Int? = 0,
+                @Json(name = "subp")
+                val subp: Int? = 0,
+                @Json(name = "toast")
+                val toast: Boolean? = false
+            ) {
+                @JsonClass(generateAdapter = true)
+     
