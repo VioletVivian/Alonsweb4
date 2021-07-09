@@ -278,4 +278,11 @@ data class HomeBanner(
                     val chargeMessage: Any? = Any(),
                     @Json(name = "chargeType")
                     val chargeType: Int? = 0,
-                    @Json(name = "
+                    @Json(name = "chargeUrl")
+                    val chargeUrl: Any? = Any(),
+                    @Json(name = "rate")
+                    val rate: Int? = 0
+                )
+
+                @JsonClass(generateAdapter = true)
+                data cla
