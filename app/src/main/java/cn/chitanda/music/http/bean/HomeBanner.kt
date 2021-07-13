@@ -285,4 +285,10 @@ data class HomeBanner(
                 )
 
                 @JsonClass(generateAdapter = true)
-                data cla
+                data class FreeTrialPrivilege(
+                    @Json(name = "resConsumable")
+                    val resConsumable: Boolean? = false,
+                    @Json(name = "userConsumable")
+                    val userConsumable: Boolean? = false
+                )
+          
