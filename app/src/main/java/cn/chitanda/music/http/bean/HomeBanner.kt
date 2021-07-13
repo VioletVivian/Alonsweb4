@@ -291,4 +291,7 @@ data class HomeBanner(
                     @Json(name = "userConsumable")
                     val userConsumable: Boolean? = false
                 )
-          
+            }
+        }
+    }
+}
