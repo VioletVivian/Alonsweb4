@@ -496,3 +496,128 @@ data class HomeData(
                         )
 
                         @JsonClass(generateAdapter = true)
+                        data class MainTitle(
+                            @Json(name = "title")
+                            val title: String? = ""
+                        )
+
+                        @JsonClass(generateAdapter = true)
+                        data class SubTitle(
+                            @Json(name = "title")
+                            val title: String? = null,
+                            //songRcmdTag,songRcmdFromComment
+                            @Json(name = "titleType")
+                            val titleType: SubTitleType = SubTitleType.FromComment
+                        )
+                    }
+                }
+
+                @JsonClass(generateAdapter = true)
+                data class UiElement(
+                    @Json(name = "image")
+                    val image: Image? = Image(),
+                    @Json(name = "labelTexts")
+                    val labelTexts: List<String?>? = listOf(),
+                    @Json(name = "mainTitle")
+                    val mainTitle: MainTitle? = MainTitle(),
+                    @Json(name = "rcmdShowType")
+                    val rcmdShowType: String? = "",
+                    @Json(name = "subTitle")
+                    val subTitle: SubTitle? = SubTitle()
+                ) {
+                    @JsonClass(generateAdapter = true)
+                    data class Image(
+                        @Json(name = "imageUrl")
+                        val imageUrl: String? = ""
+                    )
+
+                    @JsonClass(generateAdapter = true)
+                    data class MainTitle(
+                        @Json(name = "title")
+                        val title: String? = ""
+                    )
+
+                    @JsonClass(generateAdapter = true)
+                    class SubTitle
+                }
+            }
+
+            @JsonClass(generateAdapter = true)
+            data class UiElement(
+                @Json(name = "button")
+                val button: Button? = Button(),
+                @Json(name = "rcmdShowType")
+                val rcmdShowType: String? = "",
+                @Json(name = "subTitle")
+                val subTitle: SubTitle? = SubTitle()
+            ) {
+                @JsonClass(generateAdapter = true)
+                data class Button(
+                    @Json(name = "action")
+                    val action: String? = "",
+                    @Json(name = "actionType")
+                    val actionType: String? = "",
+                    @Json(name = "iconUrl")
+                    val iconUrl: Any? = Any(),
+                    @Json(name = "text")
+                    val text: String? = ""
+                )
+
+                @JsonClass(generateAdapter = true)
+                data class SubTitle(
+                    @Json(name = "title")
+                    val title: String? = "",
+                    @Json(name = "titleImgUrl")
+                    val titleImgUrl: String? = ""
+                )
+            }
+        }
+
+        @JsonClass(generateAdapter = true)
+        data class GuideToast(
+            @Json(name = "hasGuideToast")
+            val hasGuideToast: Boolean? = false,
+            @Json(name = "toastList")
+            val toastList: List<Any?>? = listOf()
+        )
+
+        @JsonClass(generateAdapter = true)
+        data class PageConfig(
+            @Json(name = "abtest")
+            val abtest: List<String?>? = listOf(),
+            @Json(name = "fullscreen")
+            val fullscreen: Boolean? = false,
+            @Json(name = "homepageMode")
+            val homepageMode: String? = "",
+            @Json(name = "nodataToast")
+            val nodataToast: String? = "",
+            @Json(name = "orderInfo")
+            val orderInfo: String? = "",
+            @Json(name = "refreshInterval")
+            val refreshInterval: Long? = 0,
+            @Json(name = "refreshToast")
+            val refreshToast: String? = "",
+            @Json(name = "showModeEntry")
+            val showModeEntry: Boolean? = false,
+            @Json(name = "songLabelMarkLimit")
+            val songLabelMarkLimit: Long? = 0,
+            @Json(name = "songLabelMarkPriority")
+            val songLabelMarkPriority: List<String?>? = listOf(),
+            @Json(name = "title")
+            val title: Any? = Any()
+        )
+    }
+}
+
+sealed class RCMDShowType(val type: String) {
+    object Banner : RCMDShowType("BANNER")
+    object PlayList : RCMDShowType("HOMEPAGE_SLIDE_PLAYLIST")
+    object SongList : RCMDShowType("HOMEPAGE_SLIDE_SONGLIST_ALIGN")
+    object PlayableMLog : RCMDShowType("HOMEPAGE_SLIDE_PLAYABLE_MLOG")
+    object Unknown : RCMDShowType("")
+}
+
+sealed class SubTitleType(val type: String) {
+    object FromComment : SubTitleType("songRcmdFromComment")
+    object TAG : SubTitleType("songRcmdTag")
+}
