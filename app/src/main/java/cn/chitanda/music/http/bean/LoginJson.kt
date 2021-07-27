@@ -99,3 +99,54 @@ data class LoginJson(
         val backgroundImgIdStr: String?,
         @Json(name = "backgroundUrl")
         val backgroundUrl: String?,
+        @Json(name = "birthday")
+        val birthday: Long?,
+        @Json(name = "city")
+        val city: Int?,
+        @Json(name = "defaultAvatar")
+        val defaultAvatar: Boolean?,
+        @Json(name = "description")
+        val description: String?,
+        @Json(name = "detailDescription")
+        val detailDescription: String?,
+        @Json(name = "djStatus")
+        val djStatus: Int?,
+        @Json(name = "eventCount")
+        val eventCount: Int?,
+        @Json(name = "expertTags")
+        val expertTags: Any?,
+        @Json(name = "experts")
+        val experts: Experts?,
+        @Json(name = "followed")
+        val followed: Boolean?,
+        @Json(name = "followeds")
+        val followeds: Int?,
+        @Json(name = "follows")
+        val follows: Int?,
+        @Json(name = "gender")
+        val gender: Int?,
+        @Json(name = "mutual")
+        val mutual: Boolean?,
+        @Json(name = "nickname")
+        val nickname: String?,
+        @Json(name = "playlistBeSubscribedCount")
+        val playlistBeSubscribedCount: Int?,
+        @Json(name = "playlistCount")
+        val playlistCount: Int?,
+        @Json(name = "province")
+        val province: Int?,
+        @Json(name = "remarkName")
+        val remarkName: Any?,
+        @Json(name = "signature")
+        val signature: String?,
+        @Json(name = "userId")
+        val userId: Int?,
+        @Json(name = "userType")
+        val userType: Int?,
+        @Json(name = "vipType")
+        val vipType: Int?
+    ) {
+        @JsonClass(generateAdapter = true)
+        class Experts
+    }
+}
