@@ -16,4 +16,12 @@ data class UserProfile(
     data class Data(
         @Json(name = "accountStatus")
         val accountStatus: Int?,
-        @Json(nam
+        @Json(name = "allSubscribedCount")
+        val allSubscribedCount: Int?,
+        @Json(name = "artistIdentity")
+        val artistIdentity: List<Any?>?,
+        @Json(name = "authStatus")
+        val authStatus: Int?,
+        @Json(name = "authority")
+        val authority: Int?,
+        @Json(name = "avatarDe
