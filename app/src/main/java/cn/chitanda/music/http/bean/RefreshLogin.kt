@@ -5,4 +5,4 @@ data class RefreshLogin(
     override val msg: String?,
     override val message: String?,
     override val data: Nothing
-) : BaseJson<N
+) : BaseJson<Nothing>()
