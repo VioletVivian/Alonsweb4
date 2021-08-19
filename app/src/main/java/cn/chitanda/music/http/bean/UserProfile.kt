@@ -24,4 +24,12 @@ data class UserProfile(
         val authStatus: Int?,
         @Json(name = "authority")
         val authority: Int?,
-        @Json(name = "avatarDe
+        @Json(name = "avatarDetail")
+        val avatarDetail: Any?,
+        @Json(name = "avatarImgId")
+        val avatarImgId: Long?,
+        @Json(name = "avatarImgIdStr")
+        val avatarImgIdStr: String?,
+        @Json(name = "avatarUrl")
+        val avatarUrl: String?,
+        @Json(name = "backg
