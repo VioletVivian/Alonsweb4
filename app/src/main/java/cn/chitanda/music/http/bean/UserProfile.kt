@@ -39,4 +39,13 @@ data class UserProfile(
         @Json(name = "backgroundUrl")
         val backgroundUrl: String?,
         @Json(name = "birthday")
-        val birt
+        val birthday: Long?,
+        @Json(name = "blacklist")
+        val blacklist: Boolean?,
+        @Json(name = "cCount")
+        val cCount: Int?,
+        @Json(name = "city")
+        val city: Int?,
+        @Json(name = "createTime")
+        val createTime: Long?,
+ 
