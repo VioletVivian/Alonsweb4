@@ -32,4 +32,11 @@ data class UserProfile(
         val avatarImgIdStr: String?,
         @Json(name = "avatarUrl")
         val avatarUrl: String?,
-        @Json(name = "backg
+        @Json(name = "backgroundImgId")
+        val backgroundImgId: Long?,
+        @Json(name = "backgroundImgIdStr")
+        val backgroundImgIdStr: String?,
+        @Json(name = "backgroundUrl")
+        val backgroundUrl: String?,
+        @Json(name = "birthday")
+        val birt
