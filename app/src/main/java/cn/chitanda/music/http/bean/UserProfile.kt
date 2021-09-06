@@ -62,4 +62,12 @@ data class UserProfile(
         val expertTags: Any?,
         @Json(name = "followMe")
         val followMe: Boolean?,
-        @
+        @Json(name = "followTime")
+        val followTime: Any?,
+        @Json(name = "followed")
+        val followed: Boolean?,
+        @Json(name = "followeds")
+        val followeds: Int?,
+        @Json(name = "follows")
+        val follows: Int?,
+        @Json(n
