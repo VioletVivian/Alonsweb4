@@ -54,4 +54,12 @@ data class UserProfile(
         val description: String?,
         @Json(name = "detailDescription")
         val detailDescription: String?,
-        @Js
+        @Json(name = "djStatus")
+        val djStatus: Int?,
+        @Json(name = "eventCount")
+        val eventCount: Int?,
+        @Json(name = "expertTags")
+        val expertTags: Any?,
+        @Json(name = "followMe")
+        val followMe: Boolean?,
+        @
