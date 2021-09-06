@@ -48,4 +48,10 @@ data class UserProfile(
         val city: Int?,
         @Json(name = "createTime")
         val createTime: Long?,
- 
+        @Json(name = "defaultAvatar")
+        val defaultAvatar: Boolean?,
+        @Json(name = "description")
+        val description: String?,
+        @Json(name = "detailDescription")
+        val detailDescription: String?,
+        @Js
