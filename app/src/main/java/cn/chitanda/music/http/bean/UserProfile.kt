@@ -70,4 +70,11 @@ data class UserProfile(
         val followeds: Int?,
         @Json(name = "follows")
         val follows: Int?,
-        @Json(n
+        @Json(name = "gender")
+        val gender: Int?,
+        @Json(name = "mutual")
+        val mutual: Boolean?,
+        @Json(name = "newFollows")
+        val newFollows: Int?,
+        @Json(name = "nickname")
+        val nickname: String?,
