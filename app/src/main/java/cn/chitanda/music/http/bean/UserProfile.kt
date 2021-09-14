@@ -78,3 +78,10 @@ data class UserProfile(
         val newFollows: Int?,
         @Json(name = "nickname")
         val nickname: String?,
+        @Json(name = "playlistBeSubscribedCount")
+        val playlistBeSubscribedCount: Int?,
+        @Json(name = "playlistCount")
+        val playlistCount: Int?,
+        @Json(name = "province")
+        val province: Int?,
+        @Json(name = "remarkNam
