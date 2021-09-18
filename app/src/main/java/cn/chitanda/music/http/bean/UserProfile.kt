@@ -84,4 +84,13 @@ data class UserProfile(
         val playlistCount: Int?,
         @Json(name = "province")
         val province: Int?,
-        @Json(name = "remarkNam
+        @Json(name = "remarkName")
+        val remarkName: Any?,
+        @Json(name = "sCount")
+        val sCount: Int?,
+        @Json(name = "sDJPCount")
+        val sDJPCount: Int?,
+        @Json(name = "signature")
+        val signature: String?,
+        @Json(name = "userId")
+        val us
