@@ -93,4 +93,10 @@ data class UserProfile(
         @Json(name = "signature")
         val signature: String?,
         @Json(name = "userId")
-        val us
+        val userId: Int?,
+        @Json(name = "userType")
+        val userType: Int?,
+        @Json(name = "vipType")
+        val vipType: Int?
+    )
+}
