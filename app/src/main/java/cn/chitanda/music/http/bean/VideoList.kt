@@ -19,4 +19,14 @@ data class VideoList(
         @Json(name = "data")
         val info: Info?,
         @Json(name = "displayed")
-        val displayed: Bo
+        val displayed: Boolean?,
+        @Json(name = "extAlg")
+        val extAlg: Any?,
+        @Json(name = "type")
+        val type: Int?
+    ) {
+        @JsonClass(generateAdapter = true)
+        data class Info(
+            @Json(name = "alg")
+            val alg: String?,
+       
