@@ -29,4 +29,11 @@ data class VideoList(
         data class Info(
             @Json(name = "alg")
             val alg: String?,
-       
+            @Json(name = "commentCount")
+            val commentCount: Int?,
+            @Json(name = "coverUrl")
+            val coverUrl: String?,
+            @Json(name = "creator")
+            val creator: UserProfile.Data?,
+            @Json(name = "description")
+   
