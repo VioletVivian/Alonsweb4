@@ -36,4 +36,10 @@ data class VideoList(
             @Json(name = "creator")
             val creator: UserProfile.Data?,
             @Json(name = "description")
-   
+            val description: String?,
+            @Json(name = "durationms")
+            val durationms: Int?,
+            @Json(name = "hasRelatedGameAd")
+            val hasRelatedGameAd: Boolean?,
+            @Json(name = "height")
+            val height: Int?,
