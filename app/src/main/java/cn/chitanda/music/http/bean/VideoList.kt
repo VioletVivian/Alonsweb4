@@ -43,3 +43,10 @@ data class VideoList(
             val hasRelatedGameAd: Boolean?,
             @Json(name = "height")
             val height: Int?,
+            @Json(name = "markTypes")
+            val markTypes: List<Int?>?,
+            @Json(name = "playTime")
+            val playTime: Int?,
+            @Json(name = "praised")
+            val praised: Boolean?,
+            @Json(name = "praise
