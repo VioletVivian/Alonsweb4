@@ -49,4 +49,10 @@ data class VideoList(
             val playTime: Int?,
             @Json(name = "praised")
             val praised: Boolean?,
-            @Json(name = "praise
+            @Json(name = "praisedCount")
+            val praisedCount: Int?,
+            @Json(name = "previewDurationms")
+            val previewDurationms: Int?,
+            @Json(name = "previewUrl")
+            val previewUrl: String?,
+            
