@@ -55,4 +55,11 @@ data class VideoList(
             val previewDurationms: Int?,
             @Json(name = "previewUrl")
             val previewUrl: String?,
-            
+            @Json(name = "relateSong")
+            val relateSong: List<Any?>?,
+            @Json(name = "relatedInfo")
+            val relatedInfo: Any?,
+            @Json(name = "scm")
+            val scm: String?,
+            @Json(name = "shareCount")
+            val shareCou
