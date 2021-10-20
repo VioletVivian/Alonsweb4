@@ -62,4 +62,11 @@ data class VideoList(
             @Json(name = "scm")
             val scm: String?,
             @Json(name = "shareCount")
-            val shareCou
+            val shareCount: Int?,
+            @Json(name = "subscribed")
+            val subscribed: Boolean?,
+            @Json(name = "threadId")
+            val threadId: String?,
+            @Json(name = "title")
+            val title: String?,
+            @Json(nam
