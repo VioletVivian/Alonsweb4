@@ -69,4 +69,11 @@ data class VideoList(
             val threadId: String?,
             @Json(name = "title")
             val title: String?,
-            @Json(nam
+            @Json(name = "urlInfo")
+            val urlInfo: Any?,
+            @Json(name = "vid")
+            val vid: String?,
+            @Json(name = "videoUserLiveInfo")
+            val videoUserLiveInfo: Any?,
+            @Json(name = "width")
+            val wid
