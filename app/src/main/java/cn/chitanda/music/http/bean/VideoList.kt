@@ -76,4 +76,8 @@ data class VideoList(
             @Json(name = "videoUserLiveInfo")
             val videoUserLiveInfo: Any?,
             @Json(name = "width")
-            val wid
+            val width: Int?
+        )
+
+    }
+}
