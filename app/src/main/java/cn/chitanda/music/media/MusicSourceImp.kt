@@ -95,3 +95,18 @@ fun MediaMetadataCompat.Builder.from(
     artist = song.artists
     album = song.al?.name
     mediaUri = url?.url
+    albumArtUri = albumUri
+    flag = MediaBrowserCompat.MediaItem.FLAG_PLAYABLE
+    // To make things easier for *displaying* these, set the display properties as well.
+    displayTitle = song.name
+    displaySubtitle = song.artists
+    displayDescription = song.al?.name
+    displayIconUri = albumUri
+
+    // Add downloadStatus to force the creation of an "extras" bundle in the resulting
+    // MediaMetadataCompat object. This is needed to send accurate metadata to the
+    // media session during updates.
+    downloadStatus = MediaDescriptionCompat.STATUS_NOT_DOWNLOADED
+    // Allow it to be used in the typical builder style.
+    return this
+}
