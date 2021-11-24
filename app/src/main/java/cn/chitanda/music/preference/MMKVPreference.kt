@@ -19,4 +19,11 @@ open class MMKVPreference<T>(
         return getPreferenceValue(key, defaultValue)
     }
 
-    operator fun setValue(thisRef: Any?, property: KPro
+    operator fun setValue(thisRef: Any?, property: KProperty<*>, value: T) {
+        setPreferenceValue(key, value)
+    }
+
+    @Suppress("UNCHECKED_CAST")
+    private fun getPreferenceValue(key: String, defaultValue: T): T {
+        return when (defaultValue) {
+            is String -> mmkv.getString(k
