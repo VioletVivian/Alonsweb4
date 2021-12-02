@@ -30,4 +30,7 @@ open class MMKVPreference<T>(
             is Long -> mmkv.getLong(key, defaultValue) as T
             is Set<*> -> mmkv.getStringSet(key, defaultValue as Set<String>) as T
             is Boolean -> mmkv.getBoolean(key, defaultValue) as T
-            is Float -> mmkv.ge
+            is Float -> mmkv.getFloat(key, defaultValue) as T
+            is ByteArray -> mmkv.getBytes(key, defaultValue) as T
+            is Int -> mmkv.getInt(key, defaultValue) as T
+            else -> throw IllegalArgumentException("Type Error, cannot get val
