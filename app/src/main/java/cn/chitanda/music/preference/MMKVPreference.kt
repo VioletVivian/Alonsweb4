@@ -33,4 +33,13 @@ open class MMKVPreference<T>(
             is Float -> mmkv.getFloat(key, defaultValue) as T
             is ByteArray -> mmkv.getBytes(key, defaultValue) as T
             is Int -> mmkv.getInt(key, defaultValue) as T
-            else -> throw IllegalArgumentException("Type Error, cannot get val
+            else -> throw IllegalArgumentException("Type Error, cannot get value!")
+        }
+    }
+
+    @Suppress("UNCHECKED_CAST")
+    private fun setPreferenceValue(key: String, value: T) {
+        when (value) {
+            is String -> mmkv.putString(key, value)
+            is Long -> mmkv.putLong(key, value)
+            is Set<*> -> mmkv.putStringSe
