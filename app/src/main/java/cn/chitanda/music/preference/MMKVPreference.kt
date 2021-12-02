@@ -26,4 +26,8 @@ open class MMKVPreference<T>(
     @Suppress("UNCHECKED_CAST")
     private fun getPreferenceValue(key: String, defaultValue: T): T {
         return when (defaultValue) {
-            is String -> mmkv.getString(k
+            is String -> mmkv.getString(key, defaultValue) as T
+            is Long -> mmkv.getLong(key, defaultValue) as T
+            is Set<*> -> mmkv.getStringSet(key, defaultValue as Set<String>) as T
+            is Boolean -> mmkv.getBoolean(key, defaultValue) as T
+            is Float -> mmkv.ge
