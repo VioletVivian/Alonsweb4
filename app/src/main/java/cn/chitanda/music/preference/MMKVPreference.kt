@@ -42,4 +42,9 @@ open class MMKVPreference<T>(
         when (value) {
             is String -> mmkv.putString(key, value)
             is Long -> mmkv.putLong(key, value)
-            is Set<*> -> mmkv.putStringSe
+            is Set<*> -> mmkv.putStringSet(key, value as Set<String>)
+            is Boolean -> mmkv.putBoolean(key, value)
+            is Float -> mmkv.putFloat(key, value)
+            is ByteArray -> mmkv.putBytes(key, value)
+            is Int -> mmkv.putInt(key, value)
+            else -> throw Illeg
