@@ -47,4 +47,7 @@ open class MMKVPreference<T>(
             is Float -> mmkv.putFloat(key, value)
             is ByteArray -> mmkv.putBytes(key, value)
             is Int -> mmkv.putInt(key, value)
-            else -> throw Illeg
+            else -> throw IllegalArgumentException("Type Error, cannot be saved!")
+        }
+    }
+}
