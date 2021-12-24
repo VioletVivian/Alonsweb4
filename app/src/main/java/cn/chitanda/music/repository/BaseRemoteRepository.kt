@@ -14,4 +14,10 @@ open class BaseRemoteRepository {
 
     protected suspend fun <T : BaseJson<*>> httpRequest(
         stateFlow: MutableStateFlow<RequestStatus<T>>? = null,
- 
+        block: suspend () -> T?
+    ): T? {
+        return try {
+            stateFlow?.emit(RequestStatus(status = DataState.STATE_LOADING))
+            val data = block()
+            stateFlow?.emit(
+                if (da
