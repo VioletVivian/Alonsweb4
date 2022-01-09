@@ -20,4 +20,9 @@ open class BaseRemoteRepository {
             stateFlow?.emit(RequestStatus(status = DataState.STATE_LOADING))
             val data = block()
             stateFlow?.emit(
-                if (da
+                if (data != null) {
+                    RequestStatus(
+                        code = data.code,
+                        status = when (data.code) {
+                            in 200..299 -> DataState.STATE_SUCCESS
+                            in 300..599 -> D
