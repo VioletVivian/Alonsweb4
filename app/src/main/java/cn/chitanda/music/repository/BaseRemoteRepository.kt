@@ -25,4 +25,12 @@ open class BaseRemoteRepository {
                         code = data.code,
                         status = when (data.code) {
                             in 200..299 -> DataState.STATE_SUCCESS
-                            in 300..599 -> D
+                            in 300..599 -> DataState.STATE_FAILED
+                            else -> DataState.STATE_UNKNOWN
+                        },
+                        msg = data.msg,
+                        json = data
+                    )
+                } else {
+                    RequestStatus(status = DataState.STATE_EMPTY)
+     
