@@ -33,4 +33,13 @@ open class BaseRemoteRepository {
                     )
                 } else {
                     RequestStatus(status = DataState.STATE_EMPTY)
-     
+                }
+            )
+            data
+        } catch (e: Exception) {
+            e.printStackTrace()
+            stateFlow?.emit(RequestStatus(status = DataState.STATE_ERROR, error = e))
+            null
+        }
+    }
+}
