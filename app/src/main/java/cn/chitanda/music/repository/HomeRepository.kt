@@ -22,3 +22,64 @@ import kotlinx.coroutines.withContext
 class HomeRepository(private val api: HomeApi) : BaseRemoteRepository() {
 
     suspend fun loadHomeData(refresh: Boolean = false) = withContext(Dispatchers.IO) {
+        val homeResponse = async { api.fetchHomeData(refresh = refresh) }
+        val roundIcons = async { api.fetchHomeRoundIconList().data }
+        var viewState = HomeViewState()
+        homeResponse.await().data?.blocks?.forEach { block ->
+            when (block.showType) {
+                RCMDShowType.Banner -> {
+                    getBannerData(block.extInfo)?.let { viewState = viewState.copy(banner = it) }
+                }
+                RCMDShowType.PlayList -> {
+                    block.creatives?.map { it.resources ?: emptyList() }?.flatten()
+                        ?.let {
+                            viewState = viewState.copy(playlist = block.uiElement to it)
+                        }
+                }
+                RCMDShowType.PlayableMLog -> {
+                    getMLogData(block.extInfo)?.let {
+                        viewState = viewState.copy(mLog = block.uiElement to it)
+                    }
+                }
+                RCMDShowType.SongList -> {
+                    block.creatives?.let {
+                        viewState = viewState.copy(songList = block.uiElement to it)
+                    }
+                }
+                RCMDShowType.Unknown, null -> {
+                }
+            }
+        }
+        viewState.copy(icons = roundIcons.await(), state = PageState.Success)
+    }
+
+    private fun getBannerData(extInfo: Any?) =
+        if (null == extInfo) {
+            null
+        } else {
+            val type = Types.newParameterizedType(
+                Map::class.java,
+                Any::class.java, Any::class.java
+            )
+            val adapter: JsonAdapter<Map<*, *>> =
+                moshi.adapter(type)
+            val str = adapter.toJson(extInfo as Map<*, *>)
+            moshi.adapter(HomeBanner::class.java).fromJson(str)?.banners ?: emptyList()
+        }
+
+    private fun getMLogData(extInfo: Any?) =
+        if (null == extInfo) {
+            null
+        } else {
+            val type = Types.newParameterizedType(
+                List::class.java,
+                Any::class.java
+            )
+            val adapter: JsonAdapter<List<Any>> =
+                moshi.adapter(type)
+            val str = adapter.toJson(extInfo as List<Any>)
+            val extInfoAdapter: JsonAdapter<List<MLogExtInfo>> =
+                moshi.adapter(Types.newParameterizedType(List::class.java, MLogExtInfo::class.java))
+            extInfoAdapter.fromJson(str)
+        }
+}
