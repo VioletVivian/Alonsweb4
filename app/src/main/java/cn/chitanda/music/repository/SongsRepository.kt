@@ -19,4 +19,9 @@ class SongsRepository(private val api: SongsApi) : BaseRemoteRepository() {
                 data.shareCount
                 data.commentCount
                 data.subscribedCount
-     
+                data.subscribed
+                return@withContext viewState.copy(
+                    playlist = PlaylistViewState.PlaylistDetail(
+                        name = data.name.toString(),
+                        id = data.id.toString(),
+       
