@@ -11,4 +11,12 @@ import kotlinx.coroutines.withContext
  * @description:
  **/
 class SongsRepository(private val api: SongsApi) : BaseRemoteRepository() {
-    suspend fun getPlaylistDetail(id: String) = withContext(Dispatchers.
+    suspend fun getPlaylistDetail(id: String) = withContext(Dispatchers.IO) {
+        val response = api.getPlaylistDetail(id)
+        val viewState = PlaylistViewState()
+        if (response.code == 200) {
+            response.data?.let { data ->
+                data.shareCount
+                data.commentCount
+                data.subscribedCount
+     
