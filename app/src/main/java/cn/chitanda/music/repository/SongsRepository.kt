@@ -24,4 +24,8 @@ class SongsRepository(private val api: SongsApi) : BaseRemoteRepository() {
                     playlist = PlaylistViewState.PlaylistDetail(
                         name = data.name.toString(),
                         id = data.id.toString(),
-       
+                        creator = data.creator,
+                        description = data.description,
+                        coverUrl = data.coverImgUrl ?: "",
+                        songsCount = data.trackCount?.toInt() ?: 0,
+                        shar
