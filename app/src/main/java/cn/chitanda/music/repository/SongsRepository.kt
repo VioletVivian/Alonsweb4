@@ -28,4 +28,8 @@ class SongsRepository(private val api: SongsApi) : BaseRemoteRepository() {
                         description = data.description,
                         coverUrl = data.coverImgUrl ?: "",
                         songsCount = data.trackCount?.toInt() ?: 0,
-                        shar
+                        shareCount = data.shareCount ?: 0,
+                        commentCount = data.commentCount ?: 0,
+                        subscribedCount = data.subscribedCount ?: 0,
+                        subscribed = data.subscribed ?: false
+           
