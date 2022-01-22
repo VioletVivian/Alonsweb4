@@ -32,4 +32,13 @@ class SongsRepository(private val api: SongsApi) : BaseRemoteRepository() {
                         commentCount = data.commentCount ?: 0,
                         subscribedCount = data.subscribedCount ?: 0,
                         subscribed = data.subscribed ?: false
-           
+                    )
+                )
+            }
+        }
+        throw RuntimeException("load playlist detail failed")
+    }
+
+    suspend fun getPlaylistSongs(id: String, offset: Int, pageSize: Int) =
+        withContext(Dispatchers.IO) {
+            api.getPlay
