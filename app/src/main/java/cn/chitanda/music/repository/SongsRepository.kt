@@ -49,4 +49,6 @@ class SongsRepository(private val api: SongsApi) : BaseRemoteRepository() {
     }
 
     suspend fun getSongUrl(id: String, br: Long = 999000L) = withContext(Dispatchers.IO) {
-        api.getS
+        api.getSongUrl(id, br)
+    }
+}
