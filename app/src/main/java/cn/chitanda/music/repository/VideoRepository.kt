@@ -11,4 +11,7 @@ class VideoRepository(private val videoApi: VideoApi) : BaseRemoteRepository() {
             videoApi.getVideoType()
         }
 
-   
+    suspend fun loadVideoByType(type: Int, offset: Int) = httpRequest {
+        videoApi.getVideoByType(typeId = type, offset = offset)
+    }
+}
