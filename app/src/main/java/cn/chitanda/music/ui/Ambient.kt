@@ -27,4 +27,5 @@ val LocalMusicViewModel =
         error("Can't get music view model")
     }
 val LocalThemeViewModel =
-    staticCompositionLocalOf<T
+    staticCompositionLocalOf<ThemeViewModel> { error("Can't get theme view model") }
+
