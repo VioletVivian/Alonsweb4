@@ -18,3 +18,13 @@ val LocalNavController =
     compositionLocalOf<NavHostController> { error("Can't get nacController") }
 val LocalMusicControllerBarHeight = compositionLocalOf { 0.dp }
 val LocalUserViewModel =
+    staticCompositionLocalOf<LocaleUserViewModel> {
+        error("Can't get user view model")
+    }
+
+val LocalMusicViewModel =
+    staticCompositionLocalOf<MusicViewModel> {
+        error("Can't get music view model")
+    }
+val LocalThemeViewModel =
+    staticCompositionLocalOf<T
