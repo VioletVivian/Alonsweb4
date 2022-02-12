@@ -15,3 +15,9 @@ import androidx.navigation.navArgument
 import cn.chitanda.music.R
 import cn.chitanda.music.ui.scene.login.LoginScene
 import cn.chitanda.music.ui.scene.main.MainScene
+import cn.chitanda.music.ui.scene.other.ThemeScene
+import cn.chitanda.music.ui.scene.play_detail.PlayDetailScene
+import cn.chitanda.music.ui.scene.playlist.PlaylistScene
+import cn.chitanda.music.ui.scene.splash.SplashScene
+import coil.annotation.ExperimentalCoilApi
+import com.go
