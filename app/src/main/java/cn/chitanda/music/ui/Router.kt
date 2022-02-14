@@ -20,4 +20,10 @@ import cn.chitanda.music.ui.scene.play_detail.PlayDetailScene
 import cn.chitanda.music.ui.scene.playlist.PlaylistScene
 import cn.chitanda.music.ui.scene.splash.SplashScene
 import coil.annotation.ExperimentalCoilApi
-import com.go
+import com.google.accompanist.navigation.animation.AnimatedNavHost
+import com.google.accompanist.navigation.animation.composable
+import com.google.accompanist.navigation.animation.rememberAnimatedNavController
+import com.google.accompanist.pager.ExperimentalPagerApi
+
+/**
+ 
