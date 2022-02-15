@@ -26,4 +26,10 @@ import com.google.accompanist.navigation.animation.rememberAnimatedNavController
 import com.google.accompanist.pager.ExperimentalPagerApi
 
 /**
- 
+ *@author: Chen
+ *@createTime: 2021/8/31 13:18
+ *@description:
+ **/
+sealed class Scene(val id: String, @StringRes val label: Int? = null) {
+    object Splash : Scene(id = "splash")
+    object Main : Scene(id = "home", label = R.string.label_main)
