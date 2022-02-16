@@ -33,3 +33,7 @@ import com.google.accompanist.pager.ExperimentalPagerApi
 sealed class Scene(val id: String, @StringRes val label: Int? = null) {
     object Splash : Scene(id = "splash")
     object Main : Scene(id = "home", label = R.string.label_main)
+    object Login : Scene(id = "login", label = R.string.label_login)
+    object Theme : Scene(id = "theme", label = R.string.text_theme)
+    object Playlist : Scene(id = "playlist/{id}", label = R.string.label_playlist)
+    object  PlayDetail:Scene(id = "play_detail",
