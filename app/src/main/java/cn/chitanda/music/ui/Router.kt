@@ -36,4 +36,12 @@ sealed class Scene(val id: String, @StringRes val label: Int? = null) {
     object Login : Scene(id = "login", label = R.string.label_login)
     object Theme : Scene(id = "theme", label = R.string.text_theme)
     object Playlist : Scene(id = "playlist/{id}", label = R.string.label_playlist)
-    object  PlayDetail:Scene(id = "play_detail",
+    object  PlayDetail:Scene(id = "play_detail", label = R.string.label_login)
+
+    fun replaceId(vararg kv: Pair<String, String>): String {
+        var result = id
+        kv.forEach {
+            result = result.replace("{${it.first}}", it.second)
+        }
+        return result
+    }
