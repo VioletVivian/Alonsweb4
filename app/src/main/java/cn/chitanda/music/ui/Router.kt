@@ -45,3 +45,13 @@ sealed class Scene(val id: String, @StringRes val label: Int? = null) {
         }
         return result
     }
+}
+
+@ExperimentalMaterial3Api
+@ExperimentalFoundationApi
+@ExperimentalCoilApi
+@ExperimentalMaterialApi
+@ExperimentalPagerApi
+@ExperimentalAnimationApi
+@Composable
+fun Router(navController: NavHostController = rememberAnimatedNavController()) 
