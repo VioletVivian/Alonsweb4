@@ -54,4 +54,11 @@ sealed class Scene(val id: String, @StringRes val label: Int? = null) {
 @ExperimentalPagerApi
 @ExperimentalAnimationApi
 @Composable
-fun Router(navController: NavHostController = rememberAnimatedNavController()) 
+fun Router(navController: NavHostController = rememberAnimatedNavController()) {
+    val userViewModel = LocalUserViewModel.current
+    val themeViewModel = LocalThemeViewModel.current
+    CompositionLocalProvider(
+        LocalNavController provides navController
+    ) {
+        if (userViewModel.isReady.value && themeViewModel.isReady.value) {
+            Animat
