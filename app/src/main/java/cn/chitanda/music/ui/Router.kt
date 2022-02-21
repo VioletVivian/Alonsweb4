@@ -66,4 +66,16 @@ fun Router(navController: NavHostController = rememberAnimatedNavController()) {
                 startDestination = when {
                     Build.VERSION.SDK_INT < Build.VERSION_CODES.S -> Scene.Splash.id
                     userViewModel.loginSuccess -> {
-                        Scene.Main
+                        Scene.Main.id
+                    }
+                    else -> {
+                        Scene.Login.id
+                    }
+                }
+            ) {
+                route()
+            }
+        }
+    }
+    LaunchedEffect(key1 = themeViewModel.isReady) {
+        if (!them
