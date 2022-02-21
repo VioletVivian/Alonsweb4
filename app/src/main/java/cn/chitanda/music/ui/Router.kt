@@ -61,4 +61,9 @@ fun Router(navController: NavHostController = rememberAnimatedNavController()) {
         LocalNavController provides navController
     ) {
         if (userViewModel.isReady.value && themeViewModel.isReady.value) {
-            Animat
+            AnimatedNavHost(
+                navController = navController,
+                startDestination = when {
+                    Build.VERSION.SDK_INT < Build.VERSION_CODES.S -> Scene.Splash.id
+                    userViewModel.loginSuccess -> {
+                        Scene.Main
