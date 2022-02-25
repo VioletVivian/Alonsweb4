@@ -78,4 +78,14 @@ fun Router(navController: NavHostController = rememberAnimatedNavController()) {
         }
     }
     LaunchedEffect(key1 = themeViewModel.isReady) {
-        if (!them
+        if (!themeViewModel.isReady.value) themeViewModel.init()
+    }
+}
+
+@ExperimentalMaterial3Api
+@ExperimentalFoundationApi
+@ExperimentalCoilApi
+@ExperimentalMaterialApi
+@ExperimentalPagerApi
+@ExperimentalAnimationApi
+private fun NavGraphBuilder.route() 
