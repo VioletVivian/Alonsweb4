@@ -88,4 +88,17 @@ fun Router(navController: NavHostController = rememberAnimatedNavController()) {
 @ExperimentalMaterialApi
 @ExperimentalPagerApi
 @ExperimentalAnimationApi
-private fun NavGraphBuilder.route() 
+private fun NavGraphBuilder.route() {
+    composable(Scene.Splash.id) {
+        SplashScene()
+    }
+    composable(Scene.Login.id) {
+        LoginScene()
+    }
+    composable(Scene.Main.id) {
+        MainScene()
+    }
+    composable(Scene.Theme.id) {
+        ThemeScene()
+    }
+    composable(
