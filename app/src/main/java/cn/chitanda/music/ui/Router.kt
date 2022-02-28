@@ -102,3 +102,11 @@ private fun NavGraphBuilder.route() {
         ThemeScene()
     }
     composable(
+        Scene.Playlist.id,
+        arguments = listOf(navArgument("id") { defaultValue = "" })
+    ) { backStackEntry ->
+        PlaylistScene(playlist = backStackEntry.arguments?.getString("id"))
+    }
+
+    composable(Scene.PlayDetail.id){
+       
