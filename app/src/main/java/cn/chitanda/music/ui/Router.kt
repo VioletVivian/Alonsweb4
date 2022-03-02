@@ -109,4 +109,6 @@ private fun NavGraphBuilder.route() {
     }
 
     composable(Scene.PlayDetail.id){
-       
+        PlayDetailScene()
+    }
+}
