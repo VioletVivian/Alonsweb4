@@ -27,4 +27,12 @@ data class Oklab(
         return CieXyz(
             x = +1.2270138511 * l - 0.5577999807 * m + 0.2812561490 * s,
             y = -0.0405801784 * l + 1.1122568696 * m - 0.0716766787 * s,
-            z = -0.
+            z = -0.0763812845 * l - 0.4214819784 * m + 1.5861632204 * s,
+        )
+    }
+
+    companion object {
+        private fun lmsToOklab(l: Double, m: Double, s: Double): Oklab {
+            val lp = Math.cbrt(l)
+            val mp = Math.cbrt(m)
+            val s
