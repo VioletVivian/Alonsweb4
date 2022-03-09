@@ -35,4 +35,9 @@ data class Oklab(
         private fun lmsToOklab(l: Double, m: Double, s: Double): Oklab {
             val lp = Math.cbrt(l)
             val mp = Math.cbrt(m)
-            val s
+            val sp = Math.cbrt(s)
+
+            return Oklab(
+                L = 0.2104542553 * lp + 0.7936177850 * mp - 0.0040720468 * sp,
+                a = 1.9779984951 * lp - 2.4285922050 * mp + 0.4505937099 * sp,
+                b = 0.0259040371 * lp + 0.7827
