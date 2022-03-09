@@ -40,4 +40,10 @@ data class Oklab(
             return Oklab(
                 L = 0.2104542553 * lp + 0.7936177850 * mp - 0.0040720468 * sp,
                 a = 1.9779984951 * lp - 2.4285922050 * mp + 0.4505937099 * sp,
-                b = 0.0259040371 * lp + 0.7827
+                b = 0.0259040371 * lp + 0.7827717662 * mp - 0.8086757660 * sp,
+            )
+        }
+
+        // Avoid arrays to minimize garbage
+        private fun oklabToL(lab: Oklab) = cube(lab.L + 0.3963377774 * lab.a + 0.2158037573 * lab.b)
+        private fun oklabToM(lab: Oklab) = cube(lab.L - 0.1055613458 * 
