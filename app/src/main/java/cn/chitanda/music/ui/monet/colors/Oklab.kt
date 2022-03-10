@@ -46,4 +46,9 @@ data class Oklab(
 
         // Avoid arrays to minimize garbage
         private fun oklabToL(lab: Oklab) = cube(lab.L + 0.3963377774 * lab.a + 0.2158037573 * lab.b)
-        private fun oklabToM(lab: Oklab) = cube(lab.L - 0.1055613458 * 
+        private fun oklabToM(lab: Oklab) = cube(lab.L - 0.1055613458 * lab.a - 0.0638541728 * lab.b)
+        private fun oklabToS(lab: Oklab) = cube(lab.L - 0.0894841775 * lab.a - 1.2914855480 * lab.b)
+
+        fun LinearSrgb.toOklab() = lmsToOklab(
+            l = 0.4122214708 * r + 0.5363325363 * g + 0.0514459929 * b,
+            m = 0.2
