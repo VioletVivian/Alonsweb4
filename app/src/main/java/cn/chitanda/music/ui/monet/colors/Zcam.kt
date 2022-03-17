@@ -19,4 +19,12 @@ data class Zcam(
     // 2D
     val saturation: Double = Double.NaN,
     val vividness: Double = Double.NaN,
-    val blackness: Double = Double
+    val blackness: Double = Double.NaN,
+    val whiteness: Double = Double.NaN,
+
+    val viewingConditions: ViewingConditions,
+) : Color {
+    override fun toLinearSrgb() = LinearSrgb(Double.NaN, Double.NaN, Double.NaN)
+
+    // Aliases to match the paper
+    val Qz: Double get() = brightness
