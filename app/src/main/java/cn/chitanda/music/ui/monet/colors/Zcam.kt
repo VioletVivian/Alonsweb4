@@ -11,4 +11,12 @@ data class Zcam(
     // 1D
     val brightness: Double = Double.NaN,
     val lightness: Double = Double.NaN,
-    val colorfulness: Doubl
+    val colorfulness: Double = Double.NaN,
+    val chroma: Double = Double.NaN,
+    val hueAngle: Double,
+    /* hue composition is not implemented */
+
+    // 2D
+    val saturation: Double = Double.NaN,
+    val vividness: Double = Double.NaN,
+    val blackness: Double = Double
