@@ -34,4 +34,13 @@ data class Zcam(
     val hz: Double get() = hueAngle
     val Sz: Double get() = saturation
     val Vz: Double get() = vividness
-    val Kz: Double get() = blackne
+    val Kz: Double get() = blackness
+    val Wz: Double get() = whiteness
+
+    fun toCieXyz(
+        luminanceSource: LuminanceSource,
+        chromaSource: ChromaSource,
+    ): CieXyz {
+        val cond = viewingConditions
+        val Iz_w = cond.Iz_w
+        val Q
