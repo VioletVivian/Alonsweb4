@@ -28,3 +28,10 @@ data class Zcam(
 
     // Aliases to match the paper
     val Qz: Double get() = brightness
+    val Jz: Double get() = lightness
+    val Mz: Double get() = colorfulness
+    val Cz: Double get() = chroma
+    val hz: Double get() = hueAngle
+    val Sz: Double get() = saturation
+    val Vz: Double get() = vividness
+    val Kz: Double get() = blackne
