@@ -50,4 +50,11 @@ data class Zcam(
         val Iz = when (luminanceSource) {
             LuminanceSource.BRIGHTNESS -> Qz / cond.Iz_coeff
             LuminanceSource.LIGHTNESS -> (Jz * Qz_w) / (cond.Iz_coeff * 100.0)
-        }.po
+        }.pow(cond.Qz_denom / (1.6 * cond.F_s))
+
+        /* Step 2 */
+        // Chroma
+        val Cz = when (chromaSource) {
+            ChromaSource.CHROMA -> Cz
+            ChromaSource.COLORFULNESS -> Double.NaN // not used
+            C
