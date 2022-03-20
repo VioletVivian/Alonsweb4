@@ -43,4 +43,11 @@ data class Zcam(
     ): CieXyz {
         val cond = viewingConditions
         val Iz_w = cond.Iz_w
-        val Q
+        val Qz_w = cond.Qz_w
+
+        /* Step 1 */
+        // Achromatic response
+        val Iz = when (luminanceSource) {
+            LuminanceSource.BRIGHTNESS -> Qz / cond.Iz_coeff
+            LuminanceSource.LIGHTNESS -> (Jz * Qz_w) / (cond.Iz_coeff * 100.0)
+        }.po
