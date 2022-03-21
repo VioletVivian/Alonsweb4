@@ -60,4 +60,12 @@ data class Zcam(
             ChromaSource.SATURATION -> (Qz * square(Sz)) / (100.0 * Qz_w * cond.Qz_denom)
             ChromaSource.VIVIDNESS -> sqrt((square(Vz) - square(Jz - 58)) / 3.4)
             ChromaSource.BLACKNESS -> sqrt((square((100 - Kz) / 0.8) - square(Jz)) / 8)
-            ChromaSource.WHITEN
+            ChromaSource.WHITENESS -> sqrt(square(100.0 - Wz) - square(100.0 - Jz))
+        }
+
+        /* Step 3 is missing because hue composition is not supported */
+
+        /* Step 4 */
+        // ... and back to colorfulness
+        val Mz = when (chromaSource) {
+       
