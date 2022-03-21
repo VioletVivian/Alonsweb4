@@ -57,4 +57,7 @@ data class Zcam(
         val Cz = when (chromaSource) {
             ChromaSource.CHROMA -> Cz
             ChromaSource.COLORFULNESS -> Double.NaN // not used
-            C
+            ChromaSource.SATURATION -> (Qz * square(Sz)) / (100.0 * Qz_w * cond.Qz_denom)
+            ChromaSource.VIVIDNESS -> sqrt((square(Vz) - square(Jz - 58)) / 3.4)
+            ChromaSource.BLACKNESS -> sqrt((square((100 - Kz) / 0.8) - square(Jz)) / 8)
+            ChromaSource.WHITEN
