@@ -68,4 +68,9 @@ data class Zcam(
         /* Step 4 */
         // ... and back to colorfulness
         val Mz = when (chromaSource) {
-       
+            ChromaSource.COLORFULNESS -> Mz
+            else -> (Cz * Qz_w) / 100
+        }
+        val ez = hpToEz(hz)
+        val Cz_p = ((Mz * cond.Mz_denom) /
+                // Paper specifies pow(1.3514) but this extra precision is necessary for more accurate inversion
