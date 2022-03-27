@@ -81,4 +81,10 @@ data class Zcam(
         /* Step 5 */
         val I = Iz + EPSILON
 
-        val r = pqInv(I + 0.27
+        val r = pqInv(I + 0.2772100865*az +  0.1160946323*bz)
+        val g = pqInv(I)
+        val b = pqInv(I + 0.0425858012*az + -0.7538445799*bz)
+
+        val xp =  1.9242264358*r + -1.0047923126*g +  0.0376514040*b
+        val yp =  0.3503167621*r +  0.7264811939*g + -0.0653844229*b
+ 
