@@ -87,4 +87,14 @@ data class Zcam(
 
         val xp =  1.9242264358*r + -1.0047923126*g +  0.0376514040*b
         val yp =  0.3503167621*r +  0.7264811939*g + -0.0653844229*b
- 
+        val z  = -0.0909828110*r + -0.3127282905*g +  1.5227665613*b
+
+        val x = (xp + (B - 1)*z) / B
+        val y = (yp + (G - 1)*x) / G
+
+        return CieXyz(x, y, z)
+    }
+
+    enum class LuminanceSource {
+        BRIGHTNESS,
+        L
