@@ -97,4 +97,20 @@ data class Zcam(
 
     enum class LuminanceSource {
         BRIGHTNESS,
-        L
+        LIGHTNESS,
+    }
+
+    enum class ChromaSource {
+        CHROMA,
+        COLORFULNESS,
+        SATURATION,
+        VIVIDNESS,
+        BLACKNESS,
+        WHITENESS,
+    }
+
+    data class ViewingConditions(
+        val F_s: Double,
+
+        val L_a: Double,
+        val Y_b: Doub
