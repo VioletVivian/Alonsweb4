@@ -113,4 +113,13 @@ data class Zcam(
         val F_s: Double,
 
         val L_a: Double,
-        val Y_b: Doub
+        val Y_b: Double,
+        // Absolute
+        //val whiteLuminance: Double,
+        //val backgroundLuminance: Double,
+
+        val referenceWhite: CieXyz,
+        val whiteLuminance: Double,
+    ) {
+        /* Step 1 */
+        //private val L_a = whiteLuminance *1 /
