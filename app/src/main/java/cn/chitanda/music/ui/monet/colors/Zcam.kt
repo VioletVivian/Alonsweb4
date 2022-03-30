@@ -122,4 +122,12 @@ data class Zcam(
         val whiteLuminance: Double,
     ) {
         /* Step 1 */
-        //private val L_a = whiteLuminance *1 /
+        //private val L_a = whiteLuminance *1 //TODO
+
+        //val F_b = sqrt(backgroundLuminance / whiteLuminance) // F_b
+        val F_b = sqrt(Y_b / referenceWhite.y)
+        val F_l = 0.171 * Math.cbrt(L_a) * (1.0 - exp(-48.0/9.0 * L_a)) // F_L
+
+        internal val Iz_w = referenceWhite.xyzToIzazbz()[0]
+
+        i
