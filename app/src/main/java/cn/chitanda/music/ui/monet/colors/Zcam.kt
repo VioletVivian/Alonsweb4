@@ -134,4 +134,12 @@ data class Zcam(
         internal val Mz_denom = Iz_w.pow(0.78) * F_b.pow(0.1)
         internal val ez_coeff = F_l.pow(0.2)
         internal val Qz_denom = F_b.pow(0.12)
-        internal val Sz
+        internal val Sz_coeff = F_l.pow(0.6)
+
+        // Depends on precomputed coefficients above
+        internal val Qz_w = izToQz(Iz_w, this)
+
+        companion object {
+            const val SURROUND_DARK = 0.525
+            const val SURROUND_DIM = 0.59
+            const
