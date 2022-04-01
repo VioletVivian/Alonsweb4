@@ -142,4 +142,14 @@ data class Zcam(
         companion object {
             const val SURROUND_DARK = 0.525
             const val SURROUND_DIM = 0.59
-            const
+            const val SURROUND_AVERAGE = 0.69
+        }
+    }
+
+    companion object {
+        // Constants
+        private const val B = 1.15
+        private const val G = 0.66
+        private const val C1 = 3424.0 / 4096
+        private const val C2 = 2413.0 / 128
+        private const val C3 = 23
