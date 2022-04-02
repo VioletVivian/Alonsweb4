@@ -152,4 +152,10 @@ data class Zcam(
         private const val G = 0.66
         private const val C1 = 3424.0 / 4096
         private const val C2 = 2413.0 / 128
-        private const val C3 = 23
+        private const val C3 = 2392.0 / 128
+        private const val ETA = 2610.0 / 16384
+        private const val RHO = 1.7 * 2523.0 / 32
+        private const val EPSILON = 3.7035226210190005e-11
+
+        // Transfer function and inverse
+        private fun pq(x: Double
