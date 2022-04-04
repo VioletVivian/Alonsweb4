@@ -165,4 +165,11 @@ data class Zcam(
             return (num / denom).pow(RHO)
         }
         private fun pqInv(x: Double): Double {
-            val num
+            val num = C1 - x.pow(1.0/ RHO)
+            val denom = C3 *x.pow(1.0/ RHO) - C2
+
+            return 10000.0 * (num / denom).pow(1.0/ ETA)
+        }
+
+        // Intermediate conversion, also used in ViewingConditions
+        private fun CieXyz.xyzToIzazbz(
