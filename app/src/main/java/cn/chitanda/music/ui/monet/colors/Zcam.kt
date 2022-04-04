@@ -158,4 +158,11 @@ data class Zcam(
         private const val EPSILON = 3.7035226210190005e-11
 
         // Transfer function and inverse
-        private fun pq(x: Double
+        private fun pq(x: Double): Double {
+            val num = C1 + C2 *(x / 10000).pow(ETA)
+            val denom = 1.0 + C3 *(x / 10000).pow(ETA)
+
+            return (num / denom).pow(RHO)
+        }
+        private fun pqInv(x: Double): Double {
+            val num
