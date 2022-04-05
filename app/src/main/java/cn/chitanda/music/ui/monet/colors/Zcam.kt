@@ -172,4 +172,10 @@ data class Zcam(
         }
 
         // Intermediate conversion, also used in ViewingConditions
-        private fun CieXyz.xyzToIzazbz(
+        private fun CieXyz.xyzToIzazbz(): DoubleArray {
+            val xp = B *x - (B -1)*z
+            val yp = G *y - (G -1)*x
+
+            val rp = pq( 0.41478972*xp + 0.579999*yp + 0.0146480*z)
+            val gp = pq(-0.20151000*xp + 1.120649*yp + 0.0531008*z)
+            val bp = p
