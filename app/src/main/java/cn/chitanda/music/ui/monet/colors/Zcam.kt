@@ -178,4 +178,11 @@ data class Zcam(
 
             val rp = pq( 0.41478972*xp + 0.579999*yp + 0.0146480*z)
             val gp = pq(-0.20151000*xp + 1.120649*yp + 0.0531008*z)
-            val bp = p
+            val bp = pq(-0.01660080*xp + 0.264800*yp + 0.6684799*z)
+
+            val az = 3.524000*rp + -4.066708*gp +  0.542708*bp
+            val bz = 0.199076*rp +  1.096799*gp + -1.295875*bp
+            val Iz = gp - EPSILON
+
+            return doubleArrayOf(Iz, az, bz)
+ 
