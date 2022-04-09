@@ -185,4 +185,9 @@ data class Zcam(
             val Iz = gp - EPSILON
 
             return doubleArrayOf(Iz, az, bz)
- 
+        }
+
+        // Shared between forward and inverse models
+        private fun hpToEz(hp: Double) = 1.015 + cos((89.038 + hp).toRadians())
+        private fun izToQz(Iz: Double, cond: ViewingConditions) =
+            cond.Iz_coeff * Iz.pow((1.6 * cond.F_s) / cond.Qz_den
