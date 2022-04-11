@@ -190,4 +190,13 @@ data class Zcam(
         // Shared between forward and inverse models
         private fun hpToEz(hp: Double) = 1.015 + cos((89.038 + hp).toRadians())
         private fun izToQz(Iz: Double, cond: ViewingConditions) =
-            cond.Iz_coeff * Iz.pow((1.6 * cond.F_s) / cond.Qz_den
+            cond.Iz_coeff * Iz.pow((1.6 * cond.F_s) / cond.Qz_denom)
+
+        fun CieXyz.toZcam(cond: ViewingConditions): Zcam {
+            /* Step 2 */
+            // Achromatic response
+            val (Iz, az, bz) = xyzToIzazbz()
+            val Iz_w = cond.Iz_w
+
+            /* Step 3 */
+            // Hue ang
