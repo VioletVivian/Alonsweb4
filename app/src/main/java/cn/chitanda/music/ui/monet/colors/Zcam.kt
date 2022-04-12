@@ -208,4 +208,13 @@ data class Zcam(
             val ez = hpToEz(hp)
 
             /* Step 5 */
-            // Brightnes
+            // Brightness
+            val Qz = izToQz(Iz, cond)
+            val Qz_w = cond.Qz_w
+
+            // Lightness
+            val Jz = 100.0 * (Qz / Qz_w)
+
+            // Colorfulness
+            val Mz = 100.0 * (square(az) + square(bz)).pow(0.37) *
+                    ((ez.pow(0.
