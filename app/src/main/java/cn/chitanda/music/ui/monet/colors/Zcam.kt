@@ -199,4 +199,13 @@ data class Zcam(
             val Iz_w = cond.Iz_w
 
             /* Step 3 */
-            // Hue ang
+            // Hue angle
+            val hz = atan2(bz, az).toDegrees()
+            val hp = if (hz < 0) hz + 360 else hz
+
+            /* Step 4 */
+            // Eccentricity factor
+            val ez = hpToEz(hp)
+
+            /* Step 5 */
+            // Brightnes
