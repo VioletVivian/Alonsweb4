@@ -227,4 +227,10 @@ data class Zcam(
             val Sz = 100.0 * cond.Sz_coeff * sqrt(Mz / Qz)
 
             // Vividness, blackness, whiteness
-            val Vz = sqrt(square(Jz
+            val Vz = sqrt(square(Jz - 58) + 3.4 * square(Cz))
+            val Kz = 100.0 - 0.8 * sqrt(square(Jz) + 8.0 * square(Cz))
+            val Wz = 100.0 - sqrt(square(100.0 - Jz) + square(Cz))
+
+            return Zcam(
+                brightness = Qz,
+                lightnes
