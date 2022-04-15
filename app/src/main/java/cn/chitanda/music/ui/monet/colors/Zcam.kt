@@ -217,4 +217,14 @@ data class Zcam(
 
             // Colorfulness
             val Mz = 100.0 * (square(az) + square(bz)).pow(0.37) *
-                    ((ez.pow(0.
+                    ((ez.pow(0.068) * cond.ez_coeff) / cond.Mz_denom)
+
+            // Chroma
+            val Cz = 100.0 * (Mz / Qz_w)
+
+            /* Step 6 */
+            // Saturation
+            val Sz = 100.0 * cond.Sz_coeff * sqrt(Mz / Qz)
+
+            // Vividness, blackness, whiteness
+            val Vz = sqrt(square(Jz
