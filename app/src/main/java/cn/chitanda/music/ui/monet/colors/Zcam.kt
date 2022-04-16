@@ -233,4 +233,14 @@ data class Zcam(
 
             return Zcam(
                 brightness = Qz,
-                lightnes
+                lightness = Jz,
+                colorfulness = Mz,
+                chroma = Cz,
+                hueAngle = hp,
+
+                saturation = Sz,
+                vividness = Vz,
+                blackness = Kz,
+                whiteness = Wz,
+
+                viewingConditions
