@@ -243,4 +243,12 @@ data class Zcam(
                 blackness = Kz,
                 whiteness = Wz,
 
-                viewingConditions
+                viewingConditions = cond,
+            )
+        }
+
+        // TODO: move this somewhere else
+        fun CieXyz.toAbs(cond: ViewingConditions) = this * cond.whiteLuminance
+        fun CieXyz.toRel(cond: ViewingConditions) = this / cond.whiteLuminance
+    }
+}
