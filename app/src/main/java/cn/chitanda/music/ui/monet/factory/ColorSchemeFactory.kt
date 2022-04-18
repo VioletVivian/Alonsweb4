@@ -40,3 +40,35 @@ interface ColorSchemeFactory {
                         useLinearLightness = useLinearLightness,
                         cond = cond,
                     ),
+                    seedColor = color,
+                    chromaFactor = chromaFactor,
+                    cond = cond,
+                    accurateShades = accurateShades,
+                )
+            }
+        } else {
+            object : ColorSchemeFactory {
+                override fun getColor(color: Color) = DynamicMonetColor(
+                    targets = MaterialYouTargets(chromaFactor),
+                    seedColor = color,
+                    chromaFactor = chromaFactor,
+                    accurateShades = accurateShades,
+                )
+            }
+        }
+
+        fun createZcamViewingConditions(whiteLuminance: Double) = Zcam.ViewingConditions(
+            F_s = Zcam.ViewingConditions.SURROUND_AVERAGE,
+            // sRGB
+            L_a = 0.4 * whiteLuminance,
+            // Gray world
+            Y_b = CieLab(
+                L = 50.0,
+                a = 0.0,
+                b = 0.0,
+            ).toCieXyz().y * whiteLuminance,
+            referenceWhite = Illuminants.D65 * whiteLuminance,
+            whiteLuminance = whiteLuminance,
+        )
+    }
+}
