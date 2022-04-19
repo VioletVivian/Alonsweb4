@@ -19,4 +19,10 @@ class DynamicMonetColor(
     }
     private val seedAccent = seedNeutral
 
-    // Main accent
+    // Main accent color. Generally, this is close to the seed color.
+    override val accent1 by lazy(mode = LazyThreadSafetyMode.NONE) {
+        transformSwatch(targets.accent1, seedAccent, targets.accent1)
+    }
+
+    // Secondary accent color. Darker shades of accent1.
+    override val acc
