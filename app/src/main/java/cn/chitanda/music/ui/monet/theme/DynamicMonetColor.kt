@@ -10,4 +10,13 @@ import cn.chitanda.music.ui.monet.colors.Oklch.Companion.toOklch
 
 class DynamicMonetColor(
     targets: MonetColor,
-    seedColor
+    seedColor: Color,
+    chromaFactor: Double = 1.0,
+    private val accurateShades: Boolean = true,
+) : MonetColor() {
+    private val seedNeutral = seedColor.toLinearSrgb().toOklab().toOklch().let { lch ->
+        lch.copy(C = lch.C * chromaFactor)
+    }
+    private val seedAccent = seedNeutral
+
+    // Main accent
