@@ -31,4 +31,9 @@ class DynamicMonetColor(
 
     // Tertiary accent color. Seed color shifted to the next secondary color via hue offset.
     override val accent3 by lazy(mode = LazyThreadSafetyMode.NONE) {
-      
+        val seedA3 = seedAccent.copy(h = seedAccent.h + ACCENT3_HUE_SHIFT_DEGREES)
+        transformSwatch(targets.accent3, seedA3, targets.accent1)
+    }
+
+    // Main background color. Tinted with the seed color.
+    override val neutral1 by lazy(mode = LazyThread
