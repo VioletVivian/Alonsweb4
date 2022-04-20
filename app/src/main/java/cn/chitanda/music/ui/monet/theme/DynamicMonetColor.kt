@@ -25,4 +25,10 @@ class DynamicMonetColor(
     }
 
     // Secondary accent color. Darker shades of accent1.
-    override val acc
+    override val accent2 by lazy(mode = LazyThreadSafetyMode.NONE) {
+        transformSwatch(targets.accent2, seedAccent, targets.accent1)
+    }
+
+    // Tertiary accent color. Seed color shifted to the next secondary color via hue offset.
+    override val accent3 by lazy(mode = LazyThreadSafetyMode.NONE) {
+      
