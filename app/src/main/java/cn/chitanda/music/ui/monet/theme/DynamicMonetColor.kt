@@ -36,4 +36,10 @@ class DynamicMonetColor(
     }
 
     // Main background color. Tinted with the seed color.
-    override val neutral1 by lazy(mode = LazyThread
+    override val neutral1 by lazy(mode = LazyThreadSafetyMode.NONE) {
+        transformSwatch(targets.neutral1, seedNeutral, targets.neutral1)
+    }
+
+    // Secondary background color. Slightly tinted with the seed color.
+    override val neutral2 by lazy(mode = LazyThreadSafetyMode.NONE) {
+        transformSwatc
