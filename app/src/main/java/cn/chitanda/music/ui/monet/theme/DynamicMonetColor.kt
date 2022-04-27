@@ -51,4 +51,8 @@ class DynamicMonetColor(
         referenceSwatch: ColorSwatch,
     ): ColorSwatch {
         return swatch.map { (shade, color) ->
-           
+            val target = color as? Lch
+                ?: color.toLinearSrgb().toOklab().toOklch()
+            val reference = referenceSwatch[shade]!! as? Lch
+                ?: color.toLinearSrgb().toOklab().toOklch()
+            val newLch = transformColor(targ
