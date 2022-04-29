@@ -80,4 +80,14 @@ class DynamicMonetColor(
 
         return Oklch(L, C, h).toOklab().clipToLinearSrgb(
             method = if (accurateShades) {
-                // Pr
+                // Prefer lightness
+                OklabGamut.ClipMethod.PRESERVE_LIGHTNESS
+            } else {
+                // Prefer chroma
+                OklabGamut.ClipMethod.ADAPTIVE_TOWARDS_LCUSP
+            },
+            alpha = 5.0,
+        )
+    }
+
+    companio
