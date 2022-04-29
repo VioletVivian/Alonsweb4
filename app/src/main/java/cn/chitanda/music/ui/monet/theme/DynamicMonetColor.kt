@@ -72,4 +72,12 @@ class DynamicMonetColor(
             0.0
         } else {
             // Non-zero reference C = possible chroma scale
-            (seed.C.coerceIn(0.0, reference.C
+            (seed.C.coerceIn(0.0, reference.C) / reference.C)
+        }
+        val C = target.C * scaleC
+        // Use the seed color's hue, since it's the most prominent feature of the theme.
+        val h = seed.h
+
+        return Oklch(L, C, h).toOklab().clipToLinearSrgb(
+            method = if (accurateShades) {
+                // Pr
