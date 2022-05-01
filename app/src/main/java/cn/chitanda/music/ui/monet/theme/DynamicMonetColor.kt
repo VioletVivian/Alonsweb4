@@ -90,4 +90,9 @@ class DynamicMonetColor(
         )
     }
 
-    companio
+    companion object {
+        // Hue shift for the tertiary accent color (accent3), in degrees.
+        // 60 degrees = shifting by a secondary color
+        private const val ACCENT3_HUE_SHIFT_DEGREES = 60.0
+    }
+}
