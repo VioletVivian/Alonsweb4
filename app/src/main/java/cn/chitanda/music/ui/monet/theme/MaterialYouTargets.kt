@@ -24,4 +24,11 @@ class MaterialYouTargets(
             500 to 0.5624050605208273,
             600 to 0.48193149058901036,
             700 to 0.39417829080418526,
-   
+            800 to 0.3091856317280812,
+            900 to 0.22212874192541768,
+            1000 to 0.0,
+        )
+
+        // Accent chroma from Pixel defaults
+        // We use the most chromatic color as the reference
+        // cn.chitanda.music.A-1 chrom
