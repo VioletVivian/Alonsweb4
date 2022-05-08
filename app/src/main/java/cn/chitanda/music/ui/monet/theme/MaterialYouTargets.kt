@@ -34,4 +34,10 @@ class MaterialYouTargets(
         // cn.chitanda.music.A-1 chroma = avg(default Pixel Blue shades 100-900)
         // Excluding very bright variants (10, 50) to avoid light bias
         // cn.chitanda.music.A-1 > cn.chitanda.music.A-3 > cn.chitanda.music.A-2
-        private const val ACCENT1_CHROMA = 0.132812
+        private const val ACCENT1_CHROMA = 0.1328123146401862
+        private const val ACCENT2_CHROMA = ACCENT1_CHROMA / 3
+        private const val ACCENT3_CHROMA = ACCENT2_CHROMA * 2
+
+        // Neutral chroma derived from Google's CAM16 implementation
+        // N-2 > N-1
+        private const val NEUTRAL1
