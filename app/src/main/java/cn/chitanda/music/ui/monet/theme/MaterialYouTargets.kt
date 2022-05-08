@@ -31,4 +31,7 @@ class MaterialYouTargets(
 
         // Accent chroma from Pixel defaults
         // We use the most chromatic color as the reference
-        // cn.chitanda.music.A-1 chrom
+        // cn.chitanda.music.A-1 chroma = avg(default Pixel Blue shades 100-900)
+        // Excluding very bright variants (10, 50) to avoid light bias
+        // cn.chitanda.music.A-1 > cn.chitanda.music.A-3 > cn.chitanda.music.A-2
+        private const val ACCENT1_CHROMA = 0.132812
