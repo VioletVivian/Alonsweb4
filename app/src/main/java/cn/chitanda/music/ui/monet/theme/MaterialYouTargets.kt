@@ -40,4 +40,11 @@ class MaterialYouTargets(
 
         // Neutral chroma derived from Google's CAM16 implementation
         // N-2 > N-1
-        private const val NEUTRAL1
+        private const val NEUTRAL1_CHROMA = ACCENT1_CHROMA / 12
+        private const val NEUTRAL2_CHROMA = NEUTRAL1_CHROMA * 2
+    }
+
+    override val neutral1 = shadesWithChroma(NEUTRAL1_CHROMA)
+    override val neutral2 = shadesWithChroma(NEUTRAL2_CHROMA)
+
+    override val accent1 = shadesWithChroma(ACCENT1_CHROMA
