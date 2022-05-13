@@ -47,4 +47,10 @@ class MaterialYouTargets(
     override val neutral1 = shadesWithChroma(NEUTRAL1_CHROMA)
     override val neutral2 = shadesWithChroma(NEUTRAL2_CHROMA)
 
-    override val accent1 = shadesWithChroma(ACCENT1_CHROMA
+    override val accent1 = shadesWithChroma(ACCENT1_CHROMA)
+    override val accent2 = shadesWithChroma(ACCENT2_CHROMA)
+    override val accent3 = shadesWithChroma(ACCENT3_CHROMA)
+
+    private fun shadesWithChroma(chroma: Double): Map<Int, Color> {
+        // Adjusted chroma
+        val chromaAdj = chroma *
