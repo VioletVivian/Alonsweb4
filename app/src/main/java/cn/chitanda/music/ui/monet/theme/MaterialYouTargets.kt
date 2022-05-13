@@ -53,4 +53,10 @@ class MaterialYouTargets(
 
     private fun shadesWithChroma(chroma: Double): Map<Int, Color> {
         // Adjusted chroma
-        val chromaAdj = chroma *
+        val chromaAdj = chroma * chromaFactor
+
+        return LIGHTNESS_MAP.map {
+            it.key to Oklch(it.value, chromaAdj, 0.0)
+        }.toMap()
+    }
+}
