@@ -10,4 +10,12 @@ abstract class MonetColor {
 
     abstract val accent1: ColorSwatch
     abstract val accent2: ColorSwatch
-    abstract val accent3: ColorSwa
+    abstract val accent3: ColorSwatch
+
+    // Helpers
+    val neutralColors: List<ColorSwatch>
+        get() = listOf(neutral1, neutral2)
+    val accentColors: List<ColorSwatch>
+        get() = listOf(accent1, accent2, accent3)
+
+}
