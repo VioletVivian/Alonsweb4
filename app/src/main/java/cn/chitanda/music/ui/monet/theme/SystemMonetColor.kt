@@ -14,4 +14,11 @@ class SystemMonetColor(private val context: Context) : MonetColor() {
     override val neutral2 = getSwatch(NEUTRAL2_RES)
 
     private fun getSwatch(ids: Map<Int, Int>) = ids.map {
-        it.key to Srgb(context.g
+        it.key to Srgb(context.getColor(it.value))
+    }.toMap()
+
+    companion object {
+        val ACCENT1_RES = mapOf(
+            0 to android.R.color.system_accent1_0,
+            10 to android.R.color.system_accent1_10,
+            50 to android.R.color.system_accent1
