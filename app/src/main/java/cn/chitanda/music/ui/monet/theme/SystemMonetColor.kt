@@ -42,4 +42,9 @@ class SystemMonetColor(private val context: Context) : MonetColor() {
             200 to android.R.color.system_accent2_200,
             300 to android.R.color.system_accent2_300,
             400 to android.R.color.system_accent2_400,
-            500 to android.R.color.syste
+            500 to android.R.color.system_accent2_500,
+            600 to android.R.color.system_accent2_600,
+            700 to android.R.color.system_accent2_700,
+            800 to android.R.color.system_accent2_800,
+            900 to android.R.color.system_accent2_900,
+            1000 to andro
