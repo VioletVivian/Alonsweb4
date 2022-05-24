@@ -47,4 +47,11 @@ class SystemMonetColor(private val context: Context) : MonetColor() {
             700 to android.R.color.system_accent2_700,
             800 to android.R.color.system_accent2_800,
             900 to android.R.color.system_accent2_900,
-            1000 to andro
+            1000 to android.R.color.system_accent2_1000,
+        )
+
+        val ACCENT3_RES = mapOf(
+            0 to android.R.color.system_accent3_0,
+            10 to android.R.color.system_accent3_10,
+            50 to android.R.color.system_accent3_50,
+            10
