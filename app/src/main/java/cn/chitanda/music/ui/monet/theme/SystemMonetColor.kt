@@ -71,4 +71,8 @@ class SystemMonetColor(private val context: Context) : MonetColor() {
             10 to android.R.color.system_neutral1_10,
             50 to android.R.color.system_neutral1_50,
             100 to android.R.color.system_neutral1_100,
-            200 to android.R.color
+            200 to android.R.color.system_neutral1_200,
+            300 to android.R.color.system_neutral1_300,
+            400 to android.R.color.system_neutral1_400,
+            500 to android.R.color.system_neutral1_500,
+            600 to android.R.color.system_neutral1_60
