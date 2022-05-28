@@ -82,4 +82,9 @@ class SystemMonetColor(private val context: Context) : MonetColor() {
             1000 to android.R.color.system_neutral1_1000,
         )
 
-        val NEUTRAL2_RES =
+        val NEUTRAL2_RES = mapOf(
+            0 to android.R.color.system_neutral2_0,
+            10 to android.R.color.system_neutral2_10,
+            50 to android.R.color.system_neutral2_50,
+            100 to android.R.color.system_neutral2_100,
+            200 to android.R.color.system_neutral2
