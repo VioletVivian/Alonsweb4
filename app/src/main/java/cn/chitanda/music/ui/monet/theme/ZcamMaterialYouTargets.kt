@@ -98,3 +98,29 @@ class ZcamMaterialYouTargets(
     }
 
     private fun cielabL(l: Double) = CieLab(
+        L = l,
+        a = 0.0,
+        b = 0.0,
+    ).toCieXyz().toAbs(cond).toZcam(cond).lightness
+
+    private fun calcAccent1Chroma() = REF_ACCENT1_COLORS
+        .map { Srgb(it).toLinearSrgb().toCieXyz().toAbs(cond).toZcam(cond).chroma }
+        .average()
+
+    private fun shadesWithChroma(
+        chroma: Double,
+        lightnessMap: Map<Int, Double>,
+    ): Map<Int, Color> {
+        // Adjusted chroma
+        val chromaAdj = chroma * chromaFactor
+
+        return lightnessMap.map {
+            it.key to Zcam(
+                lightness = it.value,
+                chroma = chromaAdj,
+                hueAngle = 0.0,
+                viewingConditions = cond,
+            )
+        }.toMap()
+    }
+}
