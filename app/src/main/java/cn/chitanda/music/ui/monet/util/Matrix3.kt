@@ -26,3 +26,8 @@ value class Matrix3(
         )
     }
 
+    operator fun times(matrix: Matrix3) = values.let { lhs ->
+        matrix.values.let { rhs ->
+            Matrix3(
+                lhs[0] * rhs[0] + lhs[3] * rhs[1] + lhs[6] * rhs[2],
+                lhs[1] * rhs[0] + lhs[4] * rhs[1] + lhs[7] 
