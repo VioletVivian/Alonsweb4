@@ -34,4 +34,12 @@ value class Matrix3(
                 lhs[2] * rhs[0] + lhs[5] * rhs[1] + lhs[8] * rhs[2],
                 lhs[0] * rhs[3] + lhs[3] * rhs[4] + lhs[6] * rhs[5],
                 lhs[1] * rhs[3] + lhs[4] * rhs[4] + lhs[7] * rhs[5],
-                lhs[2] * rhs[3] +
+                lhs[2] * rhs[3] + lhs[5] * rhs[4] + lhs[8] * rhs[5],
+                lhs[0] * rhs[6] + lhs[3] * rhs[7] + lhs[6] * rhs[8],
+                lhs[1] * rhs[6] + lhs[4] * rhs[7] + lhs[7] * rhs[8],
+                lhs[2] * rhs[6] + lhs[5] * rhs[7] + lhs[8] * rhs[8],
+            )
+        }
+    }
+
+    fun transpose()
