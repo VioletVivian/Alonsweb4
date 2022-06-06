@@ -42,4 +42,17 @@ value class Matrix3(
         }
     }
 
-    fun transpose()
+    fun transpose() = values.let { m ->
+        Matrix3(
+            m[0], m[3], m[6],
+            m[1], m[4], m[7],
+            m[2], m[5], m[8],
+        )
+    }
+
+    fun inv(): Matrix3 {
+        val (a, d, g, b, e, h, c, f, i) = this
+
+        val A = e * i - f * h
+        val B = f * g - d * i
+ 
