@@ -55,4 +55,13 @@ value class Matrix3(
 
         val A = e * i - f * h
         val B = f * g - d * i
- 
+        val C = d * h - e * g
+        val det = a * A + b * B + c * C
+
+        return Matrix3(
+            A / det,
+            B / det,
+            C / det,
+            (c * h - b * i) / det,
+            (a * i - c * g) / det,
+            (b * g - a * h) / d
