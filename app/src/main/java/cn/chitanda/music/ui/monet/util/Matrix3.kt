@@ -64,4 +64,13 @@ value class Matrix3(
             C / det,
             (c * h - b * i) / det,
             (a * i - c * g) / det,
-            (b * g - a * h) / d
+            (b * g - a * h) / det,
+            (b * f - c * e) / det,
+            (c * d - a * f) / det,
+            (a * e - b * d) / det,
+        )
+    }
+
+    operator fun component1() = values[0]
+    operator fun component2() = values[1]
+    operator fun component3() 
