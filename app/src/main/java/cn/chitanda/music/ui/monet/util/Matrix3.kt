@@ -73,4 +73,11 @@ value class Matrix3(
 
     operator fun component1() = values[0]
     operator fun component2() = values[1]
-    operator fun component3() 
+    operator fun component3() = values[2]
+    operator fun component4() = values[3]
+    operator fun component5() = values[4]
+    operator fun component6() = values[5]
+    operator fun component7() = values[6]
+    operator fun component8() = values[7]
+    operator fun component9() = values[8]
+}
