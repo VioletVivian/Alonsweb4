@@ -33,3 +33,8 @@ value class Vector3(
             0.0, 0.0, n3,
         )
     }
+
+    operator fun component1() = values[0]
+    operator fun component2() = values[1]
+    operator fun component3() = values[2]
+}
