@@ -17,4 +17,16 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-im
+import javax.inject.Inject
+
+/**
+ *@author: Chen
+ *@createTime: 2021/8/31 16:06
+ *@description:
+ **/
+private const val TAG = "UserViewModel"
+
+@HiltViewModel
+class LocaleUserViewModel @Inject constructor(
+    private val userRepository: UserRepository,
+    private val pref
