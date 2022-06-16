@@ -29,4 +29,9 @@ private const val TAG = "UserViewModel"
 @HiltViewModel
 class LocaleUserViewModel @Inject constructor(
     private val userRepository: UserRepository,
-    private val pref
+    private val preferenceManager: PreferenceManager
+) : ViewModel() {
+    val uid: String get() = preferenceManager.uid
+    private val _user = MutableStateFlow<RequestStatus<UserProfile>>(RequestStatus())
+    val user: StateFlow<RequestStatus<UserProfile>>
+ 
