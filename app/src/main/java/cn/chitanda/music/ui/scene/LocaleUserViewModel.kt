@@ -34,4 +34,9 @@ class LocaleUserViewModel @Inject constructor(
     val uid: String get() = preferenceManager.uid
     private val _user = MutableStateFlow<RequestStatus<UserProfile>>(RequestStatus())
     val user: StateFlow<RequestStatus<UserProfile>>
- 
+        get() = _user
+    private val _isReady = mutableStateOf(Build.VERSION.SDK_INT < Build.VERSION_CODES.S)
+    val isReady: State<Boolean> get() = _isReady
+    private var _loginSuccess = false
+    val loginSuccess: Boolean
+        get() = _loginSucce
