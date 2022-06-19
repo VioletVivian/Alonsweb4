@@ -47,4 +47,9 @@ class LocaleUserViewModel @Inject constructor(
     init {
         if (!isReady.value) {
             viewModelScope.launch(Dispatchers.IO) {
-   
+                if (uid.isNotEmpty()) userRepository.fetchUserInfo(_user)?.let {
+                    _loginSuccess = it.code == 200
+                }
+                withContext(Dispatchers.Main) {
+                    _isReady.value = true
+            
