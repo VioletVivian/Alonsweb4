@@ -39,4 +39,12 @@ class LocaleUserViewModel @Inject constructor(
     val isReady: State<Boolean> get() = _isReady
     private var _loginSuccess = false
     val loginSuccess: Boolean
-        get() = _loginSucce
+        get() = _loginSuccess
+
+    private val _playlist = MutableStateFlow<RequestStatus<PlaylistJson>>(RequestStatus())
+    val playlist: StateFlow<RequestStatus<PlaylistJson>> get() = _playlist
+
+    init {
+        if (!isReady.value) {
+            viewModelScope.launch(Dispatchers.IO) {
+   
