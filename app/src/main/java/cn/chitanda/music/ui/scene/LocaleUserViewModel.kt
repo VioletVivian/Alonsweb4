@@ -52,4 +52,16 @@ class LocaleUserViewModel @Inject constructor(
                 }
                 withContext(Dispatchers.Main) {
                     _isReady.value = true
-            
+                }
+            }
+        }
+    }
+
+    fun login(username: String, password: String) {
+        viewModelScope.launch(Dispatchers.IO) {
+            userRepository.loginWithPassword(username, password)
+        }
+    }
+
+    fun logout() {
+        pref
