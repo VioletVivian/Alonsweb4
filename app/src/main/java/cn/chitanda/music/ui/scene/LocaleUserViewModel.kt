@@ -64,4 +64,15 @@ class LocaleUserViewModel @Inject constructor(
     }
 
     fun logout() {
-        pref
+        preferenceManager.uid = ""
+        preferenceManager.cookies = ""
+    }
+
+    fun fetchUserInfo() {
+        viewModelScope.launch(Dispatchers.IO) {
+            userRepository.fetchUserInfo(_user)
+        }
+    }
+
+    fun refreshLoginStatus() {
+        viewModelScope.launch(Dispatchers.I
