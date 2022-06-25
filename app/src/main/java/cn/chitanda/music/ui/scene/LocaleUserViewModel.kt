@@ -75,4 +75,12 @@ class LocaleUserViewModel @Inject constructor(
     }
 
     fun refreshLoginStatus() {
-        viewModelScope.launch(Dispatchers.I
+        viewModelScope.launch(Dispatchers.IO) {
+            userRepository.refreshLoginStatus()
+        }
+    }
+
+    fun getUserPlayList(uid: String = this.uid) {
+        Log.d(TAG, "getUserPlayList: ${this.uid}")
+        viewModelScope.launch(Dispatchers.IO) {
+            userRepository.getUserP
