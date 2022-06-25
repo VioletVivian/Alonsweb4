@@ -83,4 +83,9 @@ class LocaleUserViewModel @Inject constructor(
     fun getUserPlayList(uid: String = this.uid) {
         Log.d(TAG, "getUserPlayList: ${this.uid}")
         viewModelScope.launch(Dispatchers.IO) {
-            userRepository.getUserP
+            userRepository.getUserPlayList(
+                uid = uid, _playlist
+            )
+        }
+    }
+}
