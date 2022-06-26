@@ -6,4 +6,10 @@ package cn.chitanda.music.ui.scene
  * @description:
  **/
 sealed class PageState {
-    object Loading : PageSta
+    object Loading : PageState()
+    object Success : PageState()
+    object Empty : PageState()
+    data class Error(val tr: Throwable) : PageState()
+}
+
+val PageState.isLoading: Boolean get() = this == PageState.Loading
