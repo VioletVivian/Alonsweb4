@@ -277,3 +277,231 @@ fun HomeRoundIconList(
                         ),
                     contentDescription = item.name,
                     colorFilter = ColorFilter.tint(MaterialTheme.colorScheme.onSurfaceVariant)
+                )
+                Spacer(modifier = Modifier.size(4.dp))
+                Text(text = item.name, style = MaterialTheme.typography.labelSmall)
+            }
+        }
+    }
+}
+
+@ExperimentalCoilApi
+@Composable
+fun RecommendPlayList(
+    data: Pair<HomeData.Data.Block.UiElement?, List<HomeData.Data.Block.Creative.Resource>>,
+    modifier: Modifier = Modifier,
+    contentPadding: PaddingValues = PaddingValues(0.dp)
+) {
+    val list = data.second
+    if (list.isEmpty()) return
+    TitleColumn(
+        modifier = modifier,
+        title = data.first?.subTitle?.title.toString(),
+        buttonText = data.first?.button?.text,
+        contentPadding = contentPadding
+    ) { padding ->
+        LazyRow(modifier = Modifier.fillMaxWidth(), contentPadding = padding) {
+            itemsIndexed(list) { i, resource ->
+                Column(
+                    Modifier
+                        .padding(end = if (i != list.lastIndex) 16.dp else 0.dp)
+                        .width(110.dp), horizontalAlignment = Alignment.CenterHorizontally
+                ) {
+                    Box(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .aspectRatio(1f)
+                    ) {
+                        AsyncImage(
+                            model = resource.uiElement?.image?.imageUrl,
+                            contentDescription = resource.resourceType,
+                            modifier = Modifier
+                                .fillMaxSize()
+                                .clip(RoundedCornerShape(8.dp)),
+                        )
+                        PlayCount(
+                            modifier = Modifier
+                                .padding(top = 4.dp, end = 4.dp)
+                                .align(Alignment.TopEnd),
+                            playCount = resource.resourceExtInfo?.playCount ?: 0
+                        )
+                    }
+                    Spacer(
+                        modifier = Modifier
+                            .size(8.dp)
+                    )
+                    Text(
+                        text = resource.uiElement?.mainTitle?.title.toString(),
+                        style = MaterialTheme.typography.labelMedium, maxLines = 2,
+                        overflow = TextOverflow.Ellipsis
+                    )
+                }
+            }
+
+        }
+    }
+}
+
+@Composable
+fun PlayCount(modifier: Modifier, playCount: Long) {
+    Surface(
+        modifier = modifier,
+        shape = RoundedCornerShape(16.dp),
+        color = MaterialTheme.colorScheme.primary.copy(alpha = 0.3f),
+        contentColor = Color.White,
+    ) {
+        Row(
+            modifier = Modifier.padding(vertical = 1.dp, horizontal = 4.dp),
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            Icon(
+                Icons.Default.PlayArrow,
+                contentDescription = null,
+                Modifier.size(16.dp)
+            )
+            Spacer(modifier = Modifier.width(4.dp))
+            Text(
+                text = playCount.toUnitString(),
+                style = MaterialTheme.typography.labelSmall
+            )
+        }
+    }
+}
+
+@ExperimentalCoilApi
+@Composable
+fun RecommendSongList(
+    data: Pair<HomeData.Data.Block.UiElement?, List<HomeData.Data.Block.Creative>>,
+    modifier: Modifier,
+    contentPadding: PaddingValues
+) {
+    val songs = data.second
+    if (songs.isEmpty()) return
+    TitleColumn(
+        modifier = modifier,
+        title = data.first?.subTitle?.title.toString(),
+        buttonText = data.first?.button?.text.toString(),
+        contentPadding = contentPadding
+    ) { padding ->
+        var itemWidth by remember {
+            mutableStateOf(IntSize.Zero.width)
+        }
+        LazyRow(
+            Modifier
+                .fillMaxWidth()
+                .onSizeChanged {
+                    itemWidth = it.width
+                },
+            contentPadding = padding
+        ) {
+            if (itemWidth > IntSize.Zero.width) {
+                songs.forEach { song ->
+                    item {
+                        Column(Modifier.width(with(LocalDensity.current) { itemWidth.toDp() * 0.9f })) {
+                            song.resources?.forEachIndexed { i, r ->
+                                SongItem(
+                                    song = r,
+                                    modifier = Modifier
+                                        .fillMaxWidth()
+                                        .padding(end = 16.dp),
+                                    i < song.resources.lastIndex
+                                )
+                                if (i < song.resources.lastIndex) {
+                                    Spacer(modifier = Modifier.height(8.dp))
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+    }
+}
+
+
+@ExperimentalCoilApi
+@Composable
+fun MLogList(
+    data: Pair<HomeData.Data.Block.UiElement?, List<MLogExtInfo>>,
+    modifier: Modifier,
+    contentPadding: PaddingValues
+) {
+    val mLogs = data.second
+    if (mLogs.isEmpty()) return
+    TitleColumn(
+        modifier = modifier,
+        title = data.first?.subTitle?.title.toString(),
+        buttonText = data.first?.button?.text.toString(),
+        contentPadding = contentPadding
+    ) { padding ->
+        LazyRow(modifier = Modifier.fillMaxWidth(), contentPadding = padding) {
+            itemsIndexed(mLogs) { i, mLog ->
+                MLogItem(
+                    modifier = Modifier
+                        .padding(end = if (i < mLogs.lastIndex) 16.dp else 0.dp)
+                        .width(120.dp),
+                    data = mLog.resource
+                )
+            }
+        }
+
+    }
+}
+
+@ExperimentalCoilApi
+@Composable
+fun MLogItem(
+    modifier: Modifier = Modifier,
+    data: MLogExtInfo.Resource,
+) {
+    Column(modifier = modifier) {
+        Box(
+            modifier = Modifier
+                .fillMaxWidth()
+                .aspectRatio(0.75f)
+        ) {
+            AsyncImage(
+                model = data.mlogBaseData?.coverUrl,
+                modifier = Modifier.fillMaxSize(),
+                contentDescription = null
+            )
+            PlayCount(
+                modifier = Modifier
+                    .padding(top = 4.dp, end = 4.dp)
+                    .align(Alignment.TopEnd),
+                playCount = data.mlogExtVO?.playCount ?: 0
+            )
+        }
+        Spacer(modifier = Modifier.height(8.dp))
+        Text(
+            text = data.mlogBaseData?.text.toString(),
+            style = MaterialTheme.typography.labelMedium,
+            maxLines = if (data.mlogExtVO?.specialTag.isNullOrEmpty()) 2 else 1,
+            overflow = TextOverflow.Ellipsis
+        )
+        data.mlogExtVO?.specialTag?.let { TagText(tag = it) }
+    }
+}
+
+@ExperimentalCoilApi
+@Composable
+fun SongItem(
+    song: HomeData.Data.Block.Creative.Resource,
+    modifier: Modifier = Modifier,
+    showSpacer: Boolean
+) {
+    Column(modifier = modifier) {
+        Row(
+            modifier = Modifier.fillMaxWidth(),
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            AsyncImage(
+                model = song.uiElement?.image?.imageUrl,
+                contentDescription = null,
+                modifier = Modifier
+                    .size(50.dp)
+                    .clip(RoundedCornerShape(8.dp))
+            )
+            Spacer(modifier = Modifier.width(8.dp))
+            Column(
