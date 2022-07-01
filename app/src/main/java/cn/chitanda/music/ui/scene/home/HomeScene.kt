@@ -505,3 +505,120 @@ fun SongItem(
             )
             Spacer(modifier = Modifier.width(8.dp))
             Column(
+                verticalArrangement = Arrangement.SpaceAround,
+                modifier = Modifier.height(50.dp)
+            ) {
+                Row(verticalAlignment = Alignment.CenterVertically) {
+                    Text(
+                        text = song.uiElement?.mainTitle?.title.toString(),
+                        style = MaterialTheme.typography.labelLarge,
+                        maxLines = 1,
+                        overflow = TextOverflow.Ellipsis
+                    )
+                    Spacer(modifier = Modifier.width(4.dp))
+                    val artists =
+                        song.resourceExtInfo?.artists?.joinToString(separator = "/") { it.name.toString() }
+                    val style = MaterialTheme.typography.labelSmall
+                    Text(
+                        text = "- $artists",
+                        style = style.copy(style.color.copy(alpha = 0.4f)),
+                        maxLines = 1
+                    )
+                }
+                song.uiElement?.subTitle?.title?.let {
+                    val style = MaterialTheme.typography.labelMedium
+                    when (song.uiElement.subTitle.titleType) {
+                        SubTitleType.FromComment -> {
+                            Text(
+                                text = it,
+                                style = style.copy(style.color.copy(alpha = 0.6f)),
+                                maxLines = 1, overflow = TextOverflow.Ellipsis
+                            )
+                        }
+                        SubTitleType.TAG -> {
+                            TagText(tag = it)
+                        }
+                    }
+                }
+            }
+        }
+        if (showSpacer) {
+            Spacer(
+                modifier = Modifier
+                    .padding(start = 60.dp, top = 8.dp)
+                    .fillMaxWidth()
+                    .height(0.5.dp)
+                    .background(Color.LightGray.copy(alpha = 0.5f))
+            )
+        }
+    }
+}
+
+@Composable
+fun TagText(modifier: Modifier = Modifier, tag: String) {
+    Text(
+        text = tag,
+        style = MaterialTheme.typography.labelSmall.copy(
+            color = MaterialTheme.colorScheme.tertiary
+        ),
+        maxLines = 1, overflow = TextOverflow.Ellipsis,
+        modifier = modifier then Modifier
+            .background(
+                color = MaterialTheme.colorScheme.tertiary.copy(alpha = 0.1f),
+                shape = RoundedCornerShape(4.dp)
+            )
+            .padding(vertical = 2.dp, horizontal = 4.dp)
+    )
+}
+
+@Composable
+fun TitleColumn(
+    modifier: Modifier = Modifier,
+    contentPadding: PaddingValues = PaddingValues(0.dp),
+    title: String,
+    buttonText: String?,
+    content: @Composable (PaddingValues) -> Unit
+) {
+    Surface(
+        modifier = modifier,
+        shape = Shapes.medium,
+        color = MaterialTheme.colorScheme.surfaceVariant
+    ) {
+        Column {
+            Row(
+                Modifier
+                    .fillMaxWidth()
+                    .padding(
+                        horizontal = contentPadding.calculateStartPadding(
+                            LocalLayoutDirection.current
+                        )
+                    ),
+                horizontalArrangement = Arrangement.SpaceBetween,
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Text(
+                    text = title,
+                    style = MaterialTheme.typography.headlineSmall
+                )
+                buttonText?.let {
+                    TextButton(
+                        modifier = Modifier.defaultMinSize(48.dp, 20.dp),
+                        onClick = { },
+                        border = BorderStroke(
+                            0.5.dp,
+                            MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.12f)
+                        ),
+                        shape = RoundedCornerShape(16.dp),
+//                    contentPadding = PaddingValues(vertical = 2.dp, horizontal = 4.dp)
+                    ) {
+                        Text(
+                            text = it,
+                            style = MaterialTheme.typography.labelMedium,
+                        )
+                    }
+                }
+            }
+            content(contentPadding)
+        }
+    }
+}
