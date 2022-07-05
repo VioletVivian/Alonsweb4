@@ -28,3 +28,13 @@ class HomeSceneViewModel @Inject constructor(
     val viewState= _viewState.asStateFlow()
 
     fun loadHomeData(refresh: Boolean = true) = launchFlow<HomeViewState> {
+        onEmit = {
+            delay(1000L)
+            homeRepository.loadHomeData(refresh)
+        }
+        onStart = {
+            _viewState.setStat { copy(state = PageState.Loading) }
+        }
+        onEach = {
+            _viewState.setStat {
+              
