@@ -20,4 +20,11 @@ import javax.inject.Inject
 private const val TAG = "HomeSceneViewModel"
 
 @HiltViewModel
-class HomeSceneViewMode
+class HomeSceneViewModel @Inject constructor(
+    private val homeRepository: HomeRepository
+) : ViewModel() {
+
+    private val _viewState = MutableStateFlow(HomeViewState())
+    val viewState= _viewState.asStateFlow()
+
+    fun loadHomeData(refresh: Boolean = true) = launchFlow<HomeViewState> {
