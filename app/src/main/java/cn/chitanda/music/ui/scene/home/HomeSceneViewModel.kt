@@ -37,4 +37,11 @@ class HomeSceneViewModel @Inject constructor(
         }
         onEach = {
             _viewState.setStat {
-              
+                copy(
+                    banner = it.banner,
+                    icons = it.icons,
+                    playlist = it.playlist,
+                    mLog = it.mLog,
+                    songList = it.songList,
+                    state = it.state
+            
