@@ -44,4 +44,13 @@ class HomeSceneViewModel @Inject constructor(
                     mLog = it.mLog,
                     songList = it.songList,
                     state = it.state
-            
+                )
+            }
+        }
+        onError = { e ->
+            _viewState.setStat {
+                copy(state = PageState.Error(e))
+            }
+        }
+    }
+}
