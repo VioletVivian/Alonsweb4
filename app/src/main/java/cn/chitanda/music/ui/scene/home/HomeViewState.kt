@@ -8,4 +8,10 @@ import cn.chitanda.music.ui.scene.PageState
 
 /**
  * @author: Chen
- * @createTime: 2022/1/5 15:1
+ * @createTime: 2022/1/5 15:17
+ * @description:
+ **/
+data class HomeViewState(
+    val banner: List<HomeBanner.Banner> = emptyList(),
+    val icons: List<HomeRoundIcon> = emptyList(),
+    val playlist: Pair<HomeData.Data.Block.UiElement?, List<HomeData.Data.Block.Creative.Re
