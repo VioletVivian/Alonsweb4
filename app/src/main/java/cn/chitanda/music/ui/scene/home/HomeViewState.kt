@@ -14,4 +14,11 @@ import cn.chitanda.music.ui.scene.PageState
 data class HomeViewState(
     val banner: List<HomeBanner.Banner> = emptyList(),
     val icons: List<HomeRoundIcon> = emptyList(),
-    val playlist: Pair<HomeData.Data.Block.UiElement?, List<HomeData.Data.Block.Creative.Re
+    val playlist: Pair<HomeData.Data.Block.UiElement?, List<HomeData.Data.Block.Creative.Resource>> = Pair(
+        HomeData.Data.Block.UiElement(),
+        emptyList()
+    ),
+    val mLog: Pair<HomeData.Data.Block.UiElement?, List<MLogExtInfo>> = Pair(
+        HomeData.Data.Block.UiElement(), emptyList()
+    ),
+    val songList: Pair<HomeData.Data.Block.UiElem
