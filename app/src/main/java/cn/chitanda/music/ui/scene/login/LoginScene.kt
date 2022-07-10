@@ -106,3 +106,78 @@ fun LoginScene(
                     onValueChange = {
                         accountName = it
                     },
+                    label = {
+                        Text(text = stringResource(R.string.text_enter_phone_number))
+                    },
+                    singleLine = true,
+                    keyboardOptions = KeyboardOptions(
+                        keyboardType = KeyboardType.Phone,
+                        imeAction = ImeAction.Next
+                    ),
+                    modifier = Modifier.fillMaxWidth()
+                )
+                OutlinedTextField(
+                    value = password, onValueChange = {
+                        password = it
+                    }, singleLine = true,
+                    label = {
+                        Text(text = stringResource(R.string.text_enter_password))
+                    },
+                    visualTransformation = PasswordVisualTransformation(),
+                    keyboardOptions = KeyboardOptions(
+                        keyboardType = KeyboardType.Password,
+                        imeAction = ImeAction.Done
+                    ), keyboardActions = KeyboardActions {
+                        focusManager.clearFocus()
+                        if (accountName.isNotEmpty() && password.isNotEmpty()) {
+                            viewModel.login(username = accountName, password = password)
+                        }
+                    }, modifier = Modifier.fillMaxWidth()
+                )
+                Button(shape = RoundedCornerShape(30.dp), onClick = {
+                    focusManager.clearFocus()
+                    if (accountName.isNotEmpty() && password.isNotEmpty()) {
+                        viewModel.login(username = accountName, password = password)
+                    }
+                }) {
+                    Text(text = "Login", fontSize = 18.sp)
+                }
+            }
+        }
+    }
+
+    if (showLoading) {
+        Dialog(onDismissRequest = {
+        }) {
+            CircularProgressIndicator()
+        }
+    }
+
+    LaunchedEffect(key1 = login) {
+        when (login.status) {
+            DataState.STATE_LOADING -> {
+                showLoading = true
+            }
+            DataState.STATE_SUCCESS -> {
+                showLoading = false
+                userViewModel.fetchUserInfo()
+                Toast.makeText(cxt, "login success", Toast.LENGTH_SHORT).show()
+                navController.navigate(Scene.Main.id) {
+                    popUpTo(Scene.Login.id) { inclusive = true }
+                }
+            }
+            DataState.STATE_FAILED -> {
+                showLoading = false
+                Toast.makeText(cxt, login.msg.toString(), Toast.LENGTH_SHORT).show()
+            }
+            DataState.STATE_ERROR -> {
+                showLoading = false
+                Toast.makeText(cxt, login.error.toString(), Toast.LENGTH_SHORT).show()
+            }
+            else -> {
+            }
+        }
+    }
+}
+
+private const val TAG = "LoginScene"
