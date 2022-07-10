@@ -21,4 +21,8 @@ data class HomeViewState(
     val mLog: Pair<HomeData.Data.Block.UiElement?, List<MLogExtInfo>> = Pair(
         HomeData.Data.Block.UiElement(), emptyList()
     ),
-    val songList: Pair<HomeData.Data.Block.UiElem
+    val songList: Pair<HomeData.Data.Block.UiElement?, List<HomeData.Data.Block.Creative>> = Pair(
+        HomeData.Data.Block.UiElement(), emptyList()
+    ),
+    val state: PageState = PageState.Empty
+)
