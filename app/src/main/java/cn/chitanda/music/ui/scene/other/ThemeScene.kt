@@ -44,4 +44,9 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
-import cn
+import cn.chitanda.music.ui.LocalThemeViewModel
+import cn.chitanda.music.ui.monet.theme.MonetColor
+import cn.chitanda.music.ui.scene.ThemeViewModel
+import cn.chitanda.music.ui.scene.main.MainPageItem
+import cn.chitanda.music.ui.theme.MusicTheme
+import cn.chitanda.music.ui.widget.
