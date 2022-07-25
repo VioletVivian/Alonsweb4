@@ -62,4 +62,8 @@ import kotlin.math.roundToInt
 @ExperimentalMaterial3Api
 @Composable
 fun ThemeScene() {
-    val themeViewModel = hiltViewModel<ThemeV
+    val themeViewModel = hiltViewModel<ThemeViewModel>()
+    val primary by themeViewModel.monetColor
+    Scaffold {
+        Column(Modifier.fillMaxWidth(), horizontalAlignment = Alignment.CenterHorizontally) {
+            Spacer(modifier = Modifier.windowInsetsTopHeight(WindowInsets.status
