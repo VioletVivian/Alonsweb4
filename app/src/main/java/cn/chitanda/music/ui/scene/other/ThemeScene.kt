@@ -49,4 +49,17 @@ import cn.chitanda.music.ui.monet.theme.MonetColor
 import cn.chitanda.music.ui.scene.ThemeViewModel
 import cn.chitanda.music.ui.scene.main.MainPageItem
 import cn.chitanda.music.ui.theme.MusicTheme
-import cn.chitanda.music.ui.widget.
+import cn.chitanda.music.ui.widget.navbar.BottomNavigationBar
+import kotlinx.coroutines.delay
+import java.util.*
+import kotlin.math.roundToInt
+
+/**
+ * @author: Chen
+ * @createTime: 2021/12/20 6:15 下午
+ * @description:
+ **/
+@ExperimentalMaterial3Api
+@Composable
+fun ThemeScene() {
+    val themeViewModel = hiltViewModel<ThemeV
