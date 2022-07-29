@@ -66,4 +66,12 @@ fun ThemeScene() {
     val primary by themeViewModel.monetColor
     Scaffold {
         Column(Modifier.fillMaxWidth(), horizontalAlignment = Alignment.CenterHorizontally) {
-            Spacer(modifier = Modifier.windowInsetsTopHeight(WindowInsets.status
+            Spacer(modifier = Modifier.windowInsetsTopHeight(WindowInsets.statusBars))
+            ColorPicker(themeViewModel, MaterialTheme.colorScheme.primary)
+            ThemePreview(
+                modifier = Modifier
+                    .fillMaxWidth(0.8f)
+                    .weight(1f)
+                    .padding(vertical = 36.dp),
+                color = primary
+   
