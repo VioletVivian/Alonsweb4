@@ -74,4 +74,17 @@ fun ThemeScene() {
                     .weight(1f)
                     .padding(vertical = 36.dp),
                 color = primary
-   
+            )
+
+        }
+    }
+}
+
+@ExperimentalMaterial3Api
+@Composable
+fun ThemePreview(modifier: Modifier = Modifier, color: MonetColor?) {
+    MusicTheme(color) {
+        Scaffold(
+            modifier,
+            topBar = {
+                SmallTopAp
