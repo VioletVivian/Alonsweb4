@@ -87,4 +87,11 @@ fun ThemePreview(modifier: Modifier = Modifier, color: MonetColor?) {
         Scaffold(
             modifier,
             topBar = {
-                SmallTopAp
+                SmallTopAppBar(title = {
+                    Text(text = "ThemePreview")
+                })
+            },
+            floatingActionButton = {
+                FloatingActionButton(
+                    onClick = { }) {
+                    Icon(imageVect
