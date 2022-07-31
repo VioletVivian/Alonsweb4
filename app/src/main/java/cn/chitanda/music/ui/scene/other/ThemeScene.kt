@@ -100,4 +100,9 @@ fun ThemePreview(modifier: Modifier = Modifier, color: MonetColor?) {
             bottomBar = {
                 val list =
                     remember { listOf(MainPageItem.Find, MainPageItem.Message, MainPageItem.Mine) }
-                var currentPage by reme
+                var currentPage by remember {
+                    mutableStateOf<MainPageItem>(MainPageItem.Find)
+                }
+                NavigationBar {
+                    list.forEach { scene ->
+                        NavigationBarItem(selected = currentPage == scene, onClick = 
