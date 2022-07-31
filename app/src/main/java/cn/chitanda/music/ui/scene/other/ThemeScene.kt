@@ -94,4 +94,10 @@ fun ThemePreview(modifier: Modifier = Modifier, color: MonetColor?) {
             floatingActionButton = {
                 FloatingActionButton(
                     onClick = { }) {
-                    Icon(imageVect
+                    Icon(imageVector = Icons.Default.Add, contentDescription = null)
+                }
+            },
+            bottomBar = {
+                val list =
+                    remember { listOf(MainPageItem.Find, MainPageItem.Message, MainPageItem.Mine) }
+                var currentPage by reme
