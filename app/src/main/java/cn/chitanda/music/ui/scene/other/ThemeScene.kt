@@ -105,4 +105,10 @@ fun ThemePreview(modifier: Modifier = Modifier, color: MonetColor?) {
                 }
                 NavigationBar {
                     list.forEach { scene ->
-                        NavigationBarItem(selected = currentPage == scene, onClick = 
+                        NavigationBarItem(selected = currentPage == scene, onClick = {
+                            currentPage = scene
+                        }, icon = {
+                            Icon(
+                                painter = painterResource(id = scene.icon),
+                                contentDescription = null
+      
