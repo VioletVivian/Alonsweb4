@@ -111,4 +111,12 @@ fun ThemePreview(modifier: Modifier = Modifier, color: MonetColor?) {
                             Icon(
                                 painter = painterResource(id = scene.icon),
                                 contentDescription = null
-      
+                            )
+                        }, label = {
+                            Text(text = stringResource(id = scene.label))
+                        }, alwaysShowLabel = true)
+                    }
+
+                }
+            }
+    
