@@ -119,4 +119,11 @@ fun ThemePreview(modifier: Modifier = Modifier, color: MonetColor?) {
 
                 }
             }
-    
+        ) {
+            val colors = MaterialTheme.colorScheme.toList()
+            LazyColumn(
+                modifier = Modifier.fillMaxWidth(),
+                contentPadding = it
+            ) {
+                items(colors) { item ->
+                    ColorItem(col
