@@ -126,4 +126,15 @@ fun ThemePreview(modifier: Modifier = Modifier, color: MonetColor?) {
                 contentPadding = it
             ) {
                 items(colors) { item ->
-                    ColorItem(col
+                    ColorItem(color = item.first, name = item.second)
+                }
+            }
+        }
+    }
+}
+
+@Composable
+fun ColorPicker(themeViewModel: ThemeViewModel, themeColor: Color) {
+    val globalThemeViewModel = LocalThemeViewModel.current
+    var red by remember {
+        mutable
