@@ -137,4 +137,12 @@ fun ThemePreview(modifier: Modifier = Modifier, color: MonetColor?) {
 fun ColorPicker(themeViewModel: ThemeViewModel, themeColor: Color) {
     val globalThemeViewModel = LocalThemeViewModel.current
     var red by remember {
-        mutable
+        mutableStateOf((255 * themeColor.red).roundToInt())
+    }
+    var green by remember {
+        mutableStateOf((255 * themeColor.green).roundToInt())
+    }
+    var blue by remember {
+        mutableStateOf((255 * themeColor.blue).roundToInt())
+    }
+    val color = Color(red, green
