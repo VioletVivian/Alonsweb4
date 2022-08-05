@@ -145,4 +145,14 @@ fun ColorPicker(themeViewModel: ThemeViewModel, themeColor: Color) {
     var blue by remember {
         mutableStateOf((255 * themeColor.blue).roundToInt())
     }
-    val color = Color(red, green
+    val color = Color(red, green, blue)
+    Column(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(horizontal = 24.dp)
+    ) {
+        Row(
+            verticalAlignment = Alignment.CenterVertically,
+
+            modifier = Modifier
+             
