@@ -155,4 +155,11 @@ fun ColorPicker(themeViewModel: ThemeViewModel, themeColor: Color) {
             verticalAlignment = Alignment.CenterVertically,
 
             modifier = Modifier
-             
+                .fillMaxWidth()
+                .height(50.dp)
+        ) {
+            Text(text = "RED:$red", modifier = Modifier.weight(1.3f))
+            Slider(
+                value = red.toFloat(),
+                onValueChange = { red = it.roundToInt() },
+                valu
