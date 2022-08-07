@@ -172,3 +172,9 @@ fun ColorPicker(themeViewModel: ThemeViewModel, themeColor: Color) {
                 .fillMaxWidth()
                 .height(50.dp)
         ) {
+            Text(text = "GREEN:$green", modifier = Modifier.weight(1.3f))
+            Slider(
+                value = green.toFloat(),
+                onValueChange = { green = it.roundToInt() },
+                valueRange = 0f..255f,
+                modifier = Mo
