@@ -186,4 +186,11 @@ fun ColorPicker(themeViewModel: ThemeViewModel, themeColor: Color) {
                 .fillMaxWidth()
                 .height(50.dp)
         ) {
-            Text(text = "BLUE:$blue"
+            Text(text = "BLUE:$blue", modifier = Modifier.weight(1.3f))
+            Slider(
+                value = blue.toFloat(),
+                onValueChange = { blue = it.roundToInt() },
+                valueRange = 0f..255f,
+                modifier = Modifier.weight(4f)
+            )
+        }
