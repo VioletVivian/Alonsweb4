@@ -177,4 +177,13 @@ fun ColorPicker(themeViewModel: ThemeViewModel, themeColor: Color) {
                 value = green.toFloat(),
                 onValueChange = { green = it.roundToInt() },
                 valueRange = 0f..255f,
-                modifier = Mo
+                modifier = Modifier.weight(4f)
+            )
+        }
+        Row(
+            verticalAlignment = Alignment.CenterVertically,
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(50.dp)
+        ) {
+            Text(text = "BLUE:$blue"
