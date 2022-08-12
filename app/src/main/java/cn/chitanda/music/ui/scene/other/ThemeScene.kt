@@ -194,3 +194,10 @@ fun ColorPicker(themeViewModel: ThemeViewModel, themeColor: Color) {
                 modifier = Modifier.weight(4f)
             )
         }
+        Spacer(modifier = Modifier.height(24.dp))
+        TextButton(onClick = {
+            globalThemeViewModel.setCustomThemeColor(color.toArgb())
+        }) {
+            Text(text = "确认")
+        }
+        TextButton(onClick = {
