@@ -201,3 +201,15 @@ fun ColorPicker(themeViewModel: ThemeViewModel, themeColor: Color) {
             Text(text = "确认")
         }
         TextButton(onClick = {
+            globalThemeViewModel.closeCustomThemeColor()
+        }) {
+            Text(text = "取消自定义主题色")
+        }
+    }
+    LaunchedEffect(key1 = color) {
+        delay(500)
+        if (color != themeColor) themeViewModel.getMonetColor(color)
+    }
+}
+
+@Comp
