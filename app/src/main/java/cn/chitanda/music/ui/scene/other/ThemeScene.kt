@@ -212,4 +212,13 @@ fun ColorPicker(themeViewModel: ThemeViewModel, themeColor: Color) {
     }
 }
 
-@Comp
+@Composable
+private fun ColorItem(color: Color, name: String) {
+    Row(
+        modifier = Modifier
+            .fillMaxWidth()
+            .height(30.dp), verticalAlignment = Alignment.CenterVertically
+    ) {
+        Box(
+            modifier = Modifier
+  
