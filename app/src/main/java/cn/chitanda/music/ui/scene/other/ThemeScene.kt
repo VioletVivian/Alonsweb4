@@ -221,4 +221,11 @@ private fun ColorItem(color: Color, name: String) {
     ) {
         Box(
             modifier = Modifier
-  
+                .weight(1f)
+                .fillMaxHeight()
+                .background(color = color), contentAlignment = Alignment.Center
+        ) {
+            Text(
+                text = "#${
+                    color.value.toString(16).subSequence(0, 7)
+                }".uppercase(Locale.
