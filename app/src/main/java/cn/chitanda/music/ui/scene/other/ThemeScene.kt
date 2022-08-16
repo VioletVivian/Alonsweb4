@@ -228,4 +228,13 @@ private fun ColorItem(color: Color, name: String) {
             Text(
                 text = "#${
                     color.value.toString(16).subSequence(0, 7)
-                }".uppercase(Locale.
+                }".uppercase(Locale.getDefault()),
+                color = contentColorFor(backgroundColor = color)
+            )
+        }
+        Text(text = name, Modifier.weight(1f), textAlign = TextAlign.Center)
+    }
+}
+
+private fun ColorScheme.toList(): List<Pair<Color, String>> {
+    return listO
