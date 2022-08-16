@@ -237,4 +237,10 @@ private fun ColorItem(color: Color, name: String) {
 }
 
 private fun ColorScheme.toList(): List<Pair<Color, String>> {
-    return listO
+    return listOf(
+        this.primary to "primary",
+        this.onPrimary to "onPrimary",
+        this.primaryContainer to "primaryContainer",
+        this.onPrimaryContainer to "onPrimaryContainer",
+        this.inversePrimary to "inversePrimary",
+    
