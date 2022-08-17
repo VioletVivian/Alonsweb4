@@ -249,4 +249,9 @@ private fun ColorScheme.toList(): List<Pair<Color, String>> {
         this.onSecondaryContainer to "onSecondaryContainer",
         this.tertiary to "tertiary",
         this.onTertiary to "onTertiary",
-       
+        this.tertiaryContainer to "tertiaryContainer",
+        this.onTertiaryContainer to "onTertiaryContainer",
+        this.background to "background",
+        this.onBackground to "onBackground",
+        this.surface to "surface",
+        this.
