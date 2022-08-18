@@ -259,4 +259,10 @@ private fun ColorScheme.toList(): List<Pair<Color, String>> {
         this.onSurfaceVariant to "onSurfaceVariant",
         this.inverseSurface to "inverseSurface",
         this.inverseOnSurface to "inverseOnSurface",
-    
+        this.error to "error",
+        this.onError to "onError",
+        this.errorContainer to "errorContainer",
+        this.onErrorContainer to "onErrorContainer",
+        this.outline to "outline",
+    )
+}
