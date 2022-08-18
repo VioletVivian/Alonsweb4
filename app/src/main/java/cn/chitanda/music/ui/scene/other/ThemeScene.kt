@@ -254,4 +254,9 @@ private fun ColorScheme.toList(): List<Pair<Color, String>> {
         this.background to "background",
         this.onBackground to "onBackground",
         this.surface to "surface",
-        this.
+        this.onSurface to "onSurface",
+        this.surfaceVariant to "surfaceVariant",
+        this.onSurfaceVariant to "onSurfaceVariant",
+        this.inverseSurface to "inverseSurface",
+        this.inverseOnSurface to "inverseOnSurface",
+    
