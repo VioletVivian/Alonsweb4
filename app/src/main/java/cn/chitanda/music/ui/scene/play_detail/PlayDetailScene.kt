@@ -31,4 +31,11 @@ import androidx.compose.ui.draw.scale
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.uni
+import androidx.compose.ui.unit.Dp
+import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
+import cn.chitanda.music.MusicViewModel
+import cn.chitanda.music.R
+import cn.chitanda.music.media.extensions.displayIconUri
+import cn.chitanda.music.ui.LocalMusicViewModel
+import cn.
