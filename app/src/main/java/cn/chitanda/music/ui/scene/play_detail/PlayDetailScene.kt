@@ -38,4 +38,16 @@ import cn.chitanda.music.MusicViewModel
 import cn.chitanda.music.R
 import cn.chitanda.music.media.extensions.displayIconUri
 import cn.chitanda.music.ui.LocalMusicViewModel
-import cn.
+import cn.chitanda.music.ui.LocalNavController
+import coil.compose.AsyncImage
+
+/**
+ * @author: Chen
+ * @createTime: 2022/7/18 14:24
+ * @description:
+ **/
+
+@OptIn(ExperimentalAnimationApi::class)
+@Composable
+fun PlayDetailScene(
+    navController: NavController = Loca
