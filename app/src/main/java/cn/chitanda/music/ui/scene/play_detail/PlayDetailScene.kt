@@ -50,4 +50,10 @@ import coil.compose.AsyncImage
 @OptIn(ExperimentalAnimationApi::class)
 @Composable
 fun PlayDetailScene(
-    navController: NavController = Loca
+    navController: NavController = LocalNavController.current,
+    musicViewModel: MusicViewModel = LocalMusicViewModel.current
+) {
+    val playbackState by musicViewModel.playbackState.observeAsState()
+    val nowPlaying by musicViewModel.nowPlaying.observeAsState()
+
+    val infiniteTransition = rememberI
