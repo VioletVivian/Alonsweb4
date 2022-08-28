@@ -56,4 +56,9 @@ fun PlayDetailScene(
     val playbackState by musicViewModel.playbackState.observeAsState()
     val nowPlaying by musicViewModel.nowPlaying.observeAsState()
 
-    val infiniteTransition = rememberI
+    val infiniteTransition = rememberInfiniteTransition()
+    val scale by infiniteTransition.animateFloat(
+        initialValue = 1f,
+        targetValue = 1.1f,
+        animationSpec = infiniteRepeatable(
+            animation = tween(durationMillis = 12000, easing = LinearOutSlowInEasin
