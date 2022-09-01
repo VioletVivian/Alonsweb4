@@ -73,4 +73,11 @@ fun PlayDetailScene(
         nowPlaying?.let {
             AnimatedContent(
                 targetState = it.displayIconUri,
-                modifier = Mo
+                modifier = Modifier.blur(100.dp),
+                transitionSpec = {
+                    fadeIn(animationSpec = tween(1000), initialAlpha = 0.4f) with
+                            fadeOut(animationSpec = tween(1000), targetAlpha = 0.6f)
+
+                }) { url ->
+                AsyncImage(
+  
