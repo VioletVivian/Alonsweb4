@@ -61,4 +61,16 @@ fun PlayDetailScene(
         initialValue = 1f,
         targetValue = 1.1f,
         animationSpec = infiniteRepeatable(
-            animation = tween(durationMillis = 12000, easing = LinearOutSlowInEasin
+            animation = tween(durationMillis = 12000, easing = LinearOutSlowInEasing),
+            repeatMode = RepeatMode.Reverse
+        ),
+    )
+
+    Box(
+        modifier = Modifier
+            .fillMaxSize()
+    ) {
+        nowPlaying?.let {
+            AnimatedContent(
+                targetState = it.displayIconUri,
+                modifier = Mo
