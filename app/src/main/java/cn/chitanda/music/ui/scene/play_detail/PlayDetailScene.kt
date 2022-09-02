@@ -88,4 +88,12 @@ fun PlayDetailScene(
                 )
             }
         }
-   
+        IconButton(
+            onClick = musicViewModel::toNext,
+            modifier = Modifier
+                .align(Alignment.BottomCenter)
+                .navigationBarsPadding()
+                .padding(bottom = 80.dp)
+        ) {
+            Icon(
+                painter = painterR
