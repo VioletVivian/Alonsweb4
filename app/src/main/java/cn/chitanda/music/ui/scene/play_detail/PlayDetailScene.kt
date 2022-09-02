@@ -80,4 +80,12 @@ fun PlayDetailScene(
 
                 }) { url ->
                 AsyncImage(
-  
+                    model = url, modifier = Modifier
+                        .fillMaxSize()
+                        .scale(scale),
+                    contentScale = ContentScale.Crop,
+                    contentDescription = null
+                )
+            }
+        }
+   
