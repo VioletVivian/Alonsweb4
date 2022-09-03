@@ -105,4 +105,4 @@ fun PlayDetailScene(
 }
 
 val DpToVector: TwoWayConverter<Dp, AnimationVector1D> =
-    TwoWayConverter({ AnimationVector1D
+    TwoWayConverter({ AnimationVector1D(it.value) }, { it.value.dp })
