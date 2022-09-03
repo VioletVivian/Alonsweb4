@@ -96,4 +96,13 @@ fun PlayDetailScene(
                 .padding(bottom = 80.dp)
         ) {
             Icon(
-                painter = painterR
+                painter = painterResource(id = R.drawable.ic_skip_next),
+                tint = Color.White,
+                contentDescription = null
+            )
+        }
+    }
+}
+
+val DpToVector: TwoWayConverter<Dp, AnimationVector1D> =
+    TwoWayConverter({ AnimationVector1D
