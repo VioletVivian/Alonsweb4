@@ -192,3 +192,270 @@ fun PlaylistScene(navController: NavController = LocalNavController.current, pla
         }
     }
     LaunchedEffect(key1 = playlist) {
+        if (!playlist.isNullOrEmpty()) {
+            viewModel.getPlaylistDetail(playlist)
+        }
+    }
+
+}
+
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+private fun FoldableTopAppBar(
+    scrollBehavior: TopAppBarScrollBehavior,
+    viewState: PlaylistViewState,
+    navController: NavController = LocalNavController.current
+) {
+    var isLight by remember { mutableStateOf(DynamicStatusBar.isLight) }
+    val color =
+        if (isLight) LocalContentColor.current else Color.White
+    val appBarSize =
+        WindowInsets.statusBars.asPaddingValues().calculateTopPadding() + FoldableTopAppBarHeight
+    val height = remember { 200.dp }
+    val fraction = 1f - scrollBehavior.state.collapsedFraction
+    val contentAlpha =
+        if (fraction > 0.5f) 1f else (fraction) / 0.5f
+    CompositionLocalProvider(LocalContentColor provides color) {
+        Box(
+            modifier = Modifier
+                .height(appBarSize + height * (fraction))
+        ) {
+            AppbarBackground(
+                modifier = Modifier
+                    .padding(bottom = 16.dp * (fraction))
+                    .matchParentSize()
+                    .clip(
+                        shape = DownArcShape(8.dp * (fraction))
+                    ), url = viewState.playlist?.coverUrl
+            ) {
+                isLight = DynamicStatusBar.isLight
+            }
+            //歌单详情
+            if (viewState.state.isLoading && null == viewState.playlist) {
+                CircularProgressIndicator(modifier = Modifier.align(Alignment.Center))
+            } else {
+                if (contentAlpha > 0.2f) {
+                    viewState.playlist?.let {
+                        PlaylistInfo(modifier = Modifier
+                            .graphicsLayer {
+                                alpha = contentAlpha
+                            }
+                            .padding(horizontal = 20.dp)
+                            .padding(top = (appBarSize - 65.dp) * contentAlpha)
+                            .height(110.dp)
+                            .fillMaxWidth()
+                            .align(Alignment.Center), playlist = it)
+                        FloatActionBar(it, modifier = Modifier
+                            .align(Alignment.BottomCenter)
+                            .fillMaxWidth(0.7f)
+                            .height(50.dp)
+                            .graphicsLayer {
+                                alpha = contentAlpha
+                            })
+                    }
+                }
+            }
+
+            Row(
+                modifier = Modifier
+                    .windowInsetsPadding(WindowInsets.statusBars)
+                    .height(54.dp)
+                    .fillMaxWidth(),
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.spacedBy(10.dp)
+            ) {
+                IconButton(onClick = {
+                    navController.navigateUp()
+                }) {
+                    Icon(imageVector = Icons.Default.ArrowBack, contentDescription = "back")
+                }
+                Text(text = "歌单", style = MaterialTheme.typography.titleLarge)
+            }
+
+        }
+    }
+    val offsetLimit = with(LocalDensity.current) { -appBarSize.toPx() }
+    SideEffect {
+        if (scrollBehavior.state.heightOffsetLimit != offsetLimit) scrollBehavior.state.heightOffsetLimit =
+            offsetLimit
+    }
+}
+
+@Composable
+fun PlaylistInfo(modifier: Modifier, playlist: PlaylistViewState.PlaylistDetail) {
+    val color = LocalContentColor.current
+    Row(
+        modifier = modifier,
+        horizontalArrangement = Arrangement.spacedBy(16.dp)
+    ) {
+        AsyncImage(
+            model = playlist.coverUrl,
+            modifier = Modifier
+                .aspectRatio(1f, true)
+                .clip(Shapes.small),
+            contentDescription = null
+        )
+        Column(
+            verticalArrangement = Arrangement.SpaceAround,
+            modifier = Modifier.fillMaxHeight()
+        ) {
+            Text(
+                text = playlist.name,
+                maxLines = 1,
+                overflow = TextOverflow.Ellipsis,
+                style = MaterialTheme.typography.titleMedium
+            )
+            Row(
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.spacedBy(8.dp)
+            ) {
+                AsyncImage(
+                    model = playlist.creator?.avatarUrl,
+                    modifier = Modifier
+                        .size(24.dp)
+                        .clip(CircleShape),
+                    contentDescription = null
+                )
+                Text(
+                    text = "${playlist.creator?.nickname ?: ""} >",
+                    maxLines = 1,
+                    overflow = TextOverflow.Ellipsis,
+                    style = MaterialTheme.typography.titleSmall
+                )
+            }
+            if (playlist.description.isNullOrEmpty()) {
+                Box(modifier = Modifier
+                    .clip(Shapes.small)
+                    .clickable { }
+                    .padding(4.dp)
+                ) {
+                    Text(
+                        text = " ${playlist.description ?: ""} >",
+                        maxLines = 1,
+                        overflow = TextOverflow.Ellipsis,
+                        style = MaterialTheme.typography.titleSmall,
+                        color = color,
+                    )
+                }
+
+            } else {
+                Spacer(modifier = Modifier.size(8.dp))
+            }
+        }
+    }
+}
+
+@Composable
+private inline fun AppbarBackground(
+    modifier: Modifier,
+    url: String?,
+    crossinline sideEffect: () -> Unit
+) {
+    AsyncImage(
+        modifier = modifier.blur(radius = 50.dp),
+        model = url,
+        contentScale = ContentScale.Crop,
+        contentDescription = null,
+        onSuccess = {
+            sideEffect()
+        })
+}
+
+@Composable
+fun FloatActionBar(playlist: PlaylistViewState.PlaylistDetail, modifier: Modifier = Modifier) {
+    Surface(
+        modifier = modifier,
+        tonalElevation = 8.dp,
+        shadowElevation = 1.dp,
+        shape = CircleShape
+    ) {
+        Row(
+            modifier = Modifier.fillMaxSize(),
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.SpaceEvenly
+        ) {
+            IconButton(onClick = { }) {
+                Row(
+                    verticalAlignment = Alignment.CenterVertically,
+                    horizontalArrangement = Arrangement.spacedBy(8.dp)
+                ) {
+                    Icon(
+                        painter = painterResource(if (playlist.subscribed) R.drawable.ic_subscribed else R.drawable.ic_add_subscribed),
+                        contentDescription = null, modifier = Modifier.size(18.dp)
+                    )
+                    Text(
+                        text = playlist.subscribedCount.toUnitString(),
+                        style = MaterialTheme.typography.bodyLarge
+                    )
+                }
+            }
+            Spacer(
+                modifier = Modifier
+                    .fillMaxHeight(0.35f)
+                    .width(1.dp)
+                    .background(LocalContentColor.current.copy(alpha = 0.5f))
+            )
+            IconButton(onClick = { }) {
+                Row(
+                    verticalAlignment = Alignment.CenterVertically,
+                    horizontalArrangement = Arrangement.spacedBy(8.dp)
+                ) {
+                    Icon(
+                        painter = painterResource(R.drawable.ic_comment),
+                        contentDescription = null, modifier = Modifier.size(18.dp)
+                    )
+                    Text(
+                        text = playlist.commentCount.toUnitString(),
+                        style = MaterialTheme.typography.bodyLarge
+                    )
+                }
+            }
+            Spacer(
+                modifier = Modifier
+                    .fillMaxHeight(0.4f)
+                    .width(1.dp)
+                    .background(LocalContentColor.current.copy(alpha = 0.5f))
+            )
+
+            IconButton(onClick = { }) {
+                Row(
+                    verticalAlignment = Alignment.CenterVertically,
+                    horizontalArrangement = Arrangement.spacedBy(8.dp)
+                ) {
+                    Icon(
+                        painter = painterResource(R.drawable.ic_share),
+                        contentDescription = null, modifier = Modifier.size(18.dp)
+                    )
+                    Text(
+                        text = playlist.shareCount.toUnitString(),
+                        style = MaterialTheme.typography.bodyLarge
+                    )
+                }
+            }
+
+        }
+    }
+}
+
+@Composable
+fun SongsItem(
+    modifier: Modifier = Modifier,
+    song: Songs.Song,
+    index: Int,
+    iconColor: Color = LocalContentColor.current,
+) {
+    Row(modifier = modifier) {
+        Text(
+            text = index.toString(), modifier = Modifier
+                .fillMaxHeight()
+                .aspectRatio(1f, true)
+                .wrapContentSize(),
+            style = MaterialTheme.typography.bodyMedium
+                .copy(color = iconColor)
+        )
+        Column(
+            verticalArrangement = Arrangement.SpaceAround, modifier = Modifier
+                .weight(1f)
+                .fillMaxHeight()
+        ) {
+            Text(
