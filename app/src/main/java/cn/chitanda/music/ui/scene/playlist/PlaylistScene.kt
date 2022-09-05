@@ -459,3 +459,45 @@ fun SongsItem(
                 .fillMaxHeight()
         ) {
             Text(
+                text = song.name.toString(),
+                style = MaterialTheme.typography.bodyMedium,
+                maxLines = 1,
+                overflow = TextOverflow.Ellipsis
+            )
+            Text(
+                text = "${song.artists ?: ""} - ${song.al?.name}",
+                style = MaterialTheme.typography.bodySmall,
+                maxLines = 1,
+                overflow = TextOverflow.Ellipsis
+            )
+        }
+        song.mv?.takeIf { it != 0L }?.let {
+            IconButton(
+                modifier = Modifier
+                    .fillMaxHeight()
+                    .aspectRatio(1f, true)
+                    .wrapContentSize(Alignment.Center), onClick = {}
+            ) {
+                Icon(
+                    painter = painterResource(id = R.drawable.ic_music_video),
+                    contentDescription = "mv",
+                    tint = iconColor
+                )
+            }
+        }
+        IconButton(
+            modifier = Modifier
+                .fillMaxHeight()
+                .aspectRatio(1f, true)
+                .wrapContentSize(Alignment.Center), onClick = {}
+        ) {
+            Icon(
+                painter = painterResource(id = R.drawable.ic_more_vert),
+                contentDescription = "more",
+                tint = iconColor
+            )
+        }
+    }
+}
+
+val FoldableTopAppBarHeight = 64.dp
