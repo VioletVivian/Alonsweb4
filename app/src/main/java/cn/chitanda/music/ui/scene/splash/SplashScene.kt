@@ -24,4 +24,14 @@ import cn.chitanda.music.ui.scene.LocaleUserViewModel
 @Composable
 fun SplashScene(
     userViewModel: LocaleUserViewModel = LocalUserViewModel.current,
-    navController: NavController = LocalNavController.curren
+    navController: NavController = LocalNavController.current
+) {
+    val user by userViewModel.user.collectAsState()
+    Box(
+        modifier = Modifier
+            .fillMaxSize()
+            .background(MaterialTheme.colorScheme.primary)
+    )
+    LaunchedEffect(key1 = user) {
+        when (user.status) {
+           
