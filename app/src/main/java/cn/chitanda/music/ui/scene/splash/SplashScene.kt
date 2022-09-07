@@ -14,4 +14,14 @@ import cn.chitanda.music.http.DataState
 import cn.chitanda.music.ui.LocalNavController
 import cn.chitanda.music.ui.LocalUserViewModel
 import cn.chitanda.music.ui.Scene
-import cn.chitanda.music.ui.scene.LocaleU
+import cn.chitanda.music.ui.scene.LocaleUserViewModel
+
+/**
+ *@author: Chen
+ *@createTime: 2021/8/31 13:22
+ *@description:
+ **/
+@Composable
+fun SplashScene(
+    userViewModel: LocaleUserViewModel = LocalUserViewModel.current,
+    navController: NavController = LocalNavController.curren
