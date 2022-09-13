@@ -51,4 +51,15 @@ fun SplashScene(
                 } else {
                     userViewModel.refreshLoginStatus()
                     navController.navigate(Scene.Main.id) {
-                        popUpTo(Scene.Splash.id) { inc
+                        popUpTo(Scene.Splash.id) { inclusive = true }
+                    }
+                }
+            }
+            else -> {
+                navController.navigate(Scene.Login.id) {
+                    popUpTo(Scene.Splash.id) { inclusive = true }
+                }
+            }
+        }
+    }
+}
