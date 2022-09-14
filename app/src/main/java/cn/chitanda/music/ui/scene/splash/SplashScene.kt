@@ -63,3 +63,5 @@ fun SplashScene(
         }
     }
 }
+
+private const val TAG = "SplashScene"
