@@ -21,4 +21,11 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
-@Hi
+@HiltViewModel
+class VideoViewModel @Inject constructor(
+    private val videoRepository: VideoRepository
+) : ViewModel() {
+    private val _types = MutableStateFlow<RequestStatus<VideoType>>(RequestStatus())
+    val type: StateFlow<RequestStatus<VideoType>> get() = _types
+
+   
