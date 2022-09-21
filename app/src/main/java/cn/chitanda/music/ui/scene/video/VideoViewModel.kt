@@ -28,4 +28,12 @@ class VideoViewModel @Inject constructor(
     private val _types = MutableStateFlow<RequestStatus<VideoType>>(RequestStatus())
     val type: StateFlow<RequestStatus<VideoType>> get() = _types
 
-   
+    private val videoMap = HashMap<Int, State<List<VideoList.Data>>>()
+
+    init {
+        viewModelScope.launch(Dispatchers.IO) {
+            videoRepository.getVideoType(_types)
+        }
+    }
+
+    fun getVideoData(type: Int) = videoMap.getOrPut(type) { mutableStateOf(emptyList()) }
