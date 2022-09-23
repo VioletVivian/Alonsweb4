@@ -42,4 +42,11 @@ class VideoViewModel @Inject constructor(
         viewModelScope.launch(Dispatchers.IO) {
             videoRepository.loadVideoByType(type, offset)?.let { videoList ->
                 if (!videoList.data.isNullOrEmpty()) {
-                    val list = (videoMap[type]?.value ?: emptyL
+                    val list = (videoMap[type]?.value ?: emptyList())
+                    videoMap[type] = mutableStateOf(list + videoList.data)
+                }
+            }
+        }
+    }
+
+}
