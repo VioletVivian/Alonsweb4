@@ -18,3 +18,11 @@ val Shapes = Shapes(
 )
 
 class DownArcShape(private val arc: Dp) : Shape {
+    override fun createOutline(
+        size: Size,
+        layoutDirection: LayoutDirection,
+        density: Density
+    ): Outline {
+        val arcHeight = with(density) { arc.toPx() }
+        val path = Path().apply {
+            lineTo(0f,
