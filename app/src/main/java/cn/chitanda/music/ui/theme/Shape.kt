@@ -25,4 +25,11 @@ class DownArcShape(private val arc: Dp) : Shape {
     ): Outline {
         val arcHeight = with(density) { arc.toPx() }
         val path = Path().apply {
-            lineTo(0f,
+            lineTo(0f, size.height - arcHeight)
+            quadraticBezierTo(
+                size.width / 2,
+                size.height + arcHeight,
+                size.width,
+                size.height - arcHeight
+            )
+            lineTo(size.
