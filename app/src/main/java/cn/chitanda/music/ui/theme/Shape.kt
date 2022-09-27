@@ -32,4 +32,10 @@ class DownArcShape(private val arc: Dp) : Shape {
                 size.width,
                 size.height - arcHeight
             )
-            lineTo(size.
+            lineTo(size.width, 0f)
+            close()
+        }
+        return Outline.Generic(path)
+    }
+
+}
