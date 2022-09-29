@@ -15,4 +15,15 @@ import androidx.compose.material3.dynamicLightColorScheme
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.platform.LocalConte
+import androidx.compose.ui.platform.LocalContext
+import cn.chitanda.music.ui.monet.theme.MonetColor
+
+private val DarkColorScheme = darkColorScheme()
+
+private val LightColorScheme = lightColorScheme()
+
+@SuppressLint("NewApi")
+@Composable
+fun MusicTheme(
+    customColor: MonetColor? = null,
+    darkTheme: B
