@@ -26,4 +26,9 @@ private val LightColorScheme = lightColorScheme()
 @Composable
 fun MusicTheme(
     customColor: MonetColor? = null,
-    darkTheme: B
+    darkTheme: Boolean = isSystemInDarkTheme(),
+    content: @Composable() () -> Unit
+) {
+    val dynamicColor = Build.VERSION.SDK_INT >= Build.VERSION_CODES.S
+    val colors = when {
+        dynamicColor && darkTheme && customColor == null -> dynamicDarkColorScheme(LocalContext.
