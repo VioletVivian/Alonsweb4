@@ -31,4 +31,8 @@ fun MusicTheme(
 ) {
     val dynamicColor = Build.VERSION.SDK_INT >= Build.VERSION_CODES.S
     val colors = when {
-        dynamicColor && darkTheme && customColor == null -> dynamicDarkColorScheme(LocalContext.
+        dynamicColor && darkTheme && customColor == null -> dynamicDarkColorScheme(LocalContext.current)
+        dynamicColor && !darkTheme && customColor == null -> dynamicLightColorScheme(LocalContext.current)
+        customColor != null && darkTheme -> customColor.darkMonetColorScheme()
+        customColor != null && !darkTheme -> customColor.lightMonetColorScheme()
+        d
