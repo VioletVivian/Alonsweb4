@@ -35,4 +35,16 @@ fun MusicTheme(
         dynamicColor && !darkTheme && customColor == null -> dynamicLightColorScheme(LocalContext.current)
         customColor != null && darkTheme -> customColor.darkMonetColorScheme()
         customColor != null && !darkTheme -> customColor.lightMonetColorScheme()
-        d
+        darkTheme -> DarkColorScheme
+        else -> LightColorScheme
+    }
+
+androidx.compose.material3.Divider()
+
+    MaterialTheme(
+        colorScheme = colors.animateColor(),
+        typography = Typography,
+    ) {
+        androidx.compose.material.MaterialTheme(
+            colors = Colors(
+  
