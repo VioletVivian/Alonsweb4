@@ -47,4 +47,9 @@ androidx.compose.material3.Divider()
     ) {
         androidx.compose.material.MaterialTheme(
             colors = Colors(
-  
+                primary = colors.primary,
+                primaryVariant = colors.inversePrimary,
+                secondary = colors.secondary,
+                onSecondary = colors.onSecondary,
+                secondaryVariant = colors.secondaryContainer,
+                
