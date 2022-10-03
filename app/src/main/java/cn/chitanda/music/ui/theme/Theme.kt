@@ -52,4 +52,9 @@ androidx.compose.material3.Divider()
                 secondary = colors.secondary,
                 onSecondary = colors.onSecondary,
                 secondaryVariant = colors.secondaryContainer,
-                
+                background = colors.background,
+                onBackground = colors.onBackground,
+                surface = colors.surface, error = colors.error,
+                onPrimary = colors.onPrimary,
+                onSurface = colors.onSurface,
+                onError = colors.onError
