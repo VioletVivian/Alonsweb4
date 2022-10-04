@@ -57,4 +57,14 @@ androidx.compose.material3.Divider()
                 surface = colors.surface, error = colors.error,
                 onPrimary = colors.onPrimary,
                 onSurface = colors.onSurface,
-                onError = colors.onError
+                onError = colors.onError, isLight = darkTheme
+            ),
+            shapes = Shapes, content = content
+        )
+    }
+}
+
+@Composable
+fun ColorScheme.animateColor() = ColorScheme(
+    primary = animateColorAsState(targetValue = this.primary, tween(600)).value,
+ 
