@@ -67,4 +67,7 @@ androidx.compose.material3.Divider()
 @Composable
 fun ColorScheme.animateColor() = ColorScheme(
     primary = animateColorAsState(targetValue = this.primary, tween(600)).value,
- 
+    onPrimary = animateColorAsState(targetValue = this.onPrimary, tween(600)).value,
+    primaryContainer = animateColorAsState(targetValue = this.primaryContainer, tween(600)).value,
+    onPrimaryContainer = animateColorAsState(
+        targetValue = this.onPri
