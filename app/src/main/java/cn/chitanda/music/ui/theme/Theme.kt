@@ -75,4 +75,10 @@ fun ColorScheme.animateColor() = ColorScheme(
     ).value,
     inversePrimary = animateColorAsState(targetValue = this.inversePrimary, tween(600)).value,
     secondary = animateColorAsState(targetValue = this.secondary, tween(600)).value,
-    onSecondary = animateColorAsState(targ
+    onSecondary = animateColorAsState(targetValue = this.onSecondary, tween(600)).value,
+    secondaryContainer = animateColorAsState(
+        targetValue = this.secondaryContainer,
+        tween(600)
+    ).value,
+    onSecondaryContainer = animateColorAsState(
+        targetValue
