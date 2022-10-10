@@ -91,4 +91,7 @@ fun ColorScheme.animateColor() = ColorScheme(
         targetValue = this.onTertiaryContainer,
         tween(600)
     ).value,
-    background = animateColorAsState(target
+    background = animateColorAsState(targetValue = this.background, tween(600)).value,
+    onBackground = animateColorAsState(targetValue = this.onBackground, tween(600)).value,
+    surface = animateColorAsState(targetValue = this.surface, tween(600)).value,
+    onSurface = animateColorAsState(tar
