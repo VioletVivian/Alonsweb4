@@ -97,4 +97,6 @@ fun ColorScheme.animateColor() = ColorScheme(
     onSurface = animateColorAsState(targetValue = this.onSurface, tween(600)).value,
     surfaceVariant = animateColorAsState(targetValue = this.surfaceVariant, tween(600)).value,
     onSurfaceVariant = animateColorAsState(targetValue = this.onSurfaceVariant, tween(600)).value,
-    inv
+    inverseSurface = animateColorAsState(targetValue = this.inverseSurface, tween(600)).value,
+    inverseOnSurface = animateColorAsState(targetValue = this.inverseOnSurface, tween(600)).value,
+    error = animateColorAsState(targetValue = this.error, twe
