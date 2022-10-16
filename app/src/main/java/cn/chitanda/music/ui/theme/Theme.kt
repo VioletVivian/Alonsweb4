@@ -105,4 +105,10 @@ fun ColorScheme.animateColor() = ColorScheme(
     onErrorContainer = animateColorAsState(targetValue = this.onErrorContainer, tween(600)).value,
     outline = animateColorAsState(targetValue = this.outline, tween(600)).value,
     surfaceTint = animateColorAsState(targetValue = this.surfaceTint, tween(600)).value,
-    outlineVariant
+    outlineVariant = animateColorAsState(targetValue = this.outlineVariant, tween(600)).value,
+    scrim = animateColorAsState(targetValue = this.scrim, tween(600)).value
+)
+
+private fun MonetColor.getMonetNeutralColor(
+    @IntRange(from = 1, to = 2) type: Int,
+    @
