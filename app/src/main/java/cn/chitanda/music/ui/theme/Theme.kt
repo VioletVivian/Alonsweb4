@@ -102,4 +102,7 @@ fun ColorScheme.animateColor() = ColorScheme(
     error = animateColorAsState(targetValue = this.error, tween(600)).value,
     onError = animateColorAsState(targetValue = this.onError, tween(600)).value,
     errorContainer = animateColorAsState(targetValue = this.errorContainer, tween(600)).value,
-    onErrorContainer = animateColorA
+    onErrorContainer = animateColorAsState(targetValue = this.onErrorContainer, tween(600)).value,
+    outline = animateColorAsState(targetValue = this.outline, tween(600)).value,
+    surfaceTint = animateColorAsState(targetValue = this.surfaceTint, tween(600)).value,
+    outlineVariant
