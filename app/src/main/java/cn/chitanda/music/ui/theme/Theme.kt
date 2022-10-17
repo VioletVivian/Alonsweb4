@@ -111,4 +111,9 @@ fun ColorScheme.animateColor() = ColorScheme(
 
 private fun MonetColor.getMonetNeutralColor(
     @IntRange(from = 1, to = 2) type: Int,
-    @
+    @IntRange(from = 50, to = 900) shade: Int
+): Color {
+    val monetColor = when (type) {
+        1 -> neutral1[shade]
+        else -> neutral2[shade]
+    }?.toArgb() ?: throw Exception("Neutral$type shade $shade doesn't exist")
