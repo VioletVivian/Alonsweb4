@@ -117,3 +117,13 @@ private fun MonetColor.getMonetNeutralColor(
         1 -> neutral1[shade]
         else -> neutral2[shade]
     }?.toArgb() ?: throw Exception("Neutral$type shade $shade doesn't exist")
+    return Color(monetColor)
+}
+
+private fun MonetColor.getMonetAccentColor(
+    @IntRange(from = 1, to = 3) type: Int,
+    @IntRange(from = 50, to = 900) shade: Int
+): Color {
+    val monetColor = when (type) {
+        1 -> accent1[shade]
+        2 
