@@ -126,4 +126,13 @@ private fun MonetColor.getMonetAccentColor(
 ): Color {
     val monetColor = when (type) {
         1 -> accent1[shade]
-        2 
+        2 -> accent2[shade]
+        else -> accent3[shade]
+    }?.toArgb() ?: throw Exception("Accent$type shade $shade doesn't exist")
+    return Color(monetColor)
+}
+
+@Composable
+fun MonetColor.lightMonetColorScheme(
+    primary: Color = getMonetAccentColor(1, 700),
+    onPrimary: Color = g
