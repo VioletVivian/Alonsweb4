@@ -135,4 +135,8 @@ private fun MonetColor.getMonetAccentColor(
 @Composable
 fun MonetColor.lightMonetColorScheme(
     primary: Color = getMonetAccentColor(1, 700),
-    onPrimary: Color = g
+    onPrimary: Color = getMonetNeutralColor(1, 50),
+    primaryContainer: Color = getMonetAccentColor(2, 100),
+    onPrimaryContainer: Color = getMonetAccentColor(1, 900),
+    inversePrimary: Color = getMonetAccentColor(1, 200),
+    secondary: Color = getMonetAccentColor(2, 70
