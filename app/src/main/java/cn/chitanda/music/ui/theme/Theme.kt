@@ -144,4 +144,9 @@ fun MonetColor.lightMonetColorScheme(
     secondaryContainer: Color = getMonetAccentColor(2, 100),
     onSecondaryContainer: Color = getMonetAccentColor(2, 900),
     tertiary: Color = getMonetAccentColor(3, 600),
-    onTertiary: Color = getMonetNeutralC
+    onTertiary: Color = getMonetNeutralColor(1, 50),
+    tertiaryContainer: Color = getMonetAccentColor(3, 100),
+    onTertiaryContainer: Color = getMonetAccentColor(3, 900),
+    background: Color = getMonetNeutralColor(1, 50),
+    onBackground: Color = getMonetNeutralColor(1, 900),
+    surface: Color =
