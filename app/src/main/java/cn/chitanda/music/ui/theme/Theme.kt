@@ -154,4 +154,10 @@ fun MonetColor.lightMonetColorScheme(
     surfaceVariant: Color = getMonetNeutralColor(2, 100),
     onSurfaceVariant: Color = getMonetNeutralColor(2, 700),
     inverseSurface: Color = getMonetNeutralColor(1, 800),
-    inverse
+    inverseOnSurface: Color = getMonetNeutralColor(2, 50),
+    outline: Color = getMonetAccentColor(2, 500),
+): ColorScheme =
+    lightColorScheme(
+        primary = primary,
+        onPrimary = onPrimary,
+        primaryContainer = primaryContaine
