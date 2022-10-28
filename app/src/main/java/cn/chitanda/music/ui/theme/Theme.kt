@@ -167,3 +167,10 @@ fun MonetColor.lightMonetColorScheme(
         onSecondary = onSecondary,
         secondaryContainer = secondaryContainer,
         onSecondaryContainer = onSecondaryContainer,
+        tertiary = tertiary,
+        onTertiary = onTertiary,
+        tertiaryContainer = tertiaryContainer,
+        onTertiaryContainer = onTertiaryContainer,
+        background = background,
+        onBackground = onBackground,
+        s
