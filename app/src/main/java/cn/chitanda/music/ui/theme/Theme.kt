@@ -160,4 +160,10 @@ fun MonetColor.lightMonetColorScheme(
     lightColorScheme(
         primary = primary,
         onPrimary = onPrimary,
-        primaryContainer = primaryContaine
+        primaryContainer = primaryContainer,
+        onPrimaryContainer = onPrimaryContainer,
+        inversePrimary = inversePrimary,
+        secondary = secondary,
+        onSecondary = onSecondary,
+        secondaryContainer = secondaryContainer,
+        onSecondaryContainer = onSecondaryContainer,
