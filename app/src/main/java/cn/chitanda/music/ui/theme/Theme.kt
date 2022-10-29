@@ -173,4 +173,10 @@ fun MonetColor.lightMonetColorScheme(
         onTertiaryContainer = onTertiaryContainer,
         background = background,
         onBackground = onBackground,
-        s
+        surface = surface,
+        onSurface = onSurface,
+        surfaceVariant = surfaceVariant,
+        onSurfaceVariant = onSurfaceVariant,
+        inverseSurface = inverseSurface,
+        inverseOnSurface = inverseOnSurface,
+        outline = o
