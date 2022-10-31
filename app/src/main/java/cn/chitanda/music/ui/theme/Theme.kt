@@ -179,4 +179,12 @@ fun MonetColor.lightMonetColorScheme(
         onSurfaceVariant = onSurfaceVariant,
         inverseSurface = inverseSurface,
         inverseOnSurface = inverseOnSurface,
-        outline = o
+        outline = outline,
+    )
+
+/**
+ * Any values that are not set will be chosen to best represent default values given by [dynamicDarkColorScheme][androidx.compose.material3.dynamicDarkColorScheme]
+ * on Android 12+ devices
+ */
+@Composable
+fun MonetColor.darkMone
