@@ -187,4 +187,9 @@ fun MonetColor.lightMonetColorScheme(
  * on Android 12+ devices
  */
 @Composable
-fun MonetColor.darkMone
+fun MonetColor.darkMonetColorScheme(
+    primary: Color = getMonetAccentColor(1, 200),
+    onPrimary: Color = getMonetAccentColor(1, 800),
+    primaryContainer: Color = getMonetAccentColor(1, 600),
+    onPrimaryContainer: Color = getMonetAccentColor(2, 100),
+    inversePrimary: Color = getMonetAccentC
