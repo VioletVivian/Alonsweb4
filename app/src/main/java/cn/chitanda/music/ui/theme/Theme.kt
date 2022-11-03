@@ -192,4 +192,9 @@ fun MonetColor.darkMonetColorScheme(
     onPrimary: Color = getMonetAccentColor(1, 800),
     primaryContainer: Color = getMonetAccentColor(1, 600),
     onPrimaryContainer: Color = getMonetAccentColor(2, 100),
-    inversePrimary: Color = getMonetAccentC
+    inversePrimary: Color = getMonetAccentColor(1, 600),
+    secondary: Color = getMonetAccentColor(2, 200),
+    onSecondary: Color = getMonetAccentColor(2, 800),
+    secondaryContainer: Color = getMonetAccentColor(2, 700),
+    onSecondaryContainer: Color = getMonetAccentColor(2, 100),
+    tertiary: Color
