@@ -202,3 +202,8 @@ fun MonetColor.darkMonetColorScheme(
     tertiaryContainer: Color = getMonetAccentColor(3, 700),
     onTertiaryContainer: Color = getMonetAccentColor(3, 100),
     background: Color = getMonetNeutralColor(1, 900),
+    onBackground: Color = getMonetNeutralColor(1, 100),
+    surface: Color = getMonetNeutralColor(1, 900),
+    onSurface: Color = getMonetNeutralColor(1, 100),
+    surfaceVariant: Color = getMonetNeutralColor(2, 700),
+    onSurfaceVariant: Color = getMonetNeutralColo
