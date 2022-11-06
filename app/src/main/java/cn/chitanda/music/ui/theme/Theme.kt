@@ -206,4 +206,11 @@ fun MonetColor.darkMonetColorScheme(
     surface: Color = getMonetNeutralColor(1, 900),
     onSurface: Color = getMonetNeutralColor(1, 100),
     surfaceVariant: Color = getMonetNeutralColor(2, 700),
-    onSurfaceVariant: Color = getMonetNeutralColo
+    onSurfaceVariant: Color = getMonetNeutralColor(2, 200),
+    inverseSurface: Color = getMonetNeutralColor(1, 100),
+    inverseOnSurface: Color = getMonetNeutralColor(1, 800),
+    outline: Color = getMonetNeutralColor(2, 500),
+): ColorScheme =
+    darkColorScheme(
+        primary = primary,
+        
