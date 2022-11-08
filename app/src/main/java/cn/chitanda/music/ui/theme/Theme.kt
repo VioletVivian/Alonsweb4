@@ -213,4 +213,11 @@ fun MonetColor.darkMonetColorScheme(
 ): ColorScheme =
     darkColorScheme(
         primary = primary,
-        
+        onPrimary = onPrimary,
+        primaryContainer = primaryContainer,
+        onPrimaryContainer = onPrimaryContainer,
+        inversePrimary = inversePrimary,
+        secondary = secondary,
+        onSecondary = onSecondary,
+        secondaryContainer = secondaryContainer,
+        onSecond
