@@ -220,4 +220,10 @@ fun MonetColor.darkMonetColorScheme(
         secondary = secondary,
         onSecondary = onSecondary,
         secondaryContainer = secondaryContainer,
-        onSecond
+        onSecondaryContainer = onSecondaryContainer,
+        tertiary = tertiary,
+        onTertiary = onTertiary,
+        tertiaryContainer = tertiaryContainer,
+        onTertiaryContainer = onTertiaryContainer,
+        background = background,
+        onBackground = onBack
