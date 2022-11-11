@@ -226,4 +226,11 @@ fun MonetColor.darkMonetColorScheme(
         tertiaryContainer = tertiaryContainer,
         onTertiaryContainer = onTertiaryContainer,
         background = background,
-        onBackground = onBack
+        onBackground = onBackground,
+        surface = surface,
+        onSurface = onSurface,
+        surfaceVariant = surfaceVariant,
+        onSurfaceVariant = onSurfaceVariant,
+        inverseSurface = inverseSurface,
+        inverseOnSurface = inverseOnSurface,
+        ou
