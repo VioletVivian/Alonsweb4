@@ -233,4 +233,5 @@ fun MonetColor.darkMonetColorScheme(
         onSurfaceVariant = onSurfaceVariant,
         inverseSurface = inverseSurface,
         inverseOnSurface = inverseOnSurface,
-        ou
+        outline = outline,
+    )
