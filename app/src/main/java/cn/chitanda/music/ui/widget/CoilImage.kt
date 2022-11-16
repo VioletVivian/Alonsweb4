@@ -26,4 +26,9 @@ private const val TAG = "AsyncImage"
 //    modifier: Modifier = Modifier,
 //    contentDescription: String? = null,
 //    alignment: Alignment = Alignment.Center,
-// 
+//    contentScale: ContentScale = ContentScale.Crop,
+//    alpha: Float = DefaultAlpha,
+//    shape: Shape? = null,
+//    colorFilter: ColorFilter? = null,
+//    builder: ImageRequest.Builder.() -> Unit = {},
+//    onSuccess: (() -> Unit)? 
