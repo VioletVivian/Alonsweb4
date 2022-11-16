@@ -12,4 +12,18 @@ import coil.annotation.ExperimentalCoilApi
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
 
-private const val T
+private const val TAG = "AsyncImage"
+
+/**
+ *@author: Chen
+ *@createTime: 2021/8/31 16:55
+ *@description:
+ **/
+//@ExperimentalCoilApi
+//@Composable
+//fun CoilImage(
+//    url: Any?,
+//    modifier: Modifier = Modifier,
+//    contentDescription: String? = null,
+//    alignment: Alignment = Alignment.Center,
+// 
