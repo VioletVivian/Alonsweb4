@@ -31,4 +31,12 @@ private const val TAG = "AsyncImage"
 //    shape: Shape? = null,
 //    colorFilter: ColorFilter? = null,
 //    builder: ImageRequest.Builder.() -> Unit = {},
-//    onSuccess: (() -> Unit)? 
+//    onSuccess: (() -> Unit)? = null,
+//    onError: @Composable () -> Unit = {
+//    },
+//    onLoading: @Composable () -> Unit = {
+//        CircularProgressIndicator()
+//    }
+//) {
+//
+//}
