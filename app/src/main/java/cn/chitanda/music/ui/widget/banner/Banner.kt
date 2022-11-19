@@ -97,3 +97,52 @@ fun <T> Banner(
         if (isVertical) {
             Column(
                 Modifier
+                    .padding(indicatorPaddingValues)
+                    .fillMaxHeight(0.6f)
+                    .align(indicatorAlignment),
+                verticalArrangement = Arrangement.Center
+            ) {
+                repeat(data.size) {
+                    indicatorItem(
+                        it == if (infiniteLoop) (pagerState.currentPage - startIndex).floorMod(
+                            pageCount
+                        ) else pagerState.currentPage
+                    )
+                }
+            }
+        } else {
+            Row(
+                Modifier
+                    .padding(indicatorPaddingValues)
+                    .fillMaxWidth(0.6f)
+                    .align(indicatorAlignment),
+                horizontalArrangement = Arrangement.Center
+            ) {
+                repeat(data.size) {
+                    indicatorItem(
+                        it == if (infiniteLoop) (pagerState.currentPage - startIndex).floorMod(
+                            pageCount
+                        ) else pagerState.currentPage
+                    )
+                }
+            }
+        }
+    }
+    if (autoLooper) {
+        val animScope = rememberCoroutineScope()
+        LaunchedEffect(key1 = pagerState.currentPage, key2 = isDragEvent) {
+            if (isDragEvent) return@LaunchedEffect
+            delay(looperTime)
+            animScope.launch {
+                pagerState.animateScrollToPage((pagerState.currentPage + 1) % if (infiniteLoop) Int.MAX_VALUE else pageCount)
+            }
+        }
+    }
+}
+
+private fun Int.floorMod(other: Int): Int = when (other) {
+    0 -> this
+    else -> this - floorDiv(other) * other
+}
+
+val EmptyPaddingValue = PaddingValues(0.dp)
