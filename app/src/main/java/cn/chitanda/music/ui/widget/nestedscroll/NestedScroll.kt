@@ -13,4 +13,14 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.input.nestedscroll.NestedScrollConnection
 import androidx.compose.ui.input.nestedscroll.NestedScrollSource
-im
+import kotlin.math.roundToInt
+
+private const val TAG = "NestedScroll"
+
+@Composable
+fun rememberNestedScrollAppBarState(
+    appBarHeight: Int,
+    minHeight: Int,
+    maxHeight: Int,
+) = remember {
+    NestedScrollAppBarState(appBarHeight, m
