@@ -23,4 +23,18 @@ fun rememberNestedScrollAppBarState(
     minHeight: Int,
     maxHeight: Int,
 ) = remember {
-    NestedScrollAppBarState(appBarHeight, m
+    NestedScrollAppBarState(appBarHeight, minHeight, maxHeight)
+}
+
+@Composable
+fun rememberNestedScrollAppBarConnection(
+    state: NestedScrollAppBarState
+) = remember {
+    NestedScrollAppBarConnection(state)
+}
+
+@Stable
+class NestedScrollAppBarState(
+    appBarHeight: Int,
+    val minHeight: Int,
+    val ma
