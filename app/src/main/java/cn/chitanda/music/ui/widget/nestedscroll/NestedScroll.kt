@@ -37,4 +37,14 @@ fun rememberNestedScrollAppBarConnection(
 class NestedScrollAppBarState(
     appBarHeight: Int,
     val minHeight: Int,
-    val ma
+    val maxHeight: Int,
+) {
+    var height by mutableStateOf(appBarHeight)
+    val scrollPercent get() = height / maxHeight.toFloat()
+}
+
+class NestedScrollAppBarConnection(
+    private val state: NestedScrollAppBarState
+) : NestedScrollConnection {
+
+    private val maxHeight 
