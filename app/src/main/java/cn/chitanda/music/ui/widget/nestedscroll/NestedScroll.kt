@@ -47,4 +47,10 @@ class NestedScrollAppBarConnection(
     private val state: NestedScrollAppBarState
 ) : NestedScrollConnection {
 
-    private val maxHeight 
+    private val maxHeight get() = state.maxHeight
+    private val minHeight get() = state.minHeight
+
+    override fun onPreScroll(
+        available: Offset,
+        source: NestedScrollSource
+    ) = (if (state.height in (minHeight + 1) un
