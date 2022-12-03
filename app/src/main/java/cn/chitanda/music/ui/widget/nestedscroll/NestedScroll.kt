@@ -53,4 +53,13 @@ class NestedScrollAppBarConnection(
     override fun onPreScroll(
         available: Offset,
         source: NestedScrollSource
-    ) = (if (state.height in (minHeight + 1) un
+    ) = (if (state.height in (minHeight + 1) until maxHeight)
+        available
+    else Offset.Zero).also {
+        state.height = (state.height + available.y).roundToInt().coerceIn(minHeight, maxHeight)
+    }
+
+    suspend fun scrollToTop() {
+        animate(
+            initialValue = state.height.toFloat(),
+            targ
