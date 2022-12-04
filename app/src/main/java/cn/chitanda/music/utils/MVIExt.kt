@@ -37,3 +37,5 @@ fun <T, A> StateFlow<T>.collectPartAsState(
             }
         }
     }
+
+internal data class StateTuple1<A>(val a: A)
