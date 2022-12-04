@@ -62,4 +62,10 @@ class NestedScrollAppBarConnection(
     suspend fun scrollToTop() {
         animate(
             initialValue = state.height.toFloat(),
-            targ
+            targetValue = minHeight.toFloat(),
+            animationSpec = tween(600,easing = FastOutSlowInEasing)
+        ) { value, _ ->
+            state.height = value.roundToInt().coerceIn(minHeight, maxHeight)
+        }
+    }
+}
