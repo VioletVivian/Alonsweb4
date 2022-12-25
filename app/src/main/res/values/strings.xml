@@ -15,4 +15,6 @@
     <string name="text_home_welcome_title">欢迎回来,</string>
     <string name="label_playlist">歌单详情</string>
     <string name="notification_channel_description">展示当前正在播放的音乐</string>
-    <string name="notification_channel">
+    <string name="notification_channel">正在播放</string>
+    <string name="label_play_detail">播放详情</string>
+</resources>
