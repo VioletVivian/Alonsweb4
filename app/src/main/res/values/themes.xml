@@ -16,4 +16,11 @@
         <!-- Customize your theme here. -->
     </style>
 
-    <style name="Theme.Music.NoActionBar"
+    <style name="Theme.Music.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Theme.Music.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="Theme.Music.PopupOverlay" p
