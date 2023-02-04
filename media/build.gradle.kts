@@ -40,4 +40,17 @@ dependencies {
     implementation(libs.androidx.core)
     implementation(libs.androidx.appcompat)
     implementation(libs.kotlin.coroutines.android)
- 
+    //media session
+    api(libs.androidx.media)
+
+    //exo player
+    api(libs.exo.core)
+    api(libs.exo.ui)
+    api(libs.exo.mediasession)
+    api(libs.exo.cast)
+
+    api(libs.coil)
+
+    implementation(libs.dagger.android)
+    kapt(libs.hilt.compiler)
+  
