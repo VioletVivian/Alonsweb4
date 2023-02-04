@@ -20,4 +20,12 @@ android {
     buildTypes {
         getByName("release") {
             isMinifyEnabled = false
-            proguardF
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
+            )
+        }
+    }
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_11
+        targetCompatibility =
