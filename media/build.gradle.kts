@@ -53,4 +53,5 @@ dependencies {
 
     implementation(libs.dagger.android)
     kapt(libs.hilt.compiler)
-  
+    kapt(libs.dagger.compiler)
+}
