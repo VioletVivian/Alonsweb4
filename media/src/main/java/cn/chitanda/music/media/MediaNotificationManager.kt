@@ -10,4 +10,11 @@ import android.support.v4.media.session.MediaControllerCompat
 import android.support.v4.media.session.MediaSessionCompat
 import androidx.core.app.NotificationChannelCompat
 import androidx.core.app.NotificationManagerCompat
-import cn.chitanda.music.media.extensions.displayS
+import cn.chitanda.music.media.extensions.displaySubtitle
+import cn.chitanda.music.media.extensions.displayTitle
+import coil.imageLoader
+import coil.request.ImageRequest
+import com.google.android.exoplayer2.Player
+import com.google.android.exoplayer2.ui.PlayerNotificationManager
+import kotlinx.coroutines.*
+import java.lang.ref
