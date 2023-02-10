@@ -17,4 +17,16 @@ import coil.request.ImageRequest
 import com.google.android.exoplayer2.Player
 import com.google.android.exoplayer2.ui.PlayerNotificationManager
 import kotlinx.coroutines.*
-import java.lang.ref
+import java.lang.ref.WeakReference
+
+/**
+ * @author: Chen
+ * @createTime: 2022/1/24 17:21
+ * @description:
+ **/
+const val NOW_PLAYING_CHANNEL_ID = "cn.chitanda.music.media.NOW_PLAYING"
+const val NOW_PLAYING_NOTIFICATION_ID = 0x666
+
+class MediaNotificationManager(
+    context: Context,
+    sessionToken: 
