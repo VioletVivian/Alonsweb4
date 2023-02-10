@@ -29,4 +29,9 @@ const val NOW_PLAYING_NOTIFICATION_ID = 0x666
 
 class MediaNotificationManager(
     context: Context,
-    sessionToken: 
+    sessionToken: MediaSessionCompat.Token,
+    notificationListener: PlayerNotificationManager.NotificationListener
+) {
+    private val coroutineScope = CoroutineScope(Dispatchers.Main + SupervisorJob())
+    private val playerNotificationManager: PlayerNotificationManager
+   
