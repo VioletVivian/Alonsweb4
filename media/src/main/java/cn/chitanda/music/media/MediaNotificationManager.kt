@@ -41,4 +41,10 @@ class MediaNotificationManager(
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             createNotificationChannel(context)
         }
-        val mediaController = MediaContr
+        val mediaController = MediaControllerCompat(context, sessionToken)
+        playerNotificationManager = PlayerNotificationManager.Builder(
+            context,
+            NOW_PLAYING_NOTIFICATION_ID,
+            NOW_PLAYING_CHANNEL_ID
+        ).apply {
+            setMediaDes
