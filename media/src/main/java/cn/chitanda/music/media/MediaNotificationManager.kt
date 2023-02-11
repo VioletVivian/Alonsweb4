@@ -34,4 +34,11 @@ class MediaNotificationManager(
 ) {
     private val coroutineScope = CoroutineScope(Dispatchers.Main + SupervisorJob())
     private val playerNotificationManager: PlayerNotificationManager
-   
+    private val imageLoader = context.imageLoader
+    private val context = WeakReference(context)
+
+    init {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            createNotificationChannel(context)
+        }
+        val mediaController = MediaContr
