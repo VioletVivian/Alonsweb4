@@ -47,4 +47,7 @@ class MediaNotificationManager(
             NOW_PLAYING_NOTIFICATION_ID,
             NOW_PLAYING_CHANNEL_ID
         ).apply {
-            setMediaDes
+            setMediaDescriptionAdapter(DescriptionAdapter(mediaController))
+            setNotificationListener(notificationListener)
+            setChannelNameResourceId(R.string.notification_channel)
+            setChannelDescriptionResourceId(R.string.notification_channel_description)
