@@ -64,4 +64,11 @@ class MediaNotificationManager(
         val notificationManager = NotificationManagerCompat.from(context)
         val channel = NotificationChannelCompat.Builder(
             NOW_PLAYING_CHANNEL_ID,
-            Noti
+            NotificationManagerCompat.IMPORTANCE_LOW
+        ).setName(context.getString(R.string.notification_channel))
+            .setDescription(context.getString(R.string.notification_channel_description))
+            .build()
+        notificationManager.createNotificationChannel(channel)
+    }
+
+    
