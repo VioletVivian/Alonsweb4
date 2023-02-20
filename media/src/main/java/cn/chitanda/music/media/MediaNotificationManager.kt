@@ -51,3 +51,11 @@ class MediaNotificationManager(
             setNotificationListener(notificationListener)
             setChannelNameResourceId(R.string.notification_channel)
             setChannelDescriptionResourceId(R.string.notification_channel_description)
+        }.build()
+        playerNotificationManager.setMediaSessionToken(sessionToken)
+        playerNotificationManager.setSmallIcon(R.drawable.ic_notification)
+        playerNotificationManager.setUseRewindAction(false)
+        playerNotificationManager.setUseFastForwardAction(false)
+    }
+
+    pr
