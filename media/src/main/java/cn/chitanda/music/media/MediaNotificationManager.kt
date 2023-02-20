@@ -58,4 +58,10 @@ class MediaNotificationManager(
         playerNotificationManager.setUseFastForwardAction(false)
     }
 
-    pr
+    private fun createNotificationChannel(
+        context: Context,
+    ) {
+        val notificationManager = NotificationManagerCompat.from(context)
+        val channel = NotificationChannelCompat.Builder(
+            NOW_PLAYING_CHANNEL_ID,
+            Noti
