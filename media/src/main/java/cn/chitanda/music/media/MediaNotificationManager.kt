@@ -71,4 +71,12 @@ class MediaNotificationManager(
         notificationManager.createNotificationChannel(channel)
     }
 
-    
+    fun showNotification(player: Player) {
+        playerNotificationManager.setPlayer(player)
+    }
+
+    fun hideNotification() {
+        playerNotificationManager.setPlayer(null)
+    }
+
+    private inner class DescriptionAdapter(private val controller: MediaControllerCompat)
