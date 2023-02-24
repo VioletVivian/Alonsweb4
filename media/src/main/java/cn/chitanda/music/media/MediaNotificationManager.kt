@@ -79,4 +79,9 @@ class MediaNotificationManager(
         playerNotificationManager.setPlayer(null)
     }
 
-    private inner class DescriptionAdapter(private val controller: MediaControllerCompat)
+    private inner class DescriptionAdapter(private val controller: MediaControllerCompat) :
+        PlayerNotificationManager.MediaDescriptionAdapter {
+        var currentIconUri: Uri? = null
+        var currentBitmap: Bitmap? = null
+        private var iconJob: Job? = null
+        override fun getCurrentContentTitle(player: Player) = controller.metadata.displayTi
