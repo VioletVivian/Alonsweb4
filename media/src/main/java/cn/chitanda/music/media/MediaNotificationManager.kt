@@ -84,4 +84,12 @@ class MediaNotificationManager(
         var currentIconUri: Uri? = null
         var currentBitmap: Bitmap? = null
         private var iconJob: Job? = null
-        override fun getCurrentContentTitle(player: Player) = controller.metadata.displayTi
+        override fun getCurrentContentTitle(player: Player) = controller.metadata.displayTitle ?: ""
+
+        override fun createCurrentContentIntent(player: Player): PendingIntent? =
+            controller.sessionActivity
+
+        override fun getCurrentContentText(player: Player) = controller.metadata.displaySubtitle
+
+        override fun getCurrentLargeIcon(
+         
