@@ -92,4 +92,9 @@ class MediaNotificationManager(
         override fun getCurrentContentText(player: Player) = controller.metadata.displaySubtitle
 
         override fun getCurrentLargeIcon(
-         
+            player: Player,
+            callback: PlayerNotificationManager.BitmapCallback
+        ): Bitmap? {
+            val iconUri = controller.metadata.description.iconUri
+            return if (currentIconUri != iconUri || currentBitmap == null) {
+           
