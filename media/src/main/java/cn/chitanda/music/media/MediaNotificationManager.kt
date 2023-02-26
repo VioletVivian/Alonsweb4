@@ -97,4 +97,8 @@ class MediaNotificationManager(
         ): Bitmap? {
             val iconUri = controller.metadata.description.iconUri
             return if (currentIconUri != iconUri || currentBitmap == null) {
-           
+                if (iconJob?.isActive == true) {
+                    iconJob?.cancel()
+                }
+                // Cache the bitmap for the current song so that successive calls to
+                // `getCurrentLargeIcon` don't cause the bitmap 
