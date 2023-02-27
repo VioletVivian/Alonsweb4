@@ -105,4 +105,16 @@ class MediaNotificationManager(
                 currentIconUri = iconUri
                 iconJob = coroutineScope.launch(Dispatchers.IO) {
                     currentBitmap = iconUri?.let {
-                        resolveUriAsBitmap(it)?.also { bm -> callbac
+                        resolveUriAsBitmap(it)?.also { bm -> callback.onBitmap(bm) }
+                    }
+                }
+                null
+            } else {
+                currentBitmap
+            }
+        }
+    }
+
+    private suspend fun resolveUriAsBitmap(uri: Uri): Bitmap? {
+        return withContext(Dispatchers.IO) {
+ 
