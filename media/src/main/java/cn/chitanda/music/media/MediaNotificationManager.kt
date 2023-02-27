@@ -101,4 +101,8 @@ class MediaNotificationManager(
                     iconJob?.cancel()
                 }
                 // Cache the bitmap for the current song so that successive calls to
-                // `getCurrentLargeIcon` don't cause the bitmap 
+                // `getCurrentLargeIcon` don't cause the bitmap to be recreated.
+                currentIconUri = iconUri
+                iconJob = coroutineScope.launch(Dispatchers.IO) {
+                    currentBitmap = iconUri?.let {
+                        resolveUriAsBitmap(it)?.also { bm -> callbac
