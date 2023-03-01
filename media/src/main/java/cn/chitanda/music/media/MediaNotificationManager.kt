@@ -122,4 +122,10 @@ class MediaNotificationManager(
                     ImageRequest.Builder(cxt).data(uri).size(
                         NOTIFICATION_LARGE_ICON_SIZE
                     ).build()
- 
+                ).drawable as? BitmapDrawable)?.bitmap
+            }
+        }
+    }
+}
+
+const val NOTIFICATION_LARGE_ICON_SIZE = 144
