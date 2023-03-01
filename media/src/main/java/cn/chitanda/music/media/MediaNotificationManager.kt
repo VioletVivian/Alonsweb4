@@ -117,4 +117,9 @@ class MediaNotificationManager(
 
     private suspend fun resolveUriAsBitmap(uri: Uri): Bitmap? {
         return withContext(Dispatchers.IO) {
+            context.get()?.let { cxt ->
+                (imageLoader.execute(
+                    ImageRequest.Builder(cxt).data(uri).size(
+                        NOTIFICATION_LARGE_ICON_SIZE
+                    ).build()
  
