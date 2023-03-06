@@ -134,3 +134,111 @@ class MusicService : MediaBrowserServiceCompat() {
     }
 
     private inner class QueueNavigator(
+        mediaSession: MediaSessionCompat
+    ) : TimelineQueueNavigator(mediaSession) {
+
+        override fun getMediaDescription(player: Player, windowIndex: Int): MediaDescriptionCompat =
+            currentPlaylist.getOrNull(windowIndex)?.description ?: MediaDescriptionCompat.Builder()
+                .build()
+    }
+
+    private inner class ExoPlayerEventListener : Player.Listener {
+
+        override fun onPlayWhenReadyChanged(playWhenReady: Boolean, reason: Int) {
+
+        }
+        override fun onPlaybackStateChanged( playbackState: Int) {
+            when (playbackState) {
+                Player.STATE_BUFFERING,
+                Player.STATE_READY -> {
+                    notificationManager.showNotification(exoPlayer)
+                }
+                else -> {
+                    notificationManager.hideNotification()
+                }
+            }
+        }
+    }
+
+    private inner class PlaybackPreparer : MediaSessionConnector.PlaybackPreparer {
+        override fun onCommand(
+            player: Player,
+            command: String,
+            extras: Bundle?,
+            cb: ResultReceiver?
+        ): Boolean {
+            return true
+        }
+
+        /**
+         * UAMP supports preparing (and playing) from search, as well as media ID, so those
+         * capabilities are declared here.
+         *
+         * TODO: Add support for ACTION_PREPARE and ACTION_PLAY, which mean "prepare/play something".
+         */
+        override fun getSupportedPrepareActions(): Long =
+            PlaybackStateCompat.ACTION_PREPARE_FROM_MEDIA_ID or
+                    PlaybackStateCompat.ACTION_PLAY_FROM_MEDIA_ID or
+                    PlaybackStateCompat.ACTION_PREPARE_FROM_SEARCH or
+                    PlaybackStateCompat.ACTION_PLAY_FROM_SEARCH
+
+        override fun onPrepare(playWhenReady: Boolean) {
+            Log.d(TAG, "onPrepare: ")
+        }
+
+        override fun onPrepareFromMediaId(
+            mediaId: String,
+            playWhenReady: Boolean,
+            extras: Bundle?
+        ) {
+            Log.d(TAG, "onPrepareFromMediaId: $mediaId")
+            musicSource.whenReady {
+                val m = musicSource.find { it.id == mediaId }
+                preparePlaylist(
+                    currentPlaylist,
+                    itemToPlay = m,
+                    playWhenReady = true,
+                    playbackStartPositionMs = C.TIME_UNSET
+                )
+            }
+        }
+
+        override fun onPrepareFromSearch(query: String, playWhenReady: Boolean, extras: Bundle?) {
+
+        }
+
+        override fun onPrepareFromUri(uri: Uri, playWhenReady: Boolean, extras: Bundle?) = Unit
+
+    }
+
+    private inner class PlayerNotificationListener :
+        PlayerNotificationManager.NotificationListener {
+        override fun onNotificationPosted(
+            notificationId: Int,
+            notification: Notification,
+            ongoing: Boolean
+        ) {
+            if (ongoing && !isForegroundService) {
+                ContextCompat.startForegroundService(
+                    applicationContext,
+                    Intent(applicationContext, this@MusicService.javaClass)
+                )
+
+                startForeground(notificationId, notification)
+                isForegroundService = true
+            }
+        }
+
+        override fun onNotificationCancelled(notificationId: Int, dismissedByUser: Boolean) {
+            stopForeground(true)
+            isForegroundService = false
+            stopSelf()
+        }
+    }
+}
+
+const val BROWSABLE_ROOT = "/"
+const val EMPTY_ROOT = "@empty@"
+const val RECOMMENDED_ROOT = "__RECOMMENDED__"
+const val ALBUMS_ROOT = "__ALBUMS__"
+const val RECENT_ROOT = "__RECENT__"
