@@ -14,4 +14,17 @@
  * limitations under the License.
  */
 
-pa
+package cn.chitanda.music.media.extensions
+
+import android.content.ContentResolver
+import android.net.Uri
+import java.io.File
+
+/**
+ * This file contains extension methods for the java.io.File class.
+ */
+
+/**
+ * Returns a Content Uri for the AlbumArtContentProvider
+ */
+fu
