@@ -203,3 +203,91 @@ inline var MediaMetadataCompat.Builder.trackNumber: Long
     @Deprecated(NO_GET, level = DeprecationLevel.ERROR)
     get() = throw IllegalAccessException("Cannot get from MediaMetadataCompat.Builder")
     set(value) {
+        putLong(MediaMetadataCompat.METADATA_KEY_TRACK_NUMBER, value)
+    }
+
+inline var MediaMetadataCompat.Builder.trackCount: Long
+    @Deprecated(NO_GET, level = DeprecationLevel.ERROR)
+    get() = throw IllegalAccessException("Cannot get from MediaMetadataCompat.Builder")
+    set(value) {
+        putLong(MediaMetadataCompat.METADATA_KEY_NUM_TRACKS, value)
+    }
+
+inline var MediaMetadataCompat.Builder.displayTitle: String?
+    @Deprecated(NO_GET, level = DeprecationLevel.ERROR)
+    get() = throw IllegalAccessException("Cannot get from MediaMetadataCompat.Builder")
+    set(value) {
+        putString(MediaMetadataCompat.METADATA_KEY_DISPLAY_TITLE, value)
+    }
+
+inline var MediaMetadataCompat.Builder.displaySubtitle: String?
+    @Deprecated(NO_GET, level = DeprecationLevel.ERROR)
+    get() = throw IllegalAccessException("Cannot get from MediaMetadataCompat.Builder")
+    set(value) {
+        putString(MediaMetadataCompat.METADATA_KEY_DISPLAY_SUBTITLE, value)
+    }
+
+inline var MediaMetadataCompat.Builder.displayDescription: String?
+    @Deprecated(NO_GET, level = DeprecationLevel.ERROR)
+    get() = throw IllegalAccessException("Cannot get from MediaMetadataCompat.Builder")
+    set(value) {
+        putString(MediaMetadataCompat.METADATA_KEY_DISPLAY_DESCRIPTION, value)
+    }
+
+inline var MediaMetadataCompat.Builder.displayIconUri: String?
+    @Deprecated(NO_GET, level = DeprecationLevel.ERROR)
+    get() = throw IllegalAccessException("Cannot get from MediaMetadataCompat.Builder")
+    set(value) {
+        putString(MediaMetadataCompat.METADATA_KEY_DISPLAY_ICON_URI, value)
+    }
+
+inline var MediaMetadataCompat.Builder.downloadStatus: Long
+    @Deprecated(NO_GET, level = DeprecationLevel.ERROR)
+    get() = throw IllegalAccessException("Cannot get from MediaMetadataCompat.Builder")
+    set(value) {
+        putLong(MediaMetadataCompat.METADATA_KEY_DOWNLOAD_STATUS, value)
+    }
+
+/**
+ * Custom property for storing whether a [MediaMetadataCompat] item represents an
+ * item that is [MediaItem.FLAG_BROWSABLE] or [MediaItem.FLAG_PLAYABLE].
+ */
+inline var MediaMetadataCompat.Builder.flag: Int
+    @Deprecated(NO_GET, level = DeprecationLevel.ERROR)
+    get() = throw IllegalAccessException("Cannot get from MediaMetadataCompat.Builder")
+    set(value) {
+        putLong(METADATA_KEY_FLAGS, value.toLong())
+    }
+
+fun MediaMetadataCompat.toMediaItemMetadata(): com.google.android.exoplayer2.MediaMetadata {
+    return with(com.google.android.exoplayer2.MediaMetadata.Builder()) {
+        setTitle(title)
+        setDisplayTitle(displayTitle)
+        setAlbumArtist(artist)
+        setAlbumTitle(album)
+        setComposer(composer)
+        setTrackNumber(trackNumber.toInt())
+        setTotalTrackCount(trackCount.toInt())
+        setDiscNumber(discNumber.toInt())
+        setWriter(writer)
+        setArtworkUri(albumArtUri)
+        val extras = Bundle()
+        extras.putLong(MediaMetadataCompat.METADATA_KEY_DURATION, duration)
+        setExtras(extras)
+    }.build()
+}
+
+fun MediaMetadataCompat.toMediaItem(): com.google.android.exoplayer2.MediaItem {
+    return with(com.google.android.exoplayer2.MediaItem.Builder()) {
+        setMediaId(id.toString())
+        setUri(mediaUri)
+        setMimeType(MimeTypes.AUDIO_MPEG)
+        setMediaMetadata(toMediaItemMetadata())
+    }.build()
+}
+
+/**
+ * Custom property that holds whether an item is [MediaItem.FLAG_BROWSABLE] or
+ * [MediaItem.FLAG_PLAYABLE].
+ */
+const val METADATA_KEY_FLAGS = "cn.chitanda.music.media.METADATA_KEY_FLAGS"
