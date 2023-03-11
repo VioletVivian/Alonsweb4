@@ -17,4 +17,12 @@
 package cn.chitanda.music.media.extensions
 
 import android.os.SystemClock
-imp
+import android.support.v4.media.session.PlaybackStateCompat
+
+/**
+ * Useful extension methods for [PlaybackStateCompat].
+ */
+
+inline val PlaybackStateCompat.isSeeking
+    get() = (state == PlaybackStateCompat.STATE_FAST_FORWARDING) ||
+            (state == PlaybackStateCompat.S
