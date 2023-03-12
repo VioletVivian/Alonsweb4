@@ -25,4 +25,11 @@ import android.support.v4.media.session.PlaybackStateCompat
 
 inline val PlaybackStateCompat.isSeeking
     get() = (state == PlaybackStateCompat.STATE_FAST_FORWARDING) ||
-            (state == PlaybackStateCompat.S
+            (state == PlaybackStateCompat.STATE_REWINDING)
+
+inline val PlaybackStateCompat.isPrepared
+    get() = (state == PlaybackStateCompat.STATE_BUFFERING) ||
+            (state == PlaybackStateCompat.STATE_PLAYING) ||
+            (state == PlaybackStateCompat.STATE_PAUSED)
+
+inline val PlaybackSt
