@@ -60,4 +60,11 @@ inline val PlaybackStateCompat.stateName
         PlaybackStateCompat.STATE_PAUSED -> "STATE_PAUSED"
         PlaybackStateCompat.STATE_PLAYING -> "STATE_PLAYING"
         PlaybackStateCompat.STATE_FAST_FORWARDING -> "STATE_FAST_FORWARDING"
-        PlaybackStateCompat.STATE_RE
+        PlaybackStateCompat.STATE_REWINDING -> "STATE_REWINDING"
+        PlaybackStateCompat.STATE_BUFFERING -> "STATE_BUFFERING"
+        PlaybackStateCompat.STATE_ERROR -> "STATE_ERROR"
+        else -> "UNKNOWN_STATE"
+    }
+
+/**
+ * Calculates the current playback position based on last upda
