@@ -67,4 +67,10 @@ inline val PlaybackStateCompat.stateName
     }
 
 /**
- * Calculates the current playback position based on last upda
+ * Calculates the current playback position based on last update time along with playback
+ * state and speed.
+ */
+inline val PlaybackStateCompat.currentPlayBackPosition: Long
+    get() = if (state == PlaybackStateCompat.STATE_PLAYING) {
+        val timeDelta = SystemClock.elapsedRealtime() - lastPositionUpdateTime
+   
